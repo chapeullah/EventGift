@@ -1,0 +1,5 @@
+C:/projects/EventGift/build/CMakeFiles/EventGift.dir
+C:/projects/EventGift/build/CMakeFiles/sqlite3.dir
+C:/projects/EventGift/build/CMakeFiles/Server.dir
+C:/projects/EventGift/build/CMakeFiles/edit_cache.dir
+C:/projects/EventGift/build/CMakeFiles/rebuild_cache.dir
