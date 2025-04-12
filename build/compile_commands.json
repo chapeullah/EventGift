@@ -25,6 +25,12 @@
 },
 {
   "directory": "C:/projects/EventGift/build",
+  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP -IC:\\projects\\EventGift\\include -IC:\\projects\\EventGift\\Server\\sqlite /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd /FoCMakeFiles\\Server.dir\\Server\\src\\CommandLine.cpp.obj /FdCMakeFiles\\Server.dir\\ -c -- C:\\projects\\EventGift\\Server\\src\\CommandLine.cpp",
+  "file": "C:\\projects\\EventGift\\Server\\src\\CommandLine.cpp",
+  "output": "CMakeFiles\\Server.dir\\Server\\src\\CommandLine.cpp.obj"
+},
+{
+  "directory": "C:/projects/EventGift/build",
   "command": "C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP -IC:\\projects\\EventGift\\include -IC:\\projects\\EventGift\\Server\\sqlite /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd /FoCMakeFiles\\Server.dir\\Server\\src\\Logger.cpp.obj /FdCMakeFiles\\Server.dir\\ -c -- C:\\projects\\EventGift\\Server\\src\\Logger.cpp",
   "file": "C:\\projects\\EventGift\\Server\\src\\Logger.cpp",
   "output": "CMakeFiles\\Server.dir\\Server\\src\\Logger.cpp.obj"

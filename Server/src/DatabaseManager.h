@@ -3,7 +3,7 @@
 #include <sqlite3.h>
 #include <string>
 
-static constexpr const char *DATABASE_PATH = "Server/database/eventgift.db";
+static constexpr const char *DATABASE_PATH = "database/eventgift.db";
 
 class DatabaseManager 
 {

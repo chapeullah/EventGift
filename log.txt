@@ -1,3 +1,0 @@
-[10:05:39] [INFO] - DB - Database connection success: Server/database/eventgift.db
-[10:05:39] [INFO] - DB - Table created or already exists
-[10:05:39] [INFO] Server is listening 0.0.0.0:8080

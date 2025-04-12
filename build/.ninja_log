@@ -1,10 +1,11 @@
 # ninja log v6
-256	853	7660582237478834	CMakeFiles/Server.dir/Server/src/Time.cpp.obj	a63b44591f7c47bc
-2256	2361	7660582257476947	sqlite3.lib	c3047ac004c49c7
-13	833	7660583129869132	CMakeFiles/Server.dir/Server/src/Logger.cpp.obj	2bf87b3769c0d2f3
-249	1412	7660582237406954	CMakeFiles/Server.dir/Server/src/DatabaseManager.cpp.obj	dbfc18dd85094dcc
-241	2075	7660582237326949	CMakeFiles/EventGift.dir/src/EventGift.cpp.obj	d6d5668c9718a2e7
-3	2256	7660582234946033	CMakeFiles/sqlite3.dir/Server/sqlite/sqlite3.c.obj	33669e14f77b7035
-834	1484	7660583138072269	C:/projects/EventGift/Server.exe	30d711101ea16733
-245	2955	7660582237366953	CMakeFiles/Server.dir/Server/src/Server.cpp.obj	336bd63b26c76380
-2076	3232	7660582255676712	C:/projects/EventGift/EventGift.exe	36c6d5bd181124e2
+272	892	7661448661223773	CMakeFiles/Server.dir/Server/src/Time.cpp.obj	a63b44591f7c47bc
+2265	2373	7661448681153413	sqlite3.lib	c3047ac004c49c7
+16	825	7661449259838967	CMakeFiles/Server.dir/Server/src/CommandLine.cpp.obj	65b01e81b6468088
+826	1486	7661449267933629	C:/projects/EventGift/Server/Server.exe	61aecd94f385635e
+267	945	7661448661183765	CMakeFiles/Server.dir/Server/src/Logger.cpp.obj	2bf87b3769c0d2f3
+260	1438	7661448661103754	CMakeFiles/Server.dir/Server/src/DatabaseManager.cpp.obj	dbfc18dd85094dcc
+253	2107	7661448661033744	CMakeFiles/EventGift.dir/src/EventGift.cpp.obj	d6d5668c9718a2e7
+2	2265	7661448658529934	CMakeFiles/sqlite3.dir/Server/sqlite/sqlite3.c.obj	33669e14f77b7035
+257	3005	7661448661073755	CMakeFiles/Server.dir/Server/src/Server.cpp.obj	336bd63b26c76380
+2109	3271	7661448679588092	C:/projects/EventGift/EventGift.exe	36c6d5bd181124e2
