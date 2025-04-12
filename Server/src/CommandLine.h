@@ -4,7 +4,7 @@
 #include <array>
 #include <string>
 
-enum class Command
+enum Command
 {
     Start,
     Restart,
@@ -26,6 +26,6 @@ private:
     {
         "Start", "Restart", "Stop", "Exit"
     };
-    Command currentCommand_ = Command::Start;
-    bool isPressed_ = false;
+    Command currentCommand_ = Start;
+    bool upPressed_ = false, downPressed_ = false, enterPressed_ = false;
 };

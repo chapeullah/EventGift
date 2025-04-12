@@ -25,9 +25,9 @@ void CommandLine::consoleThread()
 
 void CommandLine::consoleInput() 
 {
-    if ((GetAsyncKeyState(VK_DOWN) & 0x8000) && ((static_cast<int>(currentCommand_) + 1) < 4)&& !isPressed_)
+    if ((GetAsyncKeyState(VK_DOWN) & 0x8000) && ((static_cast<int>(currentCommand_) + 1) < 4) && !downPressed_)
     {
-        isPressed_ = true;
+        downPressed_ = true;
         moveCursor(0, static_cast<int>(currentCommand_));
         std::cout << " ";
         currentCommand_ = static_cast<Command>(static_cast<int>(currentCommand_) + 1);
@@ -35,9 +35,9 @@ void CommandLine::consoleInput()
             std::string("Pressed DOWN - CommandLine::currentCommand_ = ") 
             + kServerCommands_[static_cast<size_t>(currentCommand_)]);
     } 
-    else if ((GetAsyncKeyState(VK_UP) & 0x8000) && ((static_cast<int>(currentCommand_) - 1) >= 0) && !isPressed_)
+    else if ((GetAsyncKeyState(VK_UP) & 0x8000) && ((static_cast<int>(currentCommand_) - 1) >= 0) && !upPressed_)
     {
-        isPressed_ = true;
+        upPressed_ = true;
         moveCursor(0, static_cast<int>(currentCommand_));
         std::cout << " ";
         currentCommand_ = static_cast<Command>(static_cast<int>(currentCommand_) - 1);
@@ -45,8 +45,24 @@ void CommandLine::consoleInput()
             std::string("Pressed UP - CommandLine::currentCommand_ = ") 
             + kServerCommands_[static_cast<size_t>(currentCommand_)]);
     }
-    else if (!(GetAsyncKeyState(VK_DOWN) & 0x8000) && !(GetAsyncKeyState(VK_UP) & 0x8000)) 
-        isPressed_ = false;
+    else if ((GetAsyncKeyState(VK_RETURN) & 0x8000) && !enterPressed_)
+    {
+        enterPressed_ = true;
+        switch (currentCommand_)
+        {
+            case Start:
+                break;
+            case Restart:
+                break;
+            case Stop:
+                break;
+            case Exit:
+                break;
+        }
+    }
+    else if (!GetAsyncKeyState(VK_DOWN) & 0x8000) downPressed_ = false;
+    else if (!GetAsyncKeyState(VK_UP) & 0x8000) upPressed_ = false;
+    else if (!GetAsyncKeyState(VK_RETURN) & 0x8000) enterPressed_ = false;
 }
 
 void CommandLine::consoleDraw()
