@@ -60,19 +60,28 @@ void CommandLine::consoleInput()
                 Logger::info("CMD", "Pressed ENTER - CommandLine::currentCommand_ = Start");
                 if (!serverListening_)
                 {
-                    Bootstrap::start();
                     loading();
+                    Bootstrap::start();
                     serverListening_ = true;
                 } 
                 else 
                 {
-                    Logger::warning("SERVER", "Server is already running. Unable to start it again");
+                    Logger::warning("SERVER", "Server is ALREADY running. Unable to start it again");
                 }
                 break;
             }
             case Restart:
             {
                 Logger::info("CMD", "Pressed ENTER - CommandLine::currentCommand_ = Restart");
+                if (serverListening_)
+                {
+                    loading();
+                    Bootstrap::restart();
+                }
+                else
+                {
+                    Logger::warning("CMD", "Server is NOT running. Unable to restart server");
+                }
                 break;
             }
             case Stop:
@@ -80,8 +89,8 @@ void CommandLine::consoleInput()
                 Logger::info("CMD", "Pressed ENTER - CommandLine::currentCommand_ = Stop");
                 if (serverListening_)
                 {
-                    Bootstrap::stop();
                     loading();
+                    Bootstrap::stop();
                     serverListening_ = false;
                 } 
                 else 

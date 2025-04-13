@@ -22,3 +22,7 @@
 273	2209	7662447775467958	CMakeFiles/Server.dir/Server/src/CommandLine.cpp.obj	65b01e81b6468088
 277	2861	7662447775507949	CMakeFiles/Server.dir/Server/src/Bootstrap.cpp.obj	34a0dd51c6885c5a
 16	670	7662447913506900	C:/projects/EventGift/Server/Server.exe	c549545b1bdfc3e6
+9	726	7662452822537000	CMakeFiles/Server.dir/Server/src/Server.cpp.obj	336bd63b26c76380
+262	863	7662452825072916	CMakeFiles/Server.dir/Server/src/Logger.cpp.obj	2bf87b3769c0d2f3
+257	2123	7662452825022898	CMakeFiles/Server.dir/Server/src/CommandLine.cpp.obj	65b01e81b6468088
+2123	2784	7662452843677741	C:/projects/EventGift/Server/Server.exe	c549545b1bdfc3e6
