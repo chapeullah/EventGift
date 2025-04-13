@@ -1,105 +1,14 @@
-[20:04:20] [INFO] [DB] Database connection success: database/eventgift.db
-[20:04:20] [INFO] [DB] Table created or already exists
-[20:04:20] [INFO] Server is listening 0.0.0.0:8080
-[20:04:23] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
-[20:04:23] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Start
-[20:04:31] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
-[20:04:32] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
-[20:04:32] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Restart
-[20:04:36] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
-[20:04:37] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Restart
-[20:04:39] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
-[20:04:39] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
-[20:04:40] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Stop
-[20:04:40] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
-[20:04:40] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Stop
-[20:04:41] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Restart
-[20:04:41] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Start
-[20:04:41] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
-[20:04:41] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
-[20:04:41] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
-[20:04:42] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Stop
-[20:04:42] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Restart
-[20:04:42] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Start
-[20:04:43] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
-[20:04:43] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
-[20:04:43] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
-[20:04:44] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Stop
-[20:04:44] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Restart
-[20:04:44] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Start
-[20:04:45] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
-[20:04:45] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
-[20:04:46] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
-[20:04:47] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Stop
-[20:04:47] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Restart
-[20:04:47] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Start
-[20:04:48] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
-[20:04:48] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
-[20:04:48] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
-[20:04:48] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Stop
-[20:04:49] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
-[20:04:49] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Stop
-[20:04:49] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
-[20:04:50] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Stop
-[20:04:50] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
-[20:04:51] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Stop
-[20:04:52] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
-[20:04:53] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Stop
-[20:04:55] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
-[20:04:55] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Stop
-[20:04:57] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
-[20:04:58] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Stop
-[20:04:59] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Restart
-[20:04:59] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
-[20:05:01] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Restart
-[20:05:01] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Start
-[20:05:02] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
-[20:05:02] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
-[20:05:03] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
-[20:05:03] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Stop
-[20:05:03] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
-[20:05:06] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Stop
-[20:05:06] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
-[20:05:07] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Stop
-[20:05:08] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Restart
-[20:05:08] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
-[20:05:09] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Restart
-[20:05:10] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
-[20:05:10] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Restart
-[20:05:11] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
-[20:05:11] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Restart
-[20:05:11] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
-[20:05:11] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
-[20:05:12] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Stop
-[20:05:12] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Restart
-[20:05:12] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Start
-[20:05:13] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
-[20:05:13] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
-[20:05:13] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Restart
-[20:05:15] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Start
-[20:05:15] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
-[20:05:16] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Start
-[20:05:16] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
-[20:05:17] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
-[20:05:18] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
-[20:05:19] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Stop
-[20:05:20] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Restart
-[20:05:20] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Start
-[20:05:20] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
-[20:05:20] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
-[20:05:20] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
-[20:05:21] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Stop
-[20:05:21] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
-[20:05:22] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Stop
-[20:05:22] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Restart
-[20:05:22] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Start
-[20:07:58] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
-[20:07:59] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Start
-[20:08:01] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
-[20:08:02] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Start
-[20:08:02] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
-[20:08:03] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
-[20:08:03] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
-[20:08:04] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Stop
-[20:08:04] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Restart
-[20:08:04] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Start
+[13:53:15] [INFO] [DB] Database connection success: database/eventgift.db
+[13:53:15] [INFO] [DB] Table created or already exists
+[13:53:18] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
+[13:53:18] [INFO] [SERVER] Server is starting...
+[13:53:18] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
+[13:53:23] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
+[13:53:23] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
+[13:53:23] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Stop
+[13:53:23] [INFO] [SERVER] Server is stoping...
+[13:53:23] [INFO] [SERVER] Server stopped
+[13:53:33] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
+[13:53:33] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Exit
+[13:53:34] [INFO] [CMD] Exit from server
+[13:53:34] [INFO] [DB] Database connection closed: database/eventgift.db

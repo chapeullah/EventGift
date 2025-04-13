@@ -17,6 +17,7 @@ add_executable(Server
     Server/src/Server.cpp
     Server/src/DatabaseManager.cpp
     Server/src/CommandLine.cpp
+    Server/src/Bootstrap.cpp
     Server/src/Logger.cpp
     Server/src/Time.cpp
 )

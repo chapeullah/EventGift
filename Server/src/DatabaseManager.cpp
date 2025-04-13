@@ -49,6 +49,6 @@ void DatabaseManager::close()
     {
         sqlite3_close(database_);
         database_ = nullptr;
-        Logger::info("DB", std::string("Database connection close: ") + DATABASE_PATH);
+        Logger::info("DB", std::string("Database connection closed: ") + DATABASE_PATH);
     }
 }
