@@ -5,5 +5,5 @@
 class Time
 {
 public:
-    static std::string Now();
+    static std::string now();
 };

@@ -3,7 +3,7 @@
 #include "CommandLine.h"
 #include "Logger.h"
 
-httplib::Server Bootstrap::server;
+httplib::Server Bootstrap::server_;
 std::thread Bootstrap::serverThread_;
 
 void Bootstrap::start()
@@ -13,11 +13,11 @@ void Bootstrap::start()
         Logger::info(
             "SERVER", 
             "Server started. Listening " 
-                + std::string(kHost_) 
+                + std::string(Host_) 
                 + ":" 
-                + std::to_string(kPort_)
+                + std::to_string(Port_)
         );
-        server.listen(kHost_, kPort_);
+        server_.listen(Host_, Port_);
     };
     Logger::info("SERVER", "Server is starting");
     serverThread_ = std::thread(listen);
@@ -27,7 +27,7 @@ void Bootstrap::start()
 void Bootstrap::stop()
 {
     Logger::info("SERVER", "Server is stoping");
-    server.stop();
+    server_.stop();
     Logger::info("SERVER", "Server stopped");
 }
 

@@ -2,7 +2,7 @@
 
 #include <ctime>
 
-std::string Time::Now() 
+std::string Time::now() 
 {
     time_t seconds = time(nullptr);
     tm timeinfo;

@@ -4,7 +4,12 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/include",
-                "${workspaceFolder}/Server/sqlite"
+                "${workspaceFolder}/Server/sqlite",
+                "${workspaceFolder}/build/EventGift_autogen/include",
+                "C:/Qt/6.9.0/msvc2022_64/include",
+                "C:/Qt/6.9.0/msvc2022_64/include/QtCore",
+                "C:/Qt/6.9.0/msvc2022_64/include/QtGui",
+                "C:/Qt/6.9.0/msvc2022_64/include/QtWidgets"
             ],
             "defines": [
                 "_DEBUG",
@@ -12,9 +17,9 @@
                 "_UNICODE"
             ],
             "windowsSdkVersion": "10.0.22621.0",
-            "compilerPath": "cl.exe",
-            "cppStandard": "c++20",
-            "intelliSenseMode": "windows-msvc-x64"
+            "compilerPath": "C:/Program Files/LLVM/bin/clang-cl.exe",
+            "intelliSenseMode": "windows-clang-x64",
+            "cppStandard": "c++20"
         }
     ],
     "version": 4

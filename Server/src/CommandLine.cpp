@@ -11,11 +11,11 @@
 
 CommandLine::CommandLine()
 {
-    // Создаем отдельное окно powershell для вывода Server.log
+    // Отдельное окно powershell для вывода Server.log
     system("start powershell -NoExit -Command \"Get-Content "
            "-Path 'Server.log' -Wait\"");
 
-    std::cout << "\x1b[?25l"; // Убираем курсор
+    std::cout << "\x1b[?25l"; // Удаление курсора
 }
 
 void CommandLine::mainConsole()
@@ -43,9 +43,10 @@ void CommandLine::consoleInput_()
         std::cout << " ";
         currentCommand_ = static_cast<Command>(static_cast<int>
             (currentCommand_) + 1);
-        Logger::info("CMD", 
-            std::string("Pressed DOWN - CommandLine::currentCommand_ = ") 
-            + ServerCommands_[static_cast<size_t>(currentCommand_)]
+        Logger::info(
+            "CMD", 
+            std::string("Pressed DOWN - CommandLine::currentCommand_ = ")
+                + ServerCommands_[static_cast<size_t>(currentCommand_)]
         );
     } 
     else if ((GetAsyncKeyState(VK_UP) & 0x8000) && 
@@ -85,7 +86,7 @@ void CommandLine::consoleInput_()
                 {
                     Logger::warning(
                         "SERVER", 
-                        "Server is ALREADY running. Unable to start it again"
+                        "Server is ALREADY running. Unable to START it again"
                     );
                 }
                 break;
@@ -105,7 +106,7 @@ void CommandLine::consoleInput_()
                 {
                     Logger::warning(
                         "CMD", 
-                        "Server is NOT running. Unable to restart server"
+                        "Server is NOT running. Unable to RESTART server"
                     );
                 }
                 break;
@@ -126,7 +127,7 @@ void CommandLine::consoleInput_()
                 {
                     Logger::warning(
                         "SERVER", 
-                        "Server is NOT running. Unable to stop server"
+                        "Server is NOT running. Unable to STOP server"
                     );
                 }
                 break;
@@ -149,9 +150,9 @@ void CommandLine::consoleInput_()
             }
         }
     }
-    else if (   !(GetAsyncKeyState(VK_DOWN) & 0x8000)
-                && !(GetAsyncKeyState(VK_UP) & 0x8000)
-                && !(GetAsyncKeyState(VK_RETURN) & 0x8000)) 
+    else if (!(GetAsyncKeyState(VK_DOWN) & 0x8000) && 
+             !(GetAsyncKeyState(VK_UP) & 0x8000) && 
+             !(GetAsyncKeyState(VK_RETURN) & 0x8000)) 
     {
         upPressed_ = false;
         downPressed_ = false;

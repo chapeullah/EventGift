@@ -1,0 +1,8 @@
+set(__QT_DEPLOY_TARGET_EventGift_FILE C:/projects/EventGift/EventGift.exe)
+set(__QT_DEPLOY_TARGET_EventGift_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_EventGift_RUNTIME_DLLS C:/Qt/6.9.0/msvc2022_64/bin/Qt6Widgetsd.dll;C:/Qt/6.9.0/msvc2022_64/bin/Qt6Guid.dll;C:/Qt/6.9.0/msvc2022_64/bin/Qt6Cored.dll)
+set(__QT_DEPLOY_TARGET_sqlite3_FILE C:/projects/EventGift/build/sqlite3.lib)
+set(__QT_DEPLOY_TARGET_sqlite3_TYPE STATIC_LIBRARY)
+set(__QT_DEPLOY_TARGET_Server_FILE C:/projects/EventGift/Server/Server.exe)
+set(__QT_DEPLOY_TARGET_Server_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_Server_RUNTIME_DLLS )

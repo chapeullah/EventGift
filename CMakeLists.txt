@@ -3,12 +3,34 @@ project(EventGift)
 
 set(CMAKE_CXX_STANDARD 20)
 
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+
+set(CMAKE_PREFIX_PATH "C:/Qt/6.9.0/msvc2022_64/lib/cmake")
+
+find_package(Qt6 REQUIRED COMPONENTS Widgets)
+
+if (WIN32)
+    enable_language(RC)
+    set(APP_ICON_RESOURCE_WINDOWS resources/appicon.rc)
+endif()
 
 add_executable(EventGift
     src/EventGift.cpp
+    src/App.cpp
+    src/ui/StartMenu.cpp
+    src/ui/StartMenu.h
+    src/ui/StartMenu.ui
+    ${APP_ICON_RESOURCE_WINDOWS}
 )
+
 target_include_directories(EventGift PRIVATE include)
-set_target_properties(EventGift PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR})
+target_link_libraries(EventGift PRIVATE Qt6::Widgets)
+set_target_properties(EventGift PROPERTIES
+    WIN32_EXECUTABLE TRUE
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}
+)
 
 add_library(sqlite3 STATIC Server/sqlite/sqlite3.c)
 target_include_directories(sqlite3 PUBLIC Server/sqlite)
@@ -21,7 +43,6 @@ add_executable(Server
     Server/src/Logger.cpp
     Server/src/Time.cpp
 )
-
 target_include_directories(Server PRIVATE include Server/sqlite)
 target_link_libraries(Server PRIVATE sqlite3)
 set_target_properties(Server PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/Server)

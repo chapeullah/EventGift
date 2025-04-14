@@ -2,40 +2,40 @@
 
 #include "Time.h"
 
-std::ofstream Logger::s_out_("Server.log");
+std::ofstream Logger::out_("Server.log");
 
 void Logger::info(const std::optional<std::string>& type, 
                   const std::string& message)
 {
-    s_out_ << Time::Now() << " [INFO] ";
+    out_ << Time::now() << " [INFO] ";
     if (type.has_value())
     {
-        s_out_ << "[" << type.value() << "] ";
+        out_ << "[" << type.value() << "] ";
     }
-    s_out_ << message << "\n";
-    s_out_.flush();
+    out_ << message << "\n";
+    out_.flush();
 }
 
 void Logger::error(const std::optional<std::string>& type, 
                    const std::string& message)
 {
-    s_out_ << Time::Now() << " [ERROR] ";
+    out_ << Time::now() << " [ERROR] ";
     if (type.has_value())
     {
-        s_out_ << "[" << type.value() << "] ";
+        out_ << "[" << type.value() << "] ";
     }
-    s_out_ << message << "\n";
-    s_out_.flush();
+    out_ << message << "\n";
+    out_.flush();
 }
 
 void Logger::warning(const std::optional<std::string>& type, 
                      const std::string& message)
 {
-    s_out_ << Time::Now() << " [WARNING] ";
+    out_ << Time::now() << " [WARNING] ";
     if (type.has_value())
     {
-        s_out_ << "[" << type.value() << "] ";
+        out_ << "[" << type.value() << "] ";
     }
-    s_out_ << message << "\n";
-    s_out_.flush();
+    out_ << message << "\n";
+    out_.flush();
 }

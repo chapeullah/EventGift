@@ -15,5 +15,5 @@ public:
                         const std::string& message);
 
 private:
-    static std::ofstream s_out_;
+    static std::ofstream out_;
 };

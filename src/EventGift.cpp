@@ -1,8 +1,7 @@
-#include <iostream>
-#include "httplib.h"
+#include "App.h"
 
-int main()
+int main(int argc, char *argv[])
 {
-    std::cout << 123;
-    return 0;
+    App app(argc, argv);
+    return app.run();
 }
