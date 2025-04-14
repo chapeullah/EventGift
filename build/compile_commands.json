@@ -1,0 +1,50 @@
+[
+{
+  "directory": "C:/projects/EventGift/build",
+  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP -IC:\\projects\\EventGift\\include /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd /FoCMakeFiles\\EventGift.dir\\src\\EventGift.cpp.obj /FdCMakeFiles\\EventGift.dir\\ -c -- C:\\projects\\EventGift\\src\\EventGift.cpp",
+  "file": "C:\\projects\\EventGift\\src\\EventGift.cpp",
+  "output": "CMakeFiles\\EventGift.dir\\src\\EventGift.cpp.obj"
+},
+{
+  "directory": "C:/projects/EventGift/build",
+  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -IC:\\projects\\EventGift\\Server\\sqlite /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd /FoCMakeFiles\\sqlite3.dir\\Server\\sqlite\\sqlite3.c.obj /FdCMakeFiles\\sqlite3.dir\\sqlite3.pdb -c -- C:\\projects\\EventGift\\Server\\sqlite\\sqlite3.c",
+  "file": "C:\\projects\\EventGift\\Server\\sqlite\\sqlite3.c",
+  "output": "CMakeFiles\\sqlite3.dir\\Server\\sqlite\\sqlite3.c.obj"
+},
+{
+  "directory": "C:/projects/EventGift/build",
+  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP -IC:\\projects\\EventGift\\include -IC:\\projects\\EventGift\\Server\\sqlite /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd /FoCMakeFiles\\Server.dir\\Server\\src\\Server.cpp.obj /FdCMakeFiles\\Server.dir\\ -c -- C:\\projects\\EventGift\\Server\\src\\Server.cpp",
+  "file": "C:\\projects\\EventGift\\Server\\src\\Server.cpp",
+  "output": "CMakeFiles\\Server.dir\\Server\\src\\Server.cpp.obj"
+},
+{
+  "directory": "C:/projects/EventGift/build",
+  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP -IC:\\projects\\EventGift\\include -IC:\\projects\\EventGift\\Server\\sqlite /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd /FoCMakeFiles\\Server.dir\\Server\\src\\DatabaseManager.cpp.obj /FdCMakeFiles\\Server.dir\\ -c -- C:\\projects\\EventGift\\Server\\src\\DatabaseManager.cpp",
+  "file": "C:\\projects\\EventGift\\Server\\src\\DatabaseManager.cpp",
+  "output": "CMakeFiles\\Server.dir\\Server\\src\\DatabaseManager.cpp.obj"
+},
+{
+  "directory": "C:/projects/EventGift/build",
+  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP -IC:\\projects\\EventGift\\include -IC:\\projects\\EventGift\\Server\\sqlite /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd /FoCMakeFiles\\Server.dir\\Server\\src\\CommandLine.cpp.obj /FdCMakeFiles\\Server.dir\\ -c -- C:\\projects\\EventGift\\Server\\src\\CommandLine.cpp",
+  "file": "C:\\projects\\EventGift\\Server\\src\\CommandLine.cpp",
+  "output": "CMakeFiles\\Server.dir\\Server\\src\\CommandLine.cpp.obj"
+},
+{
+  "directory": "C:/projects/EventGift/build",
+  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP -IC:\\projects\\EventGift\\include -IC:\\projects\\EventGift\\Server\\sqlite /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd /FoCMakeFiles\\Server.dir\\Server\\src\\Bootstrap.cpp.obj /FdCMakeFiles\\Server.dir\\ -c -- C:\\projects\\EventGift\\Server\\src\\Bootstrap.cpp",
+  "file": "C:\\projects\\EventGift\\Server\\src\\Bootstrap.cpp",
+  "output": "CMakeFiles\\Server.dir\\Server\\src\\Bootstrap.cpp.obj"
+},
+{
+  "directory": "C:/projects/EventGift/build",
+  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP -IC:\\projects\\EventGift\\include -IC:\\projects\\EventGift\\Server\\sqlite /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd /FoCMakeFiles\\Server.dir\\Server\\src\\Logger.cpp.obj /FdCMakeFiles\\Server.dir\\ -c -- C:\\projects\\EventGift\\Server\\src\\Logger.cpp",
+  "file": "C:\\projects\\EventGift\\Server\\src\\Logger.cpp",
+  "output": "CMakeFiles\\Server.dir\\Server\\src\\Logger.cpp.obj"
+},
+{
+  "directory": "C:/projects/EventGift/build",
+  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP -IC:\\projects\\EventGift\\include -IC:\\projects\\EventGift\\Server\\sqlite /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd /FoCMakeFiles\\Server.dir\\Server\\src\\Time.cpp.obj /FdCMakeFiles\\Server.dir\\ -c -- C:\\projects\\EventGift\\Server\\src\\Time.cpp",
+  "file": "C:\\projects\\EventGift\\Server\\src\\Time.cpp",
+  "output": "CMakeFiles\\Server.dir\\Server\\src\\Time.cpp.obj"
+}
+]

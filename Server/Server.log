@@ -1,21 +1,24 @@
-[14:01:29] [INFO] [DB] Database connection success: database/eventgift.db
-[14:01:29] [INFO] [DB] Table created or already exists
-[14:01:32] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[14:01:33] [INFO] [SERVER] Server is starting...
-[14:01:33] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
-[14:01:35] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
-[14:01:36] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Restart
-[14:01:37] [INFO] [SERVER] Server is restarting...
-[14:01:37] [INFO] [SERVER] Server is stoping...
-[14:01:37] [INFO] [SERVER] Server stopped
-[14:01:37] [INFO] [SERVER] Server is starting...
-[14:01:37] [INFO] [SERVER] Server restarted
-[14:01:37] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
-[14:01:52] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
-[14:01:52] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Stop
-[14:01:53] [INFO] [SERVER] Server is stoping...
-[14:01:53] [INFO] [SERVER] Server stopped
-[14:01:58] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
-[14:01:58] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Exit
-[14:01:59] [INFO] [CMD] Exit from server
-[14:01:59] [INFO] [DB] Database connection closed: database/eventgift.db
+[18:28:07] [INFO] [DB] Database connection success: database/eventgift.db
+[18:28:07] [INFO] [DB] Table created or already exists
+[18:28:12] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
+[18:28:13] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Start
+[18:28:13] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
+[18:28:14] [INFO] [SERVER] Server is starting...
+[18:28:14] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
+[18:28:19] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
+[18:28:20] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Restart
+[18:28:21] [INFO] [SERVER] Server is restarting...
+[18:28:21] [INFO] [SERVER] Server is stoping...
+[18:28:21] [INFO] [SERVER] Server stopped
+[18:28:21] [INFO] [SERVER] Server is starting...
+[18:28:21] [INFO] [SERVER] Server restarted
+[18:28:21] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
+[18:28:30] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
+[18:28:31] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
+[18:28:31] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Stop
+[18:28:32] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
+[18:28:48] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Exit
+[18:28:49] [INFO] [SERVER] Server is stoping...
+[18:28:49] [INFO] [SERVER] Server stopped
+[18:28:49] [INFO] [CMD] Exit from server
+[18:28:49] [INFO] [DB] Database connection closed: database/eventgift.db

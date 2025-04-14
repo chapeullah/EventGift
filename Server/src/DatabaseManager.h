@@ -1,7 +1,6 @@
 #pragma once
 
 #include <sqlite3.h>
-#include <string>
 
 static constexpr const char *DATABASE_PATH = "database/eventgift.db";
 

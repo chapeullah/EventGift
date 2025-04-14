@@ -1,8 +1,6 @@
-#include <string>
-#include <ctime>
-#include <iostream>
-
 #include "Time.h"
+
+#include <ctime>
 
 std::string Time::Now() 
 {

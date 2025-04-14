@@ -1,6 +1,5 @@
 #pragma once
 
-#include <thread>
 #include <array>
 #include <string>
 
@@ -20,16 +19,16 @@ public:
     void mainConsole();
     
 private:
-    void consoleInput();
-    void consoleDraw();
-    void moveCursor(short x, short y);
-    void loading();
+    void consoleInput_();
+    void consoleDraw_();
+    void moveCursor_(short x, short y);
+    void loading_();
 
-    inline static constexpr std::array<const char*, 4> kServerCommands_ = 
+    inline static constexpr std::array<const char*, 4> ServerCommands_ = 
     {
         "Start", "Restart", "Stop", "Exit"
     };
-    inline static constexpr std::array<const char*, 8> kLoadingStates_ =
+    inline static constexpr std::array<const char*, 8> LoadingStates_ =
     {
         "/", "—", "\\", "|", "/", "—", "\\", "|"
     };

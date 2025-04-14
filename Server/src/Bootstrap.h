@@ -1,9 +1,9 @@
 #pragma once
 
+#include "httplib.h"
+
 #include <string>
 #include <thread>
-
-#include "httplib.h"
 
 class Bootstrap
 {
