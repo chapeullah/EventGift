@@ -1,7 +1,12 @@
+#pragma once
+
 #include <QApplication>
-#include <QMainWindow>
+#include <QWidget>
+#include <QStackedWidget>
 
 class StartMenu;
+class Login;
+class Register;
 
 class App
 {
@@ -12,5 +17,10 @@ public:
 
 private:
     QApplication qApplication_;
+    QWidget qWidget_;
+    QStackedWidget *qStackedWidget_;
+
     StartMenu *startMenu_;
+    Login *login_;
+    Register *register_;
 };

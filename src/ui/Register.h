@@ -1,4 +1,4 @@
-class RegisterWindow
+class Register
 {
 
 };

@@ -1,4 +1,4 @@
-class LoginWindow
+class Login
 {
 
 };
