@@ -51,7 +51,7 @@ public:
 
     void retranslateUi(QWidget *StartMenu)
     {
-        StartMenu->setWindowTitle(QCoreApplication::translate("StartMenu", "Form", nullptr));
+        StartMenu->setWindowTitle(QCoreApplication::translate("StartMenu", "EventGift", nullptr));
         pushButton1->setText(QCoreApplication::translate("StartMenu", "LOGIN", nullptr));
         pushButton2->setText(QCoreApplication::translate("StartMenu", "REGISTER", nullptr));
     } // retranslateUi

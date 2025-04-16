@@ -4,6 +4,8 @@
 #include "ui/Login.h"
 #include "ui/Register.h"
 
+#include "Logger.h"
+
 #include <QVBoxLayout>
 
 App::App(int argc, char *argv[]) 
@@ -19,6 +21,27 @@ App::App(int argc, char *argv[])
     layout->addWidget(qStackedWidget_);
 
     qStackedWidget_->addWidget(startMenu_);
+    qStackedWidget_->addWidget(login_);
+    qStackedWidget_->addWidget(register_);
+
+    QObject::connect(startMenu_, &StartMenu::loginClicked, [this]() {
+        qStackedWidget_->setCurrentWidget(login_);
+    });
+    QObject::connect(startMenu_, &StartMenu::registerClicked, [this]() {
+        qStackedWidget_->setCurrentWidget(register_);
+    });
+    QObject::connect(login_, &Login::goBack, [this]() {
+        qStackedWidget_->setCurrentWidget(startMenu_);
+    });
+    QObject::connect(login_, &Login::applyClicked, [this]() {
+        //some
+    });
+    QObject::connect(register_, &Register::goBack, [this]() {
+        qStackedWidget_->setCurrentWidget(startMenu_);
+    });
+    QObject::connect(register_, &Register::applyClicked, [this]() {
+        //some
+    });
 
     qStackedWidget_->setCurrentIndex(0);
 
@@ -28,5 +51,6 @@ App::App(int argc, char *argv[])
 
 int App::run()
 {
+    Logger::info("APP", "EventGift.exe started");
     return qApplication_.exec();
 }

@@ -4,6 +4,12 @@
 
 std::ofstream Logger::out_("Server.log");
 
+Logger::Logger()
+{
+    system("start powershell -NoExit -Command \"Get-Content "
+        "-Path 'Server.log' -Wait\"");
+}
+
 void Logger::info(const std::optional<std::string>& type, 
                   const std::string& message)
 {

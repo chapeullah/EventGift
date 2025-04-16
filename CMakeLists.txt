@@ -19,9 +19,17 @@ endif()
 add_executable(EventGift
     src/EventGift.cpp
     src/App.cpp
+    src/Logger.cpp
+    src/Time.cpp
     src/ui/StartMenu.cpp
     src/ui/StartMenu.h
     src/ui/StartMenu.ui
+    src/ui/Login.cpp
+    src/ui/Login.h
+    src/ui/Login.ui
+    src/ui/Register.cpp
+    src/ui/Register.h
+    src/ui/Register.ui
     ${APP_ICON_RESOURCE_WINDOWS}
 )
 

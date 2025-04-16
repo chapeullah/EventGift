@@ -11,10 +11,6 @@
 
 CommandLine::CommandLine()
 {
-    // Отдельное окно powershell для вывода Server.log
-    system("start powershell -NoExit -Command \"Get-Content "
-           "-Path 'Server.log' -Wait\"");
-
     std::cout << "\x1b[?25l"; // Удаление курсора
 }
 

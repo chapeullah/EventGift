@@ -478,6 +478,30 @@
 			null
 		],
 		[
+			"C:/projects/EventGift/src/Logger.h",
+			"MU",
+			"UVLADIE3JM/moc_Logger.cpp",
+			null
+		],
+		[
+			"C:/projects/EventGift/src/Time.h",
+			"MU",
+			"UVLADIE3JM/moc_Time.cpp",
+			null
+		],
+		[
+			"C:/projects/EventGift/src/ui/Login.h",
+			"MU",
+			"YPKJ5OE7LN/moc_Login.cpp",
+			null
+		],
+		[
+			"C:/projects/EventGift/src/ui/Register.h",
+			"MU",
+			"YPKJ5OE7LN/moc_Register.cpp",
+			null
+		],
+		[
 			"C:/projects/EventGift/src/ui/StartMenu.h",
 			"MU",
 			"YPKJ5OE7LN/moc_StartMenu.cpp",
@@ -543,6 +567,10 @@
 	[
 		[ "C:/projects/EventGift/src/App.cpp", "MU", null ],
 		[ "C:/projects/EventGift/src/EventGift.cpp", "MU", null ],
+		[ "C:/projects/EventGift/src/Logger.cpp", "MU", null ],
+		[ "C:/projects/EventGift/src/Time.cpp", "MU", null ],
+		[ "C:/projects/EventGift/src/ui/Login.cpp", "MU", null ],
+		[ "C:/projects/EventGift/src/ui/Register.cpp", "MU", null ],
 		[ "C:/projects/EventGift/src/ui/StartMenu.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],

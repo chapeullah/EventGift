@@ -1,4 +1,7 @@
 class ServerClient
 {
+public:
+
+private:
     
 };

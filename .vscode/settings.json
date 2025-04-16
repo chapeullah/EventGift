@@ -80,6 +80,8 @@
         "span": "cpp",
         "stdfloat": "cpp",
         "variant": "cpp",
-        "qapplication": "cpp"
+        "qapplication": "cpp",
+        "coroutine": "cpp",
+        "resumable": "cpp"
     }
 }

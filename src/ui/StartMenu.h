@@ -15,6 +15,10 @@ public:
     explicit StartMenu(QWidget *parent = nullptr);
     ~StartMenu();
 
+signals:
+    void loginClicked();
+    void registerClicked();
+
 private:
-    Ui::StartMenu* ui_;
+    Ui::StartMenu *ui_;
 };

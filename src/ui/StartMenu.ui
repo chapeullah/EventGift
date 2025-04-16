@@ -29,7 +29,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>EventGift</string>
   </property>
   <widget class="QPushButton" name="pushButton1">
    <property name="geometry">
