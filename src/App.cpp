@@ -25,22 +25,40 @@ App::App(int argc, char *argv[])
     qStackedWidget_->addWidget(register_);
 
     QObject::connect(startMenu_, &StartMenu::loginClicked, [this]() {
+        Logger::info("APP", "Login button clicked");
         qStackedWidget_->setCurrentWidget(login_);
     });
     QObject::connect(startMenu_, &StartMenu::registerClicked, [this]() {
+        Logger::info("APP", "Register button clicked");
         qStackedWidget_->setCurrentWidget(register_);
     });
     QObject::connect(login_, &Login::goBack, [this]() {
+        Logger::info("APP", "Cancel button clicked");
         qStackedWidget_->setCurrentWidget(startMenu_);
     });
-    QObject::connect(login_, &Login::applyClicked, [this]() {
-        //some
+    QObject::connect(login_, 
+        &Login::applyClicked, 
+        [](const QString &email, const QString &password) {
+            Logger::info(
+                "APP", 
+                "Email: " 
+                    + email.toStdString() 
+                    + " Password: " 
+                    + password.toStdString());
     });
     QObject::connect(register_, &Register::goBack, [this]() {
+        Logger::info("APP", "Cancel button clicked");
         qStackedWidget_->setCurrentWidget(startMenu_);
     });
-    QObject::connect(register_, &Register::applyClicked, [this]() {
-        //some
+    QObject::connect(register_, 
+        &Register::applyClicked, 
+        [this](const QString &email, const QString &password) {
+            Logger::info(
+                "APP", 
+                "Email: " 
+                    + email.toStdString() 
+                    + " Password: " 
+                    + password.toStdString());
     });
 
     qStackedWidget_->setCurrentIndex(0);

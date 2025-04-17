@@ -8,6 +8,8 @@
 class Bootstrap
 {
 public:
+    Bootstrap();
+
     static void start();
     static void stop();
     static void restart();

@@ -22,7 +22,7 @@ class Ui_Register
 public:
     QLineEdit *emailLineEdit;
     QLineEdit *passwordLineEdit;
-    QLineEdit *passwordLineEdit_2;
+    QLineEdit *passwordSubmitLineEdit;
     QPushButton *Apply;
     QPushButton *Cancel;
 
@@ -55,11 +55,11 @@ public:
         passwordLineEdit->setGeometry(QRect(315, 310, 171, 41));
         passwordLineEdit->setFont(font1);
         passwordLineEdit->setEchoMode(QLineEdit::EchoMode::Password);
-        passwordLineEdit_2 = new QLineEdit(Register);
-        passwordLineEdit_2->setObjectName("passwordLineEdit_2");
-        passwordLineEdit_2->setGeometry(QRect(315, 370, 171, 41));
-        passwordLineEdit_2->setFont(font1);
-        passwordLineEdit_2->setEchoMode(QLineEdit::EchoMode::Password);
+        passwordSubmitLineEdit = new QLineEdit(Register);
+        passwordSubmitLineEdit->setObjectName("passwordSubmitLineEdit");
+        passwordSubmitLineEdit->setGeometry(QRect(315, 370, 171, 41));
+        passwordSubmitLineEdit->setFont(font1);
+        passwordSubmitLineEdit->setEchoMode(QLineEdit::EchoMode::Password);
         Apply = new QPushButton(Register);
         Apply->setObjectName("Apply");
         Apply->setGeometry(QRect(415, 430, 71, 41));
@@ -81,7 +81,7 @@ public:
         emailLineEdit->setText(QString());
         emailLineEdit->setPlaceholderText(QCoreApplication::translate("Register", "Enter email", nullptr));
         passwordLineEdit->setPlaceholderText(QCoreApplication::translate("Register", "Password", nullptr));
-        passwordLineEdit_2->setPlaceholderText(QCoreApplication::translate("Register", "Submit password", nullptr));
+        passwordSubmitLineEdit->setPlaceholderText(QCoreApplication::translate("Register", "Submit password", nullptr));
         Apply->setText(QCoreApplication::translate("Register", "Apply", nullptr));
         Cancel->setText(QCoreApplication::translate("Register", "Cancel", nullptr));
     } // retranslateUi

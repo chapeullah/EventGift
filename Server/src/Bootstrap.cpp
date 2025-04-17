@@ -3,8 +3,26 @@
 #include "CommandLine.h"
 #include "Logger.h"
 
+#include <nlohmann/json.hpp>
+
 httplib::Server Bootstrap::server_;
 std::thread Bootstrap::serverThread_;
+
+Bootstrap::Bootstrap()
+{
+    server_.Post(
+        "/login", 
+        [this](const httplib::Request &req, httplib::Response &res) 
+        {
+            std::string body = req.body;
+        
+            Logger::info(
+                "SERVER", 
+                "Request from \"" + req.remote_addr + "\": \"" + body + "\""
+            );
+        }
+    );
+}
 
 void Bootstrap::start()
 {

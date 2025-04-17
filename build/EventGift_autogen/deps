@@ -517,6 +517,8 @@ EventGift_autogen/timestamp: \
 	C:/projects/EventGift/src/EventGift.cpp \
 	C:/projects/EventGift/src/Logger.cpp \
 	C:/projects/EventGift/src/Logger.h \
+	C:/projects/EventGift/src/ServerClient.cpp \
+	C:/projects/EventGift/src/ServerClient.h \
 	C:/projects/EventGift/src/Time.cpp \
 	C:/projects/EventGift/src/Time.h \
 	C:/projects/EventGift/src/ui/Login.cpp \

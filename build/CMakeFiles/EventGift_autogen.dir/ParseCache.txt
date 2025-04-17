@@ -190,6 +190,7 @@ C:/projects/EventGift/src/ui/Login.h
  mdp:C:/Qt/6.9.0/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h
  mdp:C:/Qt/6.9.0/msvc2022_64/include/QtWidgets/qwidget.h
  mdp:C:/projects/EventGift/src/ui/Login.h
+C:/projects/EventGift/src/ServerClient.h
 C:/projects/EventGift/src/Logger.h
 C:/projects/EventGift/src/Time.h
 C:/projects/EventGift/src/App.cpp
@@ -545,6 +546,7 @@ C:/projects/EventGift/src/ui/Register.h
  mdp:C:/projects/EventGift/src/ui/Register.h
 C:/projects/EventGift/src/EventGift.cpp
 C:/projects/EventGift/src/Logger.cpp
+C:/projects/EventGift/src/ServerClient.cpp
 C:/projects/EventGift/src/Time.cpp
 C:/projects/EventGift/src/ui/Login.cpp
  uic:ui_Login.h

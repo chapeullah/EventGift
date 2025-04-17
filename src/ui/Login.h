@@ -18,13 +18,13 @@ public:
 
 signals:
     void goBack();
-    void applyClicked();
+    void applyClicked(const QString& email, const QString& password);
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;
 
 private:
-    void submitCredentials();
+    void attemptLogin();
     
     Ui::Login *ui_;
 };

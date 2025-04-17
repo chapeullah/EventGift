@@ -41,14 +41,18 @@ template <> constexpr inline auto Login::qt_create_metaobjectdata<qt_meta_tag_ZN
         "Login",
         "goBack",
         "",
-        "applyClicked"
+        "applyClicked",
+        "email",
+        "password"
     };
 
     QtMocHelpers::UintData qt_methods {
         // Signal 'goBack'
         QtMocHelpers::SignalData<void()>(1, 2, QMC::AccessPublic, QMetaType::Void),
         // Signal 'applyClicked'
-        QtMocHelpers::SignalData<void()>(3, 2, QMC::AccessPublic, QMetaType::Void),
+        QtMocHelpers::SignalData<void(const QString &, const QString &)>(3, 2, QMC::AccessPublic, QMetaType::Void, {{
+            { QMetaType::QString, 4 }, { QMetaType::QString, 5 },
+        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -73,14 +77,14 @@ void Login::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
         case 0: _t->goBack(); break;
-        case 1: _t->applyClicked(); break;
+        case 1: _t->applyClicked((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
         default: ;
         }
     }
     if (_c == QMetaObject::IndexOfMethod) {
         if (QtMocHelpers::indexOfMethod<void (Login::*)()>(_a, &Login::goBack, 0))
             return;
-        if (QtMocHelpers::indexOfMethod<void (Login::*)()>(_a, &Login::applyClicked, 1))
+        if (QtMocHelpers::indexOfMethod<void (Login::*)(const QString & , const QString & )>(_a, &Login::applyClicked, 1))
             return;
     }
 }
@@ -123,8 +127,8 @@ void Login::goBack()
 }
 
 // SIGNAL 1
-void Login::applyClicked()
+void Login::applyClicked(const QString & _t1, const QString & _t2)
 {
-    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
+    QMetaObject::activate<void>(this, &staticMetaObject, 1, nullptr, _t1, _t2);
 }
 QT_WARNING_POP

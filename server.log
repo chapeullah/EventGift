@@ -1,3 +1,5 @@
-[15:19:30] [INFO] - DB - Database connection success: Server/database/eventgift.db
-[15:19:30] [INFO] - DB - Table created or already exists
-[15:19:30] [INFO] Server is listening 0.0.0.0:8080
+[20:13:45] [INFO] [DB] Failed to connect database: unable to open database file
+[20:13:45] [ERROR] [DB] Database_ = null: unable to init tables
+[20:14:10] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
+[20:14:11] [INFO] [SERVER] Server is starting
+[20:14:11] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080

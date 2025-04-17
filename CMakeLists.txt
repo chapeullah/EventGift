@@ -21,6 +21,7 @@ add_executable(EventGift
     src/App.cpp
     src/Logger.cpp
     src/Time.cpp
+    src/ServerClient.cpp
     src/ui/StartMenu.cpp
     src/ui/StartMenu.h
     src/ui/StartMenu.ui
@@ -52,5 +53,7 @@ add_executable(Server
     Server/src/Time.cpp
 )
 target_include_directories(Server PRIVATE include Server/sqlite)
-target_link_libraries(Server PRIVATE sqlite3)
+target_link_libraries(Server PRIVATE 
+    sqlite3
+)
 set_target_properties(Server PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/Server)
