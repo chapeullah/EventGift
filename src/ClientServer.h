@@ -7,7 +7,14 @@ class ClientServer
 public:
     ClientServer();
 
-    void sendLoginRequest(std::string &email, std::string &password);
+    void sendLoginRequest(
+        const std::string &email, 
+        const std::string &password
+    );
+    void sendRegisterRequest(
+        const std::string &email, 
+        const std::string &password
+    );
 
 private:
     httplib::Client client_;

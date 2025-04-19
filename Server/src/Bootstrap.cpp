@@ -28,7 +28,14 @@ Bootstrap::Bootstrap()
                 email = jsonRequest["email"], 
                 password = jsonRequest["password"];
             
-            DatabaseManager::queryLogin(email, password);
+            if (DatabaseManager::queryLogin(email, password))
+            {
+                res.set_content("OK", "text/plain");
+            }
+            else
+            {
+                res.set_content("FAIL", "text/plain");
+            }
         }
     );
     server_.Post(
@@ -48,7 +55,14 @@ Bootstrap::Bootstrap()
                 email = jsonRequest["email"], 
                 password = jsonRequest["password"];
             
-            DatabaseManager::queryRegister(email, password);
+            if (DatabaseManager::queryRegister(email, password))
+            {
+                res.set_content("OK", "text/plain");
+            }
+            else
+            {
+                res.set_content("FAIL", "text/plain");
+            }
         }
     );
 }
