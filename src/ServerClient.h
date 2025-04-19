@@ -7,7 +7,7 @@ class ServerClient
 public:
     ServerClient();
 
-    void sendRequest();
+    void sendLoginRequest(std::string &email, std::string &password);
 
 private:
     httplib::Client client_;

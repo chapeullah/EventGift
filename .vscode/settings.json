@@ -82,6 +82,10 @@
         "variant": "cpp",
         "qapplication": "cpp",
         "coroutine": "cpp",
-        "resumable": "cpp"
+        "resumable": "cpp",
+        "any": "cpp",
+        "codecvt": "cpp",
+        "ranges": "cpp",
+        "valarray": "cpp"
     }
 }
