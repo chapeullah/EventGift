@@ -21,7 +21,7 @@ add_executable(EventGift
     src/App.cpp
     src/Logger.cpp
     src/Time.cpp
-    src/ServerClient.cpp
+    src/ClientServer.cpp
     src/ui/StartMenu.cpp
     src/ui/StartMenu.h
     src/ui/StartMenu.ui

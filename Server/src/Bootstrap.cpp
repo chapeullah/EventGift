@@ -1,6 +1,7 @@
 #include "Bootstrap.h"
 
 #include "CommandLine.h"
+#include "DatabaseManager.h"
 #include "Logger.h"
 
 #include <nlohmann/json.hpp>
@@ -14,12 +15,40 @@ Bootstrap::Bootstrap()
         "/login", 
         [this](const httplib::Request &req, httplib::Response &res) 
         {
-            std::string body = req.body;
+            std::string reqBody = req.body;
         
             Logger::info(
                 "SERVER", 
-                "Request from \"" + req.remote_addr + "\": \"" + body + "\""
+                "Request from \"" + req.remote_addr + "\": \"" + reqBody + "\""
             );
+
+            nlohmann::json jsonRequest = nlohmann::json::parse(reqBody);
+
+            std::string 
+                email = jsonRequest["email"], 
+                password = jsonRequest["password"];
+            
+            DatabaseManager::queryLogin(email, password);
+        }
+    );
+    server_.Post(
+        "/register", 
+        [this](const httplib::Request &req, httplib::Response &res) 
+        {
+            std::string reqBody = req.body;
+        
+            Logger::info(
+                "SERVER", 
+                "Request from \"" + req.remote_addr + "\": \"" + reqBody + "\""
+            );
+
+            nlohmann::json jsonRequest = nlohmann::json::parse(reqBody);
+
+            std::string 
+                email = jsonRequest["email"], 
+                password = jsonRequest["password"];
+            
+            DatabaseManager::queryRegister(email, password);
         }
     );
 }

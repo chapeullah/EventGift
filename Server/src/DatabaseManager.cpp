@@ -2,8 +2,6 @@
 
 #include "Logger.h"
 
-#include <string>
-
 bool DatabaseManager::connect() 
 {
     if (sqlite3_open(DATABASE_PATH, &database_) == SQLITE_OK) 
@@ -35,18 +33,21 @@ void DatabaseManager::initTables()
         );
         return;
     }
-    const char *SQLexec = R"(
+    const char *SQLexec = 
+        R"(
             CREATE TABLE IF NOT EXISTS users (
-            id TEXT PRIMARY KEY,
-            username TEXT
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            email TEXT NOT NULL UNIQUE,
+            password TEXT NOT NULL
         );   
     )";
     char *errorMessage = nullptr;
-    if (sqlite3_exec(database_, 
-                     SQLexec, 
-                     nullptr, 
-                     nullptr, 
-                     &errorMessage) == SQLITE_OK) 
+    if (sqlite3_exec(
+        database_, 
+        SQLexec, 
+        nullptr, 
+        nullptr, 
+        &errorMessage) == SQLITE_OK) 
     {
         Logger::info(
             "DB", 
@@ -75,4 +76,86 @@ void DatabaseManager::close()
             std::string("Database connection closed: ") + DATABASE_PATH
         );
     }
+}
+
+bool DatabaseManager::queryRegister(
+    const std::string &email, 
+    const std::string &password
+)
+{
+    if (userExists(email))
+    {
+        Logger::info("DB", "User " + email + " already exists");
+        return false;
+    }
+    std::string query =
+        "INSERT INTO users (email, password) "
+        "VALUES ('" + email + "', '" + password + "');";
+
+    char *errorMessage = nullptr;
+
+    if (sqlite3_exec(
+        database_, 
+        query.c_str(), 
+        nullptr, 
+        nullptr, 
+        &errorMessage) == SQLITE_OK)
+    {
+        Logger::info("DB", "User " + email + " added");
+        return true;
+    }
+    else 
+    {
+        Logger::error("DB", "SQL error: " + std::string(errorMessage));
+        sqlite3_free(errorMessage);
+        return false;
+    }
+}
+
+bool DatabaseManager::queryLogin(
+    const std::string &email, 
+    const std::string &password
+)
+{
+    if (!userExists(email))
+    {
+        Logger::info("DB", "User " + email + " does not exist");
+        return false;
+    }
+
+    std::string query = 
+        "SELECT 1 FROM users "
+        "WHERE email = '" + email + 
+        "' AND password = '" + password + "';";
+    
+    sqlite3_stmt *stmt = nullptr;
+
+    sqlite3_prepare_v2(database_, query.c_str(), -1, &stmt, nullptr);
+
+    bool result = sqlite3_step(stmt) == SQLITE_ROW;
+    sqlite3_finalize(stmt);
+    if (result)
+    {
+        Logger::info("DB", "User " + email + " authorised");
+        return true;
+    }
+    else
+    {
+        Logger::info("DB", "User " + email + " - wrong password");
+        return false;
+    }
+}
+
+bool DatabaseManager::userExists(const std::string &email)
+{
+    std::string query =
+        "SELECT 1 FROM users WHERE email = '" + email + "' LIMIT 1;";
+    sqlite3_stmt *stmt = nullptr;
+
+    sqlite3_prepare_v2(database_, query.c_str(), -1, &stmt, nullptr);
+
+    bool result = (sqlite3_step(stmt) == SQLITE_ROW);
+    sqlite3_finalize(stmt);
+
+    return result;
 }

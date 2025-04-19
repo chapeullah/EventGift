@@ -1,11 +1,11 @@
 #include "App.h"
 #include "Logger.h"
-#include "ServerClient.h"
+#include "ClientServer.h"
 
 int main(int argc, char *argv[])
 {
     Logger logger;
-    ServerClient serverClient;
+    ClientServer ClientServer;
     App app(argc, argv);
     return app.run();
 }

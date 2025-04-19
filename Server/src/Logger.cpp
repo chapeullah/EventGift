@@ -10,8 +10,10 @@ Logger::Logger()
         "-Path 'Server.log' -Wait\"");
 }
 
-void Logger::info(const std::optional<std::string>& type, 
-                  const std::string& message)
+void Logger::info(
+    const std::optional<std::string>& type, 
+    const std::string& message
+)
 {
     out_ << Time::now() << " [INFO] ";
     if (type.has_value())
@@ -22,8 +24,10 @@ void Logger::info(const std::optional<std::string>& type,
     out_.flush();
 }
 
-void Logger::error(const std::optional<std::string>& type, 
-                   const std::string& message)
+void Logger::error(
+    const std::optional<std::string>& type, 
+    const std::string& message
+)
 {
     out_ << Time::now() << " [ERROR] ";
     if (type.has_value())
@@ -34,8 +38,10 @@ void Logger::error(const std::optional<std::string>& type,
     out_.flush();
 }
 
-void Logger::warning(const std::optional<std::string>& type, 
-                     const std::string& message)
+void Logger::warning(
+    const std::optional<std::string>& type, 
+    const std::string& message
+)
 {
     out_ << Time::now() << " [WARNING] ";
     if (type.has_value())
