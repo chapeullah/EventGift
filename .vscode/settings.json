@@ -86,6 +86,8 @@
         "any": "cpp",
         "codecvt": "cpp",
         "ranges": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "qkeyevent": "cpp",
+        "qmessagebox": "cpp"
     }
 }

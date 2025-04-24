@@ -519,14 +519,19 @@ EventGift_autogen/timestamp: \
 	C:/projects/EventGift/src/EventGift.cpp \
 	C:/projects/EventGift/src/Logger.cpp \
 	C:/projects/EventGift/src/Logger.h \
+	C:/projects/EventGift/src/SessionManager.cpp \
+	C:/projects/EventGift/src/SessionManager.h \
 	C:/projects/EventGift/src/Time.cpp \
 	C:/projects/EventGift/src/Time.h \
+	C:/projects/EventGift/src/ui/InviteGateway.cpp \
+	C:/projects/EventGift/src/ui/InviteGateway.h \
 	C:/projects/EventGift/src/ui/Login.cpp \
 	C:/projects/EventGift/src/ui/Login.h \
 	C:/projects/EventGift/src/ui/Register.cpp \
 	C:/projects/EventGift/src/ui/Register.h \
 	C:/projects/EventGift/src/ui/StartMenu.cpp \
 	C:/projects/EventGift/src/ui/StartMenu.h \
+	C:/projects/EventGift/src/ui/InviteGateway.ui \
 	C:/projects/EventGift/src/ui/Login.ui \
 	C:/projects/EventGift/src/ui/Register.ui \
 	C:/projects/EventGift/src/ui/StartMenu.ui \

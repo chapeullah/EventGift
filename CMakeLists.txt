@@ -21,6 +21,7 @@ add_executable(EventGift
     src/App.cpp
     src/Logger.cpp
     src/Time.cpp
+    src/SessionManager.cpp
     src/ClientServer.cpp
     src/ui/StartMenu.cpp
     src/ui/StartMenu.h
@@ -31,6 +32,9 @@ add_executable(EventGift
     src/ui/Register.cpp
     src/ui/Register.h
     src/ui/Register.ui
+    src/ui/InviteGateway.cpp
+    src/ui/InviteGateway.h
+    src/ui/InviteGateway.ui
     ${APP_ICON_RESOURCE_WINDOWS}
 )
 
@@ -47,7 +51,7 @@ target_include_directories(sqlite3 PUBLIC Server/sqlite)
 add_executable(Server
     Server/src/Server.cpp
     Server/src/DatabaseManager.cpp
-    Server/src/CommandLine.cpp
+    Server/src/CommandLine.cpp 
     Server/src/Bootstrap.cpp
     Server/src/Logger.cpp
     Server/src/Time.cpp

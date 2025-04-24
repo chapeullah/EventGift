@@ -25,6 +25,26 @@ protected:
 
 private:
     void attemptRegister();
+    bool isEmail(QString &email);
 
     Ui::Register *ui_;
+    static constexpr std::array<const char *, 16> emails_ =
+        {
+            "@gmail.com", 
+            "@protonmail.com",
+            "@gmx.com",
+            "@zoho.com",
+            "@yahoo.com", 
+            "@outlook.com", 
+            "@hotmail.com",
+            "@icloud.com", 
+            "@mail.com", 
+            "@mail.ru", 
+            "@yandex.ru",
+            "@yandex.com",
+            "@bk.ru",
+            "@inbox.ru", 
+            "@list.ru", 
+            "@rambler.ru"
+        };
 };

@@ -46,6 +46,24 @@ void Register::attemptRegister()
         QMessageBox::warning(this, "Failed", "All fields must be filled in");
         return;
     }
+    if (!isEmail(email))
+    {
+        QMessageBox::warning(
+            this, 
+            "Failed", 
+            "Email must end with a valid domain (e.g. @mail.ru, @gmail.com)"
+        );
+        return;
+    }
+    if (password.length() < 12)
+    {
+        QMessageBox::warning(
+            this, 
+            "Failed", 
+            "Password must be at least 12 characters"
+        );
+        return;
+    }
     if (password != passwordSubmit)
     {
         QMessageBox::warning(this, "Failed", "Passwords do not match");
@@ -53,4 +71,17 @@ void Register::attemptRegister()
     }
     
     emit applyClicked(email, password);
+}
+
+bool Register::isEmail(QString &email)
+{
+    bool flag = false;
+    for (std::string x : emails_)
+    {
+        if (email.endsWith(QString::fromStdString(x)))
+        {
+            flag = true;
+        }
+    }
+    return flag;
 }

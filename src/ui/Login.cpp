@@ -10,12 +10,16 @@ Login::Login(QWidget *parent)
 {
     ui_->setupUi(this);
 
-    connect(ui_->Cancel, &QPushButton::clicked, this, [this]() {
-        QTimer::singleShot(0, this, &Login::goBack);
-    });
-    connect(ui_->Apply, &QPushButton::clicked, this, [this]() {
-        QTimer::singleShot(0, this, &Login::attemptLogin);
-    });
+    connect(ui_->Cancel, &QPushButton::clicked, this, [this]() 
+        {
+            QTimer::singleShot(0, this, &Login::goBack);
+        }
+    );
+    connect(ui_->Apply, &QPushButton::clicked, this, [this]() 
+        {
+            QTimer::singleShot(0, this, &Login::attemptLogin);
+        }
+    );
 }
 
 Login::~Login()
@@ -45,6 +49,6 @@ void Login::attemptLogin()
         QMessageBox::warning(this, "Failed", "All fields must be filled in");
         return;
     }
-
+    
     emit applyClicked(email, password);
 }

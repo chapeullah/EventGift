@@ -7,6 +7,7 @@
 class StartMenu;
 class Login;
 class Register;
+class InviteGateway;
 
 class App
 {
@@ -23,4 +24,5 @@ private:
     StartMenu *startMenu_;
     Login *login_;
     Register *register_;
+    InviteGateway *inviteGateway_;
 };

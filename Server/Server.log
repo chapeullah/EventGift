@@ -1,62 +1,10 @@
-[15:38:46] [INFO] [DB] Database connection success: database/eventgift.db
-[15:38:46] [INFO] [DB] Table created or already exists
-[15:39:01] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
-[15:39:01] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Start
-[15:39:03] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[15:39:04] [INFO] [SERVER] Server is starting
-[15:39:04] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
-[15:39:09] [INFO] [SERVER] Request from "192.168.0.25": "hello"
-[15:40:57] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[15:40:57] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[15:40:58] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[15:40:58] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[15:43:12] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
-[15:44:40] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Restart
-[15:44:41] [INFO] [SERVER] Server is restarting
-[15:44:41] [INFO] [SERVER] Server is stoping
-[15:44:41] [INFO] [SERVER] Server stopped
-[15:44:41] [INFO] [SERVER] Server is starting
-[15:44:41] [INFO] [SERVER] Server restarted
-[15:44:41] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
-[15:46:14] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Restart
-[15:46:15] [INFO] [SERVER] Server is restarting
-[15:46:15] [INFO] [SERVER] Server is stoping
-[15:46:15] [INFO] [SERVER] Server stopped
-[15:46:15] [INFO] [SERVER] Server is starting
-[15:46:15] [INFO] [SERVER] Server restarted
-[15:46:15] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
-[15:46:32] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Restart
-[15:46:33] [INFO] [SERVER] Server is restarting
-[15:46:33] [INFO] [SERVER] Server is stoping
-[15:46:33] [INFO] [SERVER] Server stopped
-[15:46:33] [INFO] [SERVER] Server is starting
-[15:46:33] [INFO] [SERVER] Server restarted
-[15:46:33] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
-[15:48:17] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Start
-[15:48:18] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
-[15:48:18] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Restart
-[15:48:19] [INFO] [SERVER] Server is restarting
-[15:48:19] [INFO] [SERVER] Server is stoping
-[15:48:19] [INFO] [SERVER] Server stopped
-[15:48:19] [INFO] [SERVER] Server is starting
-[15:48:19] [INFO] [SERVER] Server restarted
-[15:48:19] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
-[15:48:37] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Restart
-[15:48:38] [INFO] [SERVER] Server is restarting
-[15:48:38] [INFO] [SERVER] Server is stoping
-[15:48:38] [INFO] [SERVER] Server stopped
-[15:48:38] [INFO] [SERVER] Server is starting
-[15:48:38] [INFO] [SERVER] Server restarted
-[15:48:38] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
-[15:48:55] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Restart
-[15:48:56] [INFO] [SERVER] Server is restarting
-[15:48:56] [INFO] [SERVER] Server is stoping
-[15:48:56] [INFO] [SERVER] Server stopped
-[15:48:56] [INFO] [SERVER] Server is starting
-[15:48:56] [INFO] [SERVER] Server restarted
-[15:48:56] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
-[15:51:01] [INFO] [CMD] Pressed UP - CommandLine::currentCommand_ = Start
-[15:51:04] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[15:51:04] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[15:51:42] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[15:51:42] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
+[04:32:53] [INFO] [DB] Database connection success: database/eventgift.db
+[04:32:53] [INFO] [DB] Table created or already exists
+[04:32:55] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
+[04:32:56] [INFO] [SERVER] Server is starting
+[04:32:56] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
+[04:32:57] [INFO] [DB] Request from192.168.0.25: Session validation success
+[04:33:10] [INFO] [SERVER] Request from "192.168.0.25": "{"email":"admin","password":"admin"}"
+[04:33:10] [INFO] [DB] User "admin" attempted to log in: success
+[04:33:31] [INFO] [SERVER] Request from "192.168.0.25": "{"email":"admin","password":"admin"}"
+[04:33:31] [INFO] [DB] User "admin" attempted to log in: success

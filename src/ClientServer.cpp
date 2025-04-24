@@ -1,16 +1,15 @@
 #include "ClientServer.h"
 
 #include "Logger.h"
+#include "SessionManager.h"
 
 #include <nlohmann/json.hpp>
 
 #include <string>
 
-ClientServer::ClientServer()
-    : client_("http://192.168.0.25:8080") 
-{}
+httplib::Client ClientServer::client_("http://192.168.0.25:8080");
 
-void ClientServer::sendLoginRequest(
+bool ClientServer::sendLoginRequest(
     const std::string &email, 
     const std::string &password
 )
@@ -19,13 +18,18 @@ void ClientServer::sendLoginRequest(
     jsonRequest["email"] = email;
     jsonRequest["password"] = password;
     std::string stringRequest = jsonRequest.dump();
-    client_.Post("/login", stringRequest, "application/json");
     httplib::Result result = 
-        client_.Post("/register", stringRequest, "application/json");
+        client_.Post("/login", stringRequest, "application/json");
     Logger::info("HTTP", "Result = " + result->body);
+    if (result->body == "OK")
+    {
+        ClientServer::sendCreateSessionRequest();
+        return true;
+    }
+    return false;
 }
 
-void ClientServer::sendRegisterRequest(
+bool ClientServer::sendRegisterRequest(
     const std::string &email,
     const std::string &password
 )
@@ -37,4 +41,45 @@ void ClientServer::sendRegisterRequest(
     httplib::Result result = 
         client_.Post("/register", stringRequest, "application/json");
     Logger::info("HTTP", "Result = " + result->body);
+    if (result->body == "OK")
+    {
+        return true;
+    }
+    return false;
+}
+
+bool ClientServer::sendCreateSessionRequest()
+{
+    if (SessionManager::getSessionEmail() == "") 
+    {
+        return false;
+    }
+    nlohmann::json jsonRequest;
+    jsonRequest["email"] = SessionManager::getSessionEmail();
+    std::string stringRequest = jsonRequest.dump();
+    httplib::Result result =
+        client_.Post("/session/create", stringRequest, "application/json");
+    Logger::info("HTTP", "Result = " + result->body);
+    if (result->body == "OK")
+    {
+        return true;
+    }
+    return false;
+}
+
+bool ClientServer::sendVerifySessionRequest()
+{
+    if (SessionManager::getSessionEmail() == "") 
+    {
+        return false;
+    }
+    httplib::Result result = 
+        client_.Get(
+            "/session/verify?email=" + SessionManager::getSessionEmail()
+        );
+    if (result->body == "OK")
+    {
+        return true;
+    }
+    return false;
 }

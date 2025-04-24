@@ -1,1 +1,9 @@
-[15:39:09] [INFO] [APP] EventGift.exe started
+[04:33:02] [INFO] [CODE] Current index 0
+[04:33:02] [INFO] [APP] EventGift.exe started
+[04:33:06] [INFO] [APP] Login button clicked
+[04:33:10] [INFO] [APP] Login clicked email: admin
+[04:33:10] [INFO] [HTTP] Result = OK
+[04:33:13] [INFO] [APP] Cancel button clicked
+[04:33:29] [INFO] [APP] Login button clicked
+[04:33:31] [INFO] [APP] Login clicked email: admin
+[04:33:31] [INFO] [HTTP] Result = OK

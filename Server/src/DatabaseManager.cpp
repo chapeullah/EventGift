@@ -38,15 +38,16 @@ void DatabaseManager::initTables()
             CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             email TEXT NOT NULL UNIQUE,
-            password TEXT NOT NULL
-        );   
+            password TEXT NOT NULL,
+            session INTEGER
+        );
     )";
     char *errorMessage = nullptr;
     if (sqlite3_exec(
-        database_, 
-        SQLexec, 
-        nullptr, 
-        nullptr, 
+        database_,
+        SQLexec,
+        nullptr,
+        nullptr,
         &errorMessage) == SQLITE_OK) 
     {
         Logger::info(
@@ -85,7 +86,10 @@ bool DatabaseManager::queryRegister(
 {
     if (userExists(email))
     {
-        Logger::info("DB", "User " + email + " already exists");
+        Logger::info(
+            "DB",
+            "User " + email + " attempted to register: user already exists"
+        );
         return false;
     }
     std::string query =
@@ -101,7 +105,10 @@ bool DatabaseManager::queryRegister(
         nullptr, 
         &errorMessage) == SQLITE_OK)
     {
-        Logger::info("DB", "User " + email + " added");
+        Logger::info(
+            "DB", 
+            "User \"" + email + "\" attempted to register: success"
+        );
         return true;
     }
     else 
@@ -119,7 +126,10 @@ bool DatabaseManager::queryLogin(
 {
     if (!userExists(email))
     {
-        Logger::info("DB", "User " + email + " does not exist");
+        Logger::info(
+            "DB", 
+            "User \"" + email + "\" attempted to log in: user does not exists"
+        );
         return false;
     }
 
@@ -136,12 +146,18 @@ bool DatabaseManager::queryLogin(
     sqlite3_finalize(stmt);
     if (result)
     {
-        Logger::info("DB", "User " + email + " authorised");
+        Logger::info(
+            "DB", 
+            "User \"" + email + "\" attempted to log in: success"
+        );
         return true;
     }
     else
     {
-        Logger::info("DB", "User " + email + " - wrong password");
+        Logger::info(
+            "DB", 
+            "User \"" + email + "\" attempted to log in: wrong password"
+        );
         return false;
     }
 }
@@ -149,7 +165,7 @@ bool DatabaseManager::queryLogin(
 bool DatabaseManager::userExists(const std::string &email)
 {
     std::string query =
-        "SELECT 1 FROM users WHERE email = '" + email + "' LIMIT 1;";
+        "SELECT 1 FROM users WHERE email = '" + email + "';";
     sqlite3_stmt *stmt = nullptr;
 
     sqlite3_prepare_v2(database_, query.c_str(), -1, &stmt, nullptr);
@@ -158,4 +174,38 @@ bool DatabaseManager::userExists(const std::string &email)
     sqlite3_finalize(stmt);
 
     return result;
+}
+
+void DatabaseManager::insertSession(const std::string &email)
+{
+    std::string query =
+        "UPDATE users SET session = " + 
+        expirationTime() +
+        " WHERE email = '" + email + "';";
+    sqlite3_exec(database_, query.c_str(), nullptr, nullptr, nullptr);
+}
+
+bool DatabaseManager::isSessionValid(const std::string &email)
+{
+    bool isValid = false;
+    std::string query = 
+        "SELECT session FROM users WHERE email = '" + email + "';";
+    sqlite3_exec(
+        database_, 
+        query.c_str(), 
+        [](void *data, int argc, char **argv, char **) -> int{
+            auto *result = static_cast<bool *>(data);
+            std::time_t session = std::stoll(argv[0]);
+            *result = std::time(nullptr) < session;
+            return 0;
+        }, 
+        &isValid, 
+        nullptr
+    );
+    return isValid;
+}
+
+std::string DatabaseManager::expirationTime()
+{
+    return std::to_string(std::time(nullptr) + sessionDuration_.count());
 }

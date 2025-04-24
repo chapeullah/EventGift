@@ -5,17 +5,17 @@
 class ClientServer
 {
 public:
-    ClientServer();
-
-    void sendLoginRequest(
+    static bool sendLoginRequest(
         const std::string &email, 
         const std::string &password
     );
-    void sendRegisterRequest(
+    static bool sendRegisterRequest(
         const std::string &email, 
         const std::string &password
     );
+    static bool sendCreateSessionRequest();
+    static bool sendVerifySessionRequest();
 
 private:
-    httplib::Client client_;
+    static httplib::Client client_;
 };
