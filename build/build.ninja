@@ -159,6 +159,16 @@ build CMakeFiles\EventGift.dir\src\ui\InviteGateway.cpp.obj: CXX_COMPILER__Event
   TARGET_COMPILE_PDB = CMakeFiles\EventGift.dir\
   TARGET_PDB = C:\projects\EventGift\EventGift.pdb
 
+build CMakeFiles\EventGift.dir\src\ui\MainWindow.cpp.obj: CXX_COMPILER__EventGift_unscanned_Debug C$:\projects\EventGift\src\ui\MainWindow.cpp || cmake_object_order_depends_target_EventGift
+  CONFIG = Debug
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd
+  INCLUDES = -IC:\projects\EventGift\build\EventGift_autogen\include -IC:\projects\EventGift\include -imsvcC:\Qt\6.9.0\msvc2022_64\include\QtWidgets -imsvcC:\Qt\6.9.0\msvc2022_64\include -imsvcC:\Qt\6.9.0\msvc2022_64\include\QtCore -imsvcC:\Qt\6.9.0\msvc2022_64\mkspecs\win32-msvc -imsvcC:\Qt\6.9.0\msvc2022_64\include\QtGui -imsvcC:\VulkanSDK\1.4.309.0\include
+  OBJECT_DIR = CMakeFiles\EventGift.dir
+  OBJECT_FILE_DIR = CMakeFiles\EventGift.dir\src\ui
+  TARGET_COMPILE_PDB = CMakeFiles\EventGift.dir\
+  TARGET_PDB = C:\projects\EventGift\EventGift.pdb
+
 build CMakeFiles\EventGift.dir\resources\appicon.rc.res: RC_COMPILER__EventGift_unscanned_Debug C$:\projects\EventGift\resources\appicon.rc || cmake_object_order_depends_target_EventGift
   CONFIG = Debug
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
@@ -178,7 +188,7 @@ build CMakeFiles\EventGift.dir\resources\appicon.rc.res: RC_COMPILER__EventGift_
 #############################################
 # Link the executable C:\projects\EventGift\EventGift.exe
 
-build C$:\projects\EventGift\EventGift.exe: CXX_EXECUTABLE_LINKER__EventGift_Debug CMakeFiles\EventGift.dir\EventGift_autogen\mocs_compilation.cpp.obj CMakeFiles\EventGift.dir\src\EventGift.cpp.obj CMakeFiles\EventGift.dir\src\App.cpp.obj CMakeFiles\EventGift.dir\src\Logger.cpp.obj CMakeFiles\EventGift.dir\src\Time.cpp.obj CMakeFiles\EventGift.dir\src\SessionManager.cpp.obj CMakeFiles\EventGift.dir\src\ClientServer.cpp.obj CMakeFiles\EventGift.dir\src\ui\StartMenu.cpp.obj CMakeFiles\EventGift.dir\src\ui\Login.cpp.obj CMakeFiles\EventGift.dir\src\ui\Register.cpp.obj CMakeFiles\EventGift.dir\src\ui\InviteGateway.cpp.obj CMakeFiles\EventGift.dir\resources\appicon.rc.res | C$:\Qt\6.9.0\msvc2022_64\lib\Qt6Widgetsd.lib C$:\Qt\6.9.0\msvc2022_64\lib\Qt6Guid.lib C$:\Qt\6.9.0\msvc2022_64\lib\Qt6Cored.lib C$:\Qt\6.9.0\msvc2022_64\lib\Qt6EntryPointd.lib || EventGift_autogen EventGift_autogen_timestamp_deps
+build C$:\projects\EventGift\EventGift.exe: CXX_EXECUTABLE_LINKER__EventGift_Debug CMakeFiles\EventGift.dir\EventGift_autogen\mocs_compilation.cpp.obj CMakeFiles\EventGift.dir\src\EventGift.cpp.obj CMakeFiles\EventGift.dir\src\App.cpp.obj CMakeFiles\EventGift.dir\src\Logger.cpp.obj CMakeFiles\EventGift.dir\src\Time.cpp.obj CMakeFiles\EventGift.dir\src\SessionManager.cpp.obj CMakeFiles\EventGift.dir\src\ClientServer.cpp.obj CMakeFiles\EventGift.dir\src\ui\StartMenu.cpp.obj CMakeFiles\EventGift.dir\src\ui\Login.cpp.obj CMakeFiles\EventGift.dir\src\ui\Register.cpp.obj CMakeFiles\EventGift.dir\src\ui\InviteGateway.cpp.obj CMakeFiles\EventGift.dir\src\ui\MainWindow.cpp.obj CMakeFiles\EventGift.dir\resources\appicon.rc.res | C$:\Qt\6.9.0\msvc2022_64\lib\Qt6Widgetsd.lib C$:\Qt\6.9.0\msvc2022_64\lib\Qt6Guid.lib C$:\Qt\6.9.0\msvc2022_64\lib\Qt6Cored.lib C$:\Qt\6.9.0\msvc2022_64\lib\Qt6EntryPointd.lib || EventGift_autogen EventGift_autogen_timestamp_deps
   CONFIG = Debug
   FLAGS = /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -MDd
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:windows
@@ -364,7 +374,7 @@ build EventGift_autogen_timestamp_deps: phony
 #############################################
 # Utility command for EventGift_autogen
 
-build EventGift_autogen: phony CMakeFiles\EventGift_autogen EventGift_autogen\include\src\ui\ui_StartMenu.h EventGift_autogen\include\src\ui\ui_Login.h EventGift_autogen\include\src\ui\ui_Register.h EventGift_autogen\include\src\ui\ui_InviteGateway.h EventGift_autogen\timestamp EventGift_autogen\mocs_compilation.cpp EventGift_autogen_timestamp_deps
+build EventGift_autogen: phony CMakeFiles\EventGift_autogen EventGift_autogen\include\src\ui\ui_StartMenu.h EventGift_autogen\include\src\ui\ui_Login.h EventGift_autogen\include\src\ui\ui_Register.h EventGift_autogen\include\src\ui\ui_InviteGateway.h EventGift_autogen\include\src\ui\ui_MainWindow.h EventGift_autogen\timestamp EventGift_autogen\mocs_compilation.cpp EventGift_autogen_timestamp_deps
 
 
 #############################################
@@ -376,7 +386,7 @@ build sqlite3_autogen_timestamp_deps: phony
 #############################################
 # Utility command for sqlite3_autogen
 
-build sqlite3_autogen: phony CMakeFiles\sqlite3_autogen sqlite3_autogen\include\src\ui\ui_StartMenu.h sqlite3_autogen\include\src\ui\ui_Login.h sqlite3_autogen\include\src\ui\ui_Register.h sqlite3_autogen\include\src\ui\ui_InviteGateway.h sqlite3_autogen\timestamp sqlite3_autogen\mocs_compilation.cpp sqlite3_autogen_timestamp_deps
+build sqlite3_autogen: phony CMakeFiles\sqlite3_autogen sqlite3_autogen\include\src\ui\ui_StartMenu.h sqlite3_autogen\include\src\ui\ui_Login.h sqlite3_autogen\include\src\ui\ui_Register.h sqlite3_autogen\include\src\ui\ui_InviteGateway.h sqlite3_autogen\include\src\ui\ui_MainWindow.h sqlite3_autogen\timestamp sqlite3_autogen\mocs_compilation.cpp sqlite3_autogen_timestamp_deps
 
 
 #############################################
@@ -388,7 +398,7 @@ build Server_autogen_timestamp_deps: phony sqlite3.lib
 #############################################
 # Utility command for Server_autogen
 
-build Server_autogen: phony CMakeFiles\Server_autogen Server_autogen\include\src\ui\ui_StartMenu.h Server_autogen\include\src\ui\ui_Login.h Server_autogen\include\src\ui\ui_Register.h Server_autogen\include\src\ui\ui_InviteGateway.h Server_autogen\timestamp Server_autogen\mocs_compilation.cpp Server_autogen_timestamp_deps
+build Server_autogen: phony CMakeFiles\Server_autogen Server_autogen\include\src\ui\ui_StartMenu.h Server_autogen\include\src\ui\ui_Login.h Server_autogen\include\src\ui\ui_Register.h Server_autogen\include\src\ui\ui_InviteGateway.h Server_autogen\include\src\ui\ui_MainWindow.h Server_autogen\timestamp Server_autogen\mocs_compilation.cpp Server_autogen_timestamp_deps
 
 
 #############################################
@@ -427,19 +437,19 @@ build Server_autogen\timestamp Server_autogen\mocs_compilation.cpp | ${cmake_nin
 #############################################
 # Phony custom command for CMakeFiles\EventGift_autogen
 
-build CMakeFiles\EventGift_autogen EventGift_autogen\include\src\ui\ui_StartMenu.h EventGift_autogen\include\src\ui\ui_Login.h EventGift_autogen\include\src\ui\ui_Register.h EventGift_autogen\include\src\ui\ui_InviteGateway.h | ${cmake_ninja_workdir}CMakeFiles\EventGift_autogen ${cmake_ninja_workdir}EventGift_autogen\include\src\ui\ui_StartMenu.h ${cmake_ninja_workdir}EventGift_autogen\include\src\ui\ui_Login.h ${cmake_ninja_workdir}EventGift_autogen\include\src\ui\ui_Register.h ${cmake_ninja_workdir}EventGift_autogen\include\src\ui\ui_InviteGateway.h: phony EventGift_autogen\timestamp || EventGift_autogen_timestamp_deps
+build CMakeFiles\EventGift_autogen EventGift_autogen\include\src\ui\ui_StartMenu.h EventGift_autogen\include\src\ui\ui_Login.h EventGift_autogen\include\src\ui\ui_Register.h EventGift_autogen\include\src\ui\ui_InviteGateway.h EventGift_autogen\include\src\ui\ui_MainWindow.h | ${cmake_ninja_workdir}CMakeFiles\EventGift_autogen ${cmake_ninja_workdir}EventGift_autogen\include\src\ui\ui_StartMenu.h ${cmake_ninja_workdir}EventGift_autogen\include\src\ui\ui_Login.h ${cmake_ninja_workdir}EventGift_autogen\include\src\ui\ui_Register.h ${cmake_ninja_workdir}EventGift_autogen\include\src\ui\ui_InviteGateway.h ${cmake_ninja_workdir}EventGift_autogen\include\src\ui\ui_MainWindow.h: phony EventGift_autogen\timestamp || EventGift_autogen_timestamp_deps
 
 
 #############################################
 # Phony custom command for CMakeFiles\sqlite3_autogen
 
-build CMakeFiles\sqlite3_autogen sqlite3_autogen\include\src\ui\ui_StartMenu.h sqlite3_autogen\include\src\ui\ui_Login.h sqlite3_autogen\include\src\ui\ui_Register.h sqlite3_autogen\include\src\ui\ui_InviteGateway.h | ${cmake_ninja_workdir}CMakeFiles\sqlite3_autogen ${cmake_ninja_workdir}sqlite3_autogen\include\src\ui\ui_StartMenu.h ${cmake_ninja_workdir}sqlite3_autogen\include\src\ui\ui_Login.h ${cmake_ninja_workdir}sqlite3_autogen\include\src\ui\ui_Register.h ${cmake_ninja_workdir}sqlite3_autogen\include\src\ui\ui_InviteGateway.h: phony sqlite3_autogen\timestamp || sqlite3_autogen_timestamp_deps
+build CMakeFiles\sqlite3_autogen sqlite3_autogen\include\src\ui\ui_StartMenu.h sqlite3_autogen\include\src\ui\ui_Login.h sqlite3_autogen\include\src\ui\ui_Register.h sqlite3_autogen\include\src\ui\ui_InviteGateway.h sqlite3_autogen\include\src\ui\ui_MainWindow.h | ${cmake_ninja_workdir}CMakeFiles\sqlite3_autogen ${cmake_ninja_workdir}sqlite3_autogen\include\src\ui\ui_StartMenu.h ${cmake_ninja_workdir}sqlite3_autogen\include\src\ui\ui_Login.h ${cmake_ninja_workdir}sqlite3_autogen\include\src\ui\ui_Register.h ${cmake_ninja_workdir}sqlite3_autogen\include\src\ui\ui_InviteGateway.h ${cmake_ninja_workdir}sqlite3_autogen\include\src\ui\ui_MainWindow.h: phony sqlite3_autogen\timestamp || sqlite3_autogen_timestamp_deps
 
 
 #############################################
 # Phony custom command for CMakeFiles\Server_autogen
 
-build CMakeFiles\Server_autogen Server_autogen\include\src\ui\ui_StartMenu.h Server_autogen\include\src\ui\ui_Login.h Server_autogen\include\src\ui\ui_Register.h Server_autogen\include\src\ui\ui_InviteGateway.h | ${cmake_ninja_workdir}CMakeFiles\Server_autogen ${cmake_ninja_workdir}Server_autogen\include\src\ui\ui_StartMenu.h ${cmake_ninja_workdir}Server_autogen\include\src\ui\ui_Login.h ${cmake_ninja_workdir}Server_autogen\include\src\ui\ui_Register.h ${cmake_ninja_workdir}Server_autogen\include\src\ui\ui_InviteGateway.h: phony Server_autogen\timestamp || Server_autogen_timestamp_deps sqlite3.lib sqlite3_autogen sqlite3_autogen_timestamp_deps
+build CMakeFiles\Server_autogen Server_autogen\include\src\ui\ui_StartMenu.h Server_autogen\include\src\ui\ui_Login.h Server_autogen\include\src\ui\ui_Register.h Server_autogen\include\src\ui\ui_InviteGateway.h Server_autogen\include\src\ui\ui_MainWindow.h | ${cmake_ninja_workdir}CMakeFiles\Server_autogen ${cmake_ninja_workdir}Server_autogen\include\src\ui\ui_StartMenu.h ${cmake_ninja_workdir}Server_autogen\include\src\ui\ui_Login.h ${cmake_ninja_workdir}Server_autogen\include\src\ui\ui_Register.h ${cmake_ninja_workdir}Server_autogen\include\src\ui\ui_InviteGateway.h ${cmake_ninja_workdir}Server_autogen\include\src\ui\ui_MainWindow.h: phony Server_autogen\timestamp || Server_autogen_timestamp_deps sqlite3.lib sqlite3_autogen sqlite3_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.

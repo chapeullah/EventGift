@@ -4,6 +4,7 @@
 #include "ui/Login.h"
 #include "ui/Register.h"
 #include "ui/InviteGateway.h"
+#include "ui/MainWindow.h"
 
 #include "ClientServer.h"
 #include "Logger.h"
@@ -19,6 +20,7 @@ App::App(int argc, char *argv[])
     login_ = new Login();
     register_ = new Register();
     inviteGateway_ = new InviteGateway();
+    mainWindow_ = new MainWindow();
 
     QVBoxLayout *layout = new QVBoxLayout(&qWidget_);
 
@@ -29,6 +31,7 @@ App::App(int argc, char *argv[])
     qStackedWidget_->addWidget(login_);
     qStackedWidget_->addWidget(register_);
     qStackedWidget_->addWidget(inviteGateway_);
+    qStackedWidget_->addWidget(mainWindow_);
 
     QObject::connect(
         startMenu_, 
@@ -80,7 +83,7 @@ App::App(int argc, char *argv[])
             )
             {
                 SessionManager::createSession(strEmail);
-                qStackedWidget_->setCurrentWidget(inviteGateway_);
+                qStackedWidget_->setCurrentWidget(mainWindow_);
                 QMessageBox::information(
                     &qWidget_,
                     "Success",
@@ -165,13 +168,13 @@ App::App(int argc, char *argv[])
 
     if (ClientServer::sendVerifySessionRequest())
     {
-        qStackedWidget_->setCurrentIndex(3);
-        Logger::info("CODE", "Current index 3");
+        qStackedWidget_->setCurrentWidget(mainWindow_);
+        Logger::info("CODE", "Current widget mainWindow_");
     }
     else
     {
-        qStackedWidget_->setCurrentIndex(0);
-        Logger::info("CODE", "Current index 0");
+        qStackedWidget_->setCurrentWidget(startMenu_);
+        Logger::info("CODE", "Current widget startMenu_");
     }
 
     qWidget_.setFixedSize(800, 600);

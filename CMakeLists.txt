@@ -35,6 +35,9 @@ add_executable(EventGift
     src/ui/InviteGateway.cpp
     src/ui/InviteGateway.h
     src/ui/InviteGateway.ui
+    src/ui/MainWindow.cpp
+    src/ui/MainWindow.h
+    src/ui/MainWindow.ui
     ${APP_ICON_RESOURCE_WINDOWS}
 )
 

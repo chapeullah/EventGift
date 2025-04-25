@@ -1,10 +1,9 @@
-[04:32:53] [INFO] [DB] Database connection success: database/eventgift.db
-[04:32:53] [INFO] [DB] Table created or already exists
-[04:32:55] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[04:32:56] [INFO] [SERVER] Server is starting
-[04:32:56] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
-[04:32:57] [INFO] [DB] Request from192.168.0.25: Session validation success
-[04:33:10] [INFO] [SERVER] Request from "192.168.0.25": "{"email":"admin","password":"admin"}"
-[04:33:10] [INFO] [DB] User "admin" attempted to log in: success
-[04:33:31] [INFO] [SERVER] Request from "192.168.0.25": "{"email":"admin","password":"admin"}"
-[04:33:31] [INFO] [DB] User "admin" attempted to log in: success
+[05:45:12] [INFO] [DB] Database connection success: database/eventgift.db
+[05:45:12] [INFO] [DB] Table created or already exists
+[05:45:14] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
+[05:45:15] [INFO] [SERVER] Server is starting
+[05:45:15] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
+[05:45:18] [INFO] [DB] Request from192.168.0.25: Session validation success
+[06:04:52] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
+[06:04:52] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
+[06:04:52] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit

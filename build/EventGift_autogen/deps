@@ -527,12 +527,15 @@ EventGift_autogen/timestamp: \
 	C:/projects/EventGift/src/ui/InviteGateway.h \
 	C:/projects/EventGift/src/ui/Login.cpp \
 	C:/projects/EventGift/src/ui/Login.h \
+	C:/projects/EventGift/src/ui/MainWindow.cpp \
+	C:/projects/EventGift/src/ui/MainWindow.h \
 	C:/projects/EventGift/src/ui/Register.cpp \
 	C:/projects/EventGift/src/ui/Register.h \
 	C:/projects/EventGift/src/ui/StartMenu.cpp \
 	C:/projects/EventGift/src/ui/StartMenu.h \
 	C:/projects/EventGift/src/ui/InviteGateway.ui \
 	C:/projects/EventGift/src/ui/Login.ui \
+	C:/projects/EventGift/src/ui/MainWindow.ui \
 	C:/projects/EventGift/src/ui/Register.ui \
 	C:/projects/EventGift/src/ui/StartMenu.ui \
 	C:/Program\ Files/CMake/bin/cmake.exe
