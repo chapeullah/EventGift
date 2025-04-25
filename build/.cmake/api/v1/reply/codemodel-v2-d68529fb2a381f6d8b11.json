@@ -55,7 +55,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "EventGift::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-EventGift-Debug-8a9f4c6d5d977949e5f2.json",
+					"jsonFile" : "target-EventGift-Debug-3fb99a71c62d16b20aa1.json",
 					"name" : "EventGift",
 					"projectIndex" : 0
 				},
@@ -76,7 +76,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Server::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Server-Debug-ac5fe91ed2652b8d89cd.json",
+					"jsonFile" : "target-Server-Debug-577232bfad7de54b8da1.json",
 					"name" : "Server",
 					"projectIndex" : 0
 				},
@@ -97,7 +97,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "sqlite3::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-sqlite3-Debug-084b3c4f69dd2a9c9f64.json",
+					"jsonFile" : "target-sqlite3-Debug-556261ce43c5cf74ef19.json",
 					"name" : "sqlite3",
 					"projectIndex" : 0
 				},
