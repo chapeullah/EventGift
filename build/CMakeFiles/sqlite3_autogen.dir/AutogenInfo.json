@@ -364,6 +364,7 @@
 	"MOC_SKIP" : 
 	[
 		"C:/projects/EventGift/build/EventGift_autogen/include/src/ui/ui_CreateEventWindow.h",
+		"C:/projects/EventGift/build/EventGift_autogen/include/src/ui/ui_GiftWidget.h",
 		"C:/projects/EventGift/build/EventGift_autogen/include/src/ui/ui_InviteGateway.h",
 		"C:/projects/EventGift/build/EventGift_autogen/include/src/ui/ui_Login.h",
 		"C:/projects/EventGift/build/EventGift_autogen/include/src/ui/ui_Register.h",
@@ -387,6 +388,7 @@
 	"UIC_SKIP" : 
 	[
 		"C:/projects/EventGift/build/EventGift_autogen/include/src/ui/ui_CreateEventWindow.h",
+		"C:/projects/EventGift/build/EventGift_autogen/include/src/ui/ui_GiftWidget.h",
 		"C:/projects/EventGift/build/EventGift_autogen/include/src/ui/ui_InviteGateway.h",
 		"C:/projects/EventGift/build/EventGift_autogen/include/src/ui/ui_Login.h",
 		"C:/projects/EventGift/build/EventGift_autogen/include/src/ui/ui_Register.h",

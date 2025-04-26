@@ -85,8 +85,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-oc2dpl"
-      binary: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-oc2dpl"
+      source: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-65f9o9"
+      binary: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-65f9o9"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Program Files/LLVM/bin/clang-scan-deps.exe"
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
@@ -96,11 +96,11 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-oc2dpl'
+        Change Dir: 'C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-65f9o9'
         
-        Run Build Command(s): C:/MinGW-w64/mingw64/bin/ninja.exe -v cmTC_f43d8
-        [1/2] C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo   /DWIN32 /D_WINDOWS  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_f43d8.dir\\CMakeCCompilerABI.c.obj /FdCMakeFiles\\cmTC_f43d8.dir\\ -c -- "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_f43d8.dir --rc=C:\\PROGRA~1\\LLVM\\bin\\llvm-rc.exe --mt=C:\\PROGRA~1\\LLVM\\bin\\llvm-mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_f43d8.dir\\CMakeCCompilerABI.c.obj  /out:cmTC_f43d8.exe /implib:cmTC_f43d8.lib /pdb:cmTC_f43d8.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console   && cd ."
+        Run Build Command(s): C:/MinGW-w64/mingw64/bin/ninja.exe -v cmTC_41bab
+        [1/2] C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo   /DWIN32 /D_WINDOWS  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_41bab.dir\\CMakeCCompilerABI.c.obj /FdCMakeFiles\\cmTC_41bab.dir\\ -c -- "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_41bab.dir --rc=C:\\PROGRA~1\\LLVM\\bin\\llvm-rc.exe --mt=C:\\PROGRA~1\\LLVM\\bin\\llvm-mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_41bab.dir\\CMakeCCompilerABI.c.obj  /out:cmTC_41bab.exe /implib:cmTC_41bab.lib /pdb:cmTC_41bab.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console   && cd ."
         
       exitCode: 0
   -
@@ -161,8 +161,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-ykgot4"
-      binary: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-ykgot4"
+      source: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-xno6kq"
+      binary: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-xno6kq"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Program Files/LLVM/bin/clang-scan-deps.exe"
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
@@ -173,11 +173,11 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-ykgot4'
+        Change Dir: 'C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-xno6kq'
         
-        Run Build Command(s): C:/MinGW-w64/mingw64/bin/ninja.exe -v cmTC_04359
-        [1/2] C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP   /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_04359.dir\\CMakeCXXCompilerABI.cpp.obj /FdCMakeFiles\\cmTC_04359.dir\\ -c -- "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCXXCompilerABI.cpp"
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_04359.dir --rc=C:\\PROGRA~1\\LLVM\\bin\\llvm-rc.exe --mt=C:\\PROGRA~1\\LLVM\\bin\\llvm-mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_04359.dir\\CMakeCXXCompilerABI.cpp.obj  /out:cmTC_04359.exe /implib:cmTC_04359.lib /pdb:cmTC_04359.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console   && cd ."
+        Run Build Command(s): C:/MinGW-w64/mingw64/bin/ninja.exe -v cmTC_52763
+        [1/2] C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP   /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_52763.dir\\CMakeCXXCompilerABI.cpp.obj /FdCMakeFiles\\cmTC_52763.dir\\ -c -- "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCXXCompilerABI.cpp"
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_52763.dir --rc=C:\\PROGRA~1\\LLVM\\bin\\llvm-rc.exe --mt=C:\\PROGRA~1\\LLVM\\bin\\llvm-mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_52763.dir\\CMakeCXXCompilerABI.cpp.obj  /out:cmTC_52763.exe /implib:cmTC_52763.lib /pdb:cmTC_52763.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console   && cd ."
         
       exitCode: 0
   -
@@ -241,8 +241,8 @@ events:
     checks:
       - "Detecting CXX compile features"
     directories:
-      source: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-h89wy4"
-      binary: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-h89wy4"
+      source: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-zx340d"
+      binary: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-zx340d"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Program Files/LLVM/bin/clang-scan-deps.exe"
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
@@ -252,11 +252,11 @@ events:
       variable: "CMAKE_CXX_FEATURE_TEST"
       cached: true
       stdout: |
-        Change Dir: 'C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-h89wy4'
+        Change Dir: 'C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-zx340d'
         
-        Run Build Command(s): C:/MinGW-w64/mingw64/bin/ninja.exe -v cmTC_289fd
-        [1/2] C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP   /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd   -std:c++14 /showIncludes /FoCMakeFiles\\cmTC_289fd.dir\\feature_tests.cxx.obj /FdCMakeFiles\\cmTC_289fd.dir\\ -c -- C:\\projects\\EventGift\\build\\CMakeFiles\\CMakeScratch\\TryCompile-h89wy4\\feature_tests.cxx
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_289fd.dir --rc=C:\\PROGRA~1\\LLVM\\bin\\llvm-rc.exe --mt=C:\\PROGRA~1\\LLVM\\bin\\llvm-mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_289fd.dir\\feature_tests.cxx.obj  /out:cmTC_289fd.exe /implib:cmTC_289fd.lib /pdb:cmTC_289fd.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        Run Build Command(s): C:/MinGW-w64/mingw64/bin/ninja.exe -v cmTC_f2d5f
+        [1/2] C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP   /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd   -std:c++14 /showIncludes /FoCMakeFiles\\cmTC_f2d5f.dir\\feature_tests.cxx.obj /FdCMakeFiles\\cmTC_f2d5f.dir\\ -c -- C:\\projects\\EventGift\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zx340d\\feature_tests.cxx
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_f2d5f.dir --rc=C:\\PROGRA~1\\LLVM\\bin\\llvm-rc.exe --mt=C:\\PROGRA~1\\LLVM\\bin\\llvm-mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_f2d5f.dir\\feature_tests.cxx.obj  /out:cmTC_f2d5f.exe /implib:cmTC_f2d5f.lib /pdb:cmTC_f2d5f.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
         
       exitCode: 0
   -
@@ -271,8 +271,8 @@ events:
     checks:
       - "Detecting CXX compile features"
     directories:
-      source: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-bdrhft"
-      binary: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-bdrhft"
+      source: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-1apl1i"
+      binary: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-1apl1i"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Program Files/LLVM/bin/clang-scan-deps.exe"
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
@@ -282,11 +282,11 @@ events:
       variable: "CMAKE_CXX_FEATURE_TEST"
       cached: true
       stdout: |
-        Change Dir: 'C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-bdrhft'
+        Change Dir: 'C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-1apl1i'
         
-        Run Build Command(s): C:/MinGW-w64/mingw64/bin/ninja.exe -v cmTC_0ffcd
-        [1/2] C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP   /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_0ffcd.dir\\feature_tests.cxx.obj /FdCMakeFiles\\cmTC_0ffcd.dir\\ -c -- C:\\projects\\EventGift\\build\\CMakeFiles\\CMakeScratch\\TryCompile-bdrhft\\feature_tests.cxx
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_0ffcd.dir --rc=C:\\PROGRA~1\\LLVM\\bin\\llvm-rc.exe --mt=C:\\PROGRA~1\\LLVM\\bin\\llvm-mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_0ffcd.dir\\feature_tests.cxx.obj  /out:cmTC_0ffcd.exe /implib:cmTC_0ffcd.lib /pdb:cmTC_0ffcd.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        Run Build Command(s): C:/MinGW-w64/mingw64/bin/ninja.exe -v cmTC_e44cc
+        [1/2] C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP   /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_e44cc.dir\\feature_tests.cxx.obj /FdCMakeFiles\\cmTC_e44cc.dir\\ -c -- C:\\projects\\EventGift\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1apl1i\\feature_tests.cxx
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_e44cc.dir --rc=C:\\PROGRA~1\\LLVM\\bin\\llvm-rc.exe --mt=C:\\PROGRA~1\\LLVM\\bin\\llvm-mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_e44cc.dir\\feature_tests.cxx.obj  /out:cmTC_e44cc.exe /implib:cmTC_e44cc.lib /pdb:cmTC_e44cc.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
         
       exitCode: 0
   -
@@ -304,8 +304,8 @@ events:
     checks:
       - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
     directories:
-      source: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-7q1es8"
-      binary: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-7q1es8"
+      source: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-tvpeyk"
+      binary: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-tvpeyk"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Program Files/LLVM/bin/clang-scan-deps.exe"
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
@@ -316,13 +316,13 @@ events:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: 'C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-7q1es8'
+        Change Dir: 'C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-tvpeyk'
         
-        Run Build Command(s): C:/MinGW-w64/mingw64/bin/ninja.exe -v cmTC_5e2cb
-        [1/2] C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -DCMAKE_HAVE_LIBC_PTHREAD  /DWIN32 /D_WINDOWS  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_5e2cb.dir\\src.c.obj /FdCMakeFiles\\cmTC_5e2cb.dir\\ -c -- C:\\projects\\EventGift\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7q1es8\\src.c
-        FAILED: CMakeFiles/cmTC_5e2cb.dir/src.c.obj 
-        C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -DCMAKE_HAVE_LIBC_PTHREAD  /DWIN32 /D_WINDOWS  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_5e2cb.dir\\src.c.obj /FdCMakeFiles\\cmTC_5e2cb.dir\\ -c -- C:\\projects\\EventGift\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7q1es8\\src.c
-        C:\\projects\\EventGift\\build\\CMakeFiles\\CMakeScratch\\TryCompile-7q1es8\\src.c(1,10): fatal error: 'pthread.h' file not found
+        Run Build Command(s): C:/MinGW-w64/mingw64/bin/ninja.exe -v cmTC_62efb
+        [1/2] C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -DCMAKE_HAVE_LIBC_PTHREAD  /DWIN32 /D_WINDOWS  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_62efb.dir\\src.c.obj /FdCMakeFiles\\cmTC_62efb.dir\\ -c -- C:\\projects\\EventGift\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tvpeyk\\src.c
+        FAILED: CMakeFiles/cmTC_62efb.dir/src.c.obj 
+        C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -DCMAKE_HAVE_LIBC_PTHREAD  /DWIN32 /D_WINDOWS  /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_62efb.dir\\src.c.obj /FdCMakeFiles\\cmTC_62efb.dir\\ -c -- C:\\projects\\EventGift\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tvpeyk\\src.c
+        C:\\projects\\EventGift\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tvpeyk\\src.c(1,10): fatal error: 'pthread.h' file not found
             1 | #include <pthread.h>
               |          ^~~~~~~~~~~
         1 error generated.
@@ -343,8 +343,8 @@ events:
     checks:
       - "Looking for pthread_create in pthreads"
     directories:
-      source: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-9i5wob"
-      binary: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-9i5wob"
+      source: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-rnkoca"
+      binary: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-rnkoca"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Program Files/LLVM/bin/clang-scan-deps.exe"
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
@@ -355,14 +355,14 @@ events:
       variable: "CMAKE_HAVE_PTHREADS_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-9i5wob'
+        Change Dir: 'C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-rnkoca'
         
-        Run Build Command(s): C:/MinGW-w64/mingw64/bin/ninja.exe -v cmTC_713f8
-        [1/2] C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo   /DWIN32 /D_WINDOWS -DCHECK_FUNCTION_EXISTS=pthread_create /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_713f8.dir\\CheckFunctionExists.c.obj /FdCMakeFiles\\cmTC_713f8.dir\\ -c -- C:\\projects\\EventGift\\build\\CMakeFiles\\CMakeScratch\\TryCompile-9i5wob\\CheckFunctionExists.c
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_713f8.dir --rc=C:\\PROGRA~1\\LLVM\\bin\\llvm-rc.exe --mt=C:\\PROGRA~1\\LLVM\\bin\\llvm-mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_713f8.dir\\CheckFunctionExists.c.obj  /out:cmTC_713f8.exe /implib:cmTC_713f8.lib /pdb:cmTC_713f8.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthreads.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
-        FAILED: cmTC_713f8.exe 
-        C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_713f8.dir --rc=C:\\PROGRA~1\\LLVM\\bin\\llvm-rc.exe --mt=C:\\PROGRA~1\\LLVM\\bin\\llvm-mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_713f8.dir\\CheckFunctionExists.c.obj  /out:cmTC_713f8.exe /implib:cmTC_713f8.lib /pdb:cmTC_713f8.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthreads.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
-        LINK Pass 1: command "C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_713f8.dir\\CheckFunctionExists.c.obj /out:cmTC_713f8.exe /implib:cmTC_713f8.lib /pdb:cmTC_713f8.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_713f8.dir/intermediate.manifest CMakeFiles\\cmTC_713f8.dir/manifest.res" failed (exit code 1) with the following output:
+        Run Build Command(s): C:/MinGW-w64/mingw64/bin/ninja.exe -v cmTC_fd4ea
+        [1/2] C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo   /DWIN32 /D_WINDOWS -DCHECK_FUNCTION_EXISTS=pthread_create /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_fd4ea.dir\\CheckFunctionExists.c.obj /FdCMakeFiles\\cmTC_fd4ea.dir\\ -c -- C:\\projects\\EventGift\\build\\CMakeFiles\\CMakeScratch\\TryCompile-rnkoca\\CheckFunctionExists.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_fd4ea.dir --rc=C:\\PROGRA~1\\LLVM\\bin\\llvm-rc.exe --mt=C:\\PROGRA~1\\LLVM\\bin\\llvm-mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_fd4ea.dir\\CheckFunctionExists.c.obj  /out:cmTC_fd4ea.exe /implib:cmTC_fd4ea.lib /pdb:cmTC_fd4ea.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthreads.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        FAILED: cmTC_fd4ea.exe 
+        C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_fd4ea.dir --rc=C:\\PROGRA~1\\LLVM\\bin\\llvm-rc.exe --mt=C:\\PROGRA~1\\LLVM\\bin\\llvm-mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_fd4ea.dir\\CheckFunctionExists.c.obj  /out:cmTC_fd4ea.exe /implib:cmTC_fd4ea.lib /pdb:cmTC_fd4ea.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthreads.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        LINK Pass 1: command "C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_fd4ea.dir\\CheckFunctionExists.c.obj /out:cmTC_fd4ea.exe /implib:cmTC_fd4ea.lib /pdb:cmTC_fd4ea.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_fd4ea.dir/intermediate.manifest CMakeFiles\\cmTC_fd4ea.dir/manifest.res" failed (exit code 1) with the following output:
         lld-link: error: could not open 'pthreads.lib': no such file or directory\x0d
         ninja: build stopped: subcommand failed.
         
@@ -381,8 +381,8 @@ events:
     checks:
       - "Looking for pthread_create in pthread"
     directories:
-      source: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-j98b0k"
-      binary: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-j98b0k"
+      source: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-h1eonv"
+      binary: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-h1eonv"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Program Files/LLVM/bin/clang-scan-deps.exe"
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
@@ -393,14 +393,14 @@ events:
       variable: "CMAKE_HAVE_PTHREAD_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-j98b0k'
+        Change Dir: 'C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-h1eonv'
         
-        Run Build Command(s): C:/MinGW-w64/mingw64/bin/ninja.exe -v cmTC_23b22
-        [1/2] C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo   /DWIN32 /D_WINDOWS -DCHECK_FUNCTION_EXISTS=pthread_create /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_23b22.dir\\CheckFunctionExists.c.obj /FdCMakeFiles\\cmTC_23b22.dir\\ -c -- C:\\projects\\EventGift\\build\\CMakeFiles\\CMakeScratch\\TryCompile-j98b0k\\CheckFunctionExists.c
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_23b22.dir --rc=C:\\PROGRA~1\\LLVM\\bin\\llvm-rc.exe --mt=C:\\PROGRA~1\\LLVM\\bin\\llvm-mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_23b22.dir\\CheckFunctionExists.c.obj  /out:cmTC_23b22.exe /implib:cmTC_23b22.lib /pdb:cmTC_23b22.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthread.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
-        FAILED: cmTC_23b22.exe 
-        C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_23b22.dir --rc=C:\\PROGRA~1\\LLVM\\bin\\llvm-rc.exe --mt=C:\\PROGRA~1\\LLVM\\bin\\llvm-mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_23b22.dir\\CheckFunctionExists.c.obj  /out:cmTC_23b22.exe /implib:cmTC_23b22.lib /pdb:cmTC_23b22.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthread.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
-        LINK Pass 1: command "C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_23b22.dir\\CheckFunctionExists.c.obj /out:cmTC_23b22.exe /implib:cmTC_23b22.lib /pdb:cmTC_23b22.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_23b22.dir/intermediate.manifest CMakeFiles\\cmTC_23b22.dir/manifest.res" failed (exit code 1) with the following output:
+        Run Build Command(s): C:/MinGW-w64/mingw64/bin/ninja.exe -v cmTC_efa36
+        [1/2] C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo   /DWIN32 /D_WINDOWS -DCHECK_FUNCTION_EXISTS=pthread_create /Zi /Ob0 /Od /RTC1 -MDd /showIncludes /FoCMakeFiles\\cmTC_efa36.dir\\CheckFunctionExists.c.obj /FdCMakeFiles\\cmTC_efa36.dir\\ -c -- C:\\projects\\EventGift\\build\\CMakeFiles\\CMakeScratch\\TryCompile-h1eonv\\CheckFunctionExists.c
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_efa36.dir --rc=C:\\PROGRA~1\\LLVM\\bin\\llvm-rc.exe --mt=C:\\PROGRA~1\\LLVM\\bin\\llvm-mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_efa36.dir\\CheckFunctionExists.c.obj  /out:cmTC_efa36.exe /implib:cmTC_efa36.lib /pdb:cmTC_efa36.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthread.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        FAILED: cmTC_efa36.exe 
+        C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_efa36.dir --rc=C:\\PROGRA~1\\LLVM\\bin\\llvm-rc.exe --mt=C:\\PROGRA~1\\LLVM\\bin\\llvm-mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_efa36.dir\\CheckFunctionExists.c.obj  /out:cmTC_efa36.exe /implib:cmTC_efa36.lib /pdb:cmTC_efa36.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  pthread.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        LINK Pass 1: command "C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_efa36.dir\\CheckFunctionExists.c.obj /out:cmTC_efa36.exe /implib:cmTC_efa36.lib /pdb:cmTC_efa36.pdb /version:0.0 /machine:x64 /debug /INCREMENTAL /subsystem:console pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTFILE:CMakeFiles\\cmTC_efa36.dir/intermediate.manifest CMakeFiles\\cmTC_efa36.dir/manifest.res" failed (exit code 1) with the following output:
         lld-link: error: could not open 'pthread.lib': no such file or directory\x0d
         ninja: build stopped: subcommand failed.
         
@@ -424,8 +424,8 @@ events:
     checks:
       - "Performing Test HAVE_STDATOMIC"
     directories:
-      source: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-e111bi"
-      binary: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-e111bi"
+      source: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-owgtpo"
+      binary: "C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-owgtpo"
     cmakeVariables:
       CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "C:/Program Files/LLVM/bin/clang-scan-deps.exe"
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /GR /EHsc"
@@ -436,11 +436,11 @@ events:
       variable: "HAVE_STDATOMIC"
       cached: true
       stdout: |
-        Change Dir: 'C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-e111bi'
+        Change Dir: 'C:/projects/EventGift/build/CMakeFiles/CMakeScratch/TryCompile-owgtpo'
         
-        Run Build Command(s): C:/MinGW-w64/mingw64/bin/ninja.exe -v cmTC_00397
-        [1/2] C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP -DHAVE_STDATOMIC  /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd /showIncludes /FoCMakeFiles\\cmTC_00397.dir\\src.cxx.obj /FdCMakeFiles\\cmTC_00397.dir\\ -c -- C:\\projects\\EventGift\\build\\CMakeFiles\\CMakeScratch\\TryCompile-e111bi\\src.cxx
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_00397.dir --rc=C:\\PROGRA~1\\LLVM\\bin\\llvm-rc.exe --mt=C:\\PROGRA~1\\LLVM\\bin\\llvm-mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_00397.dir\\src.cxx.obj  /out:cmTC_00397.exe /implib:cmTC_00397.lib /pdb:cmTC_00397.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
+        Run Build Command(s): C:/MinGW-w64/mingw64/bin/ninja.exe -v cmTC_08bf1
+        [1/2] C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP -DHAVE_STDATOMIC  /DWIN32 /D_WINDOWS /GR /EHsc  /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd /showIncludes /FoCMakeFiles\\cmTC_08bf1.dir\\src.cxx.obj /FdCMakeFiles\\cmTC_08bf1.dir\\ -c -- C:\\projects\\EventGift\\build\\CMakeFiles\\CMakeScratch\\TryCompile-owgtpo\\src.cxx
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && "C:\\Program Files\\CMake\\bin\\cmake.exe" -E vs_link_exe --msvc-ver=1943 --intdir=CMakeFiles\\cmTC_08bf1.dir --rc=C:\\PROGRA~1\\LLVM\\bin\\llvm-rc.exe --mt=C:\\PROGRA~1\\LLVM\\bin\\llvm-mt.exe --manifests  -- C:\\PROGRA~1\\LLVM\\bin\\lld-link.exe /nologo CMakeFiles\\cmTC_08bf1.dir\\src.cxx.obj  /out:cmTC_08bf1.exe /implib:cmTC_08bf1.lib /pdb:cmTC_08bf1.pdb /version:0.0 /machine:x64  /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib && cd ."
         
       exitCode: 0
 ...

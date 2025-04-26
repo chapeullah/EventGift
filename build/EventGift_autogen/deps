@@ -525,6 +525,8 @@ EventGift_autogen/timestamp: \
 	C:/projects/EventGift/src/Time.h \
 	C:/projects/EventGift/src/ui/CreateEventWindow.cpp \
 	C:/projects/EventGift/src/ui/CreateEventWindow.h \
+	C:/projects/EventGift/src/ui/GiftWidget.cpp \
+	C:/projects/EventGift/src/ui/GiftWidget.h \
 	C:/projects/EventGift/src/ui/InviteGateway.cpp \
 	C:/projects/EventGift/src/ui/InviteGateway.h \
 	C:/projects/EventGift/src/ui/Login.cpp \
@@ -534,6 +536,7 @@ EventGift_autogen/timestamp: \
 	C:/projects/EventGift/src/ui/StartMenu.cpp \
 	C:/projects/EventGift/src/ui/StartMenu.h \
 	C:/projects/EventGift/src/ui/CreateEventWindow.ui \
+	C:/projects/EventGift/src/ui/GiftWidget.ui \
 	C:/projects/EventGift/src/ui/InviteGateway.ui \
 	C:/projects/EventGift/src/ui/Login.ui \
 	C:/projects/EventGift/src/ui/Register.ui \

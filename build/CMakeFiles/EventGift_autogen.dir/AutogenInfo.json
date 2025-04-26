@@ -365,6 +365,12 @@
 			null
 		],
 		[
+			"C:/projects/EventGift/src/ui/GiftWidget.h",
+			"MU",
+			"YPKJ5OE7LN/moc_GiftWidget.cpp",
+			null
+		],
+		[
 			"C:/projects/EventGift/src/ui/InviteGateway.h",
 			"MU",
 			"YPKJ5OE7LN/moc_InviteGateway.cpp",
@@ -453,6 +459,7 @@
 		[ "C:/projects/EventGift/src/SessionManager.cpp", "MU", null ],
 		[ "C:/projects/EventGift/src/Time.cpp", "MU", null ],
 		[ "C:/projects/EventGift/src/ui/CreateEventWindow.cpp", "MU", null ],
+		[ "C:/projects/EventGift/src/ui/GiftWidget.cpp", "MU", null ],
 		[ "C:/projects/EventGift/src/ui/InviteGateway.cpp", "MU", null ],
 		[ "C:/projects/EventGift/src/ui/Login.cpp", "MU", null ],
 		[ "C:/projects/EventGift/src/ui/Register.cpp", "MU", null ],

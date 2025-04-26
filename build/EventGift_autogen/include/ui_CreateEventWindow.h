@@ -76,7 +76,6 @@ public:
         scrollAreaGifts->setWidgetResizable(true);
         scrollAreaWidgetContentsGifts = new QWidget();
         scrollAreaWidgetContentsGifts->setObjectName("scrollAreaWidgetContentsGifts");
-        scrollAreaWidgetContentsGifts->setGeometry(QRect(0, 0, 230, 513));
         giftListLayout = new QVBoxLayout(scrollAreaWidgetContentsGifts);
         giftListLayout->setObjectName("giftListLayout");
         scrollAreaGifts->setWidget(scrollAreaWidgetContentsGifts);

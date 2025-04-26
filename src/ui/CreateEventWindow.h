@@ -16,5 +16,7 @@ public:
     ~CreateEventWindow();
 
 private:
+    void addGift();
+
     Ui::CreateEventWindow *ui_;
 };

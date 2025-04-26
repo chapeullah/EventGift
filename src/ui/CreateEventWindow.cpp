@@ -2,12 +2,19 @@
 
 #include "ui_CreateEventWindow.h"
 
+#include "GiftWidget.h"
+
 #include <QTimer>
+#include <QCheckBox>
 
 CreateEventWindow::CreateEventWindow(QWidget *parent)
     : QWidget(parent), ui_(new Ui::CreateEventWindow)
 {
     ui_->setupUi(this);
+
+    
+
+    ui_->giftListLayout->setAlignment(Qt::AlignTop);
 
     connect(
         ui_->addGift, 
@@ -15,15 +22,7 @@ CreateEventWindow::CreateEventWindow(QWidget *parent)
         this, 
         [this]()
         {
-            QLabel *giftLabel = new QLabel(
-                "Some gift", 
-                ui_->scrollAreaWidgetContentsGifts
-            );
-            giftLabel->setSizePolicy(
-                QSizePolicy::Preferred, 
-                QSizePolicy::Maximum
-            );
-            ui_->giftListLayout->addWidget(giftLabel);
+            GiftWidget *giftWidget = new GiftWidget();
         }
     );
 }
