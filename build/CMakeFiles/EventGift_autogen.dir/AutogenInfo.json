@@ -359,6 +359,12 @@
 			null
 		],
 		[
+			"C:/projects/EventGift/src/ui/CreateEventWindow.h",
+			"MU",
+			"YPKJ5OE7LN/moc_CreateEventWindow.cpp",
+			null
+		],
+		[
 			"C:/projects/EventGift/src/ui/InviteGateway.h",
 			"MU",
 			"YPKJ5OE7LN/moc_InviteGateway.cpp",
@@ -368,12 +374,6 @@
 			"C:/projects/EventGift/src/ui/Login.h",
 			"MU",
 			"YPKJ5OE7LN/moc_Login.cpp",
-			null
-		],
-		[
-			"C:/projects/EventGift/src/ui/MainWindow.h",
-			"MU",
-			"YPKJ5OE7LN/moc_MainWindow.cpp",
 			null
 		],
 		[
@@ -452,9 +452,9 @@
 		[ "C:/projects/EventGift/src/Logger.cpp", "MU", null ],
 		[ "C:/projects/EventGift/src/SessionManager.cpp", "MU", null ],
 		[ "C:/projects/EventGift/src/Time.cpp", "MU", null ],
+		[ "C:/projects/EventGift/src/ui/CreateEventWindow.cpp", "MU", null ],
 		[ "C:/projects/EventGift/src/ui/InviteGateway.cpp", "MU", null ],
 		[ "C:/projects/EventGift/src/ui/Login.cpp", "MU", null ],
-		[ "C:/projects/EventGift/src/ui/MainWindow.cpp", "MU", null ],
 		[ "C:/projects/EventGift/src/ui/Register.cpp", "MU", null ],
 		[ "C:/projects/EventGift/src/ui/StartMenu.cpp", "MU", null ]
 	],

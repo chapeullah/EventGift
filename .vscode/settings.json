@@ -88,6 +88,7 @@
         "ranges": "cpp",
         "valarray": "cpp",
         "qkeyevent": "cpp",
-        "qmessagebox": "cpp"
+        "qmessagebox": "cpp",
+        "qtimer": "cpp"
     }
 }

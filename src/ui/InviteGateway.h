@@ -17,6 +17,7 @@ public:
 signals:
     void goBack();
     void applyClicked(const QString &code);
+    void createEvent();
 
 private:
     void attemptJoinEvent();

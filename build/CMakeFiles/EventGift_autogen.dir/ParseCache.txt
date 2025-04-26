@@ -354,7 +354,7 @@ C:/projects/EventGift/src/ui/Login.h
 C:/projects/EventGift/src/ClientServer.h
 C:/projects/EventGift/src/Logger.h
 C:/projects/EventGift/src/Time.h
-C:/projects/EventGift/src/ui/MainWindow.h
+C:/projects/EventGift/src/ui/CreateEventWindow.h
  mmc:Q_OBJECT
  mdp:C:/Qt/6.9.0/msvc2022_64/include/QtCore/q17memory.h
  mdp:C:/Qt/6.9.0/msvc2022_64/include/QtCore/q20functional.h
@@ -513,7 +513,7 @@ C:/projects/EventGift/src/ui/MainWindow.h
  mdp:C:/Qt/6.9.0/msvc2022_64/include/QtWidgets/qtwidgetsexports.h
  mdp:C:/Qt/6.9.0/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h
  mdp:C:/Qt/6.9.0/msvc2022_64/include/QtWidgets/qwidget.h
- mdp:C:/projects/EventGift/src/ui/MainWindow.h
+ mdp:C:/projects/EventGift/src/ui/CreateEventWindow.h
 C:/projects/EventGift/src/SessionManager.cpp
 C:/projects/EventGift/src/ui/Register.h
  mmc:Q_OBJECT
@@ -870,12 +870,12 @@ C:/projects/EventGift/src/Logger.cpp
 C:/projects/EventGift/src/ClientServer.cpp
 C:/projects/EventGift/src/EventGift.cpp
 C:/projects/EventGift/src/Time.cpp
+C:/projects/EventGift/src/ui/CreateEventWindow.cpp
+ uic:ui_CreateEventWindow.h
 C:/projects/EventGift/src/ui/Login.cpp
  uic:ui_Login.h
 C:/projects/EventGift/src/ui/InviteGateway.cpp
  uic:ui_InviteGateway.h
-C:/projects/EventGift/src/ui/MainWindow.cpp
- uic:ui_MainWindow.h
 C:/projects/EventGift/src/ui/Register.cpp
  uic:ui_Register.h
 C:/projects/EventGift/src/ui/StartMenu.cpp

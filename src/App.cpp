@@ -4,7 +4,7 @@
 #include "ui/Login.h"
 #include "ui/Register.h"
 #include "ui/InviteGateway.h"
-#include "ui/MainWindow.h"
+#include "ui/CreateEventWindow.h"
 
 #include "ClientServer.h"
 #include "Logger.h"
@@ -20,7 +20,7 @@ App::App(int argc, char *argv[])
     login_ = new Login();
     register_ = new Register();
     inviteGateway_ = new InviteGateway();
-    mainWindow_ = new MainWindow();
+    createEventWindow_ = new CreateEventWindow();
 
     QVBoxLayout *layout = new QVBoxLayout(&qWidget_);
 
@@ -31,7 +31,7 @@ App::App(int argc, char *argv[])
     qStackedWidget_->addWidget(login_);
     qStackedWidget_->addWidget(register_);
     qStackedWidget_->addWidget(inviteGateway_);
-    qStackedWidget_->addWidget(mainWindow_);
+    qStackedWidget_->addWidget(createEventWindow_);
 
     QObject::connect(
         startMenu_, 
@@ -83,7 +83,7 @@ App::App(int argc, char *argv[])
             )
             {
                 SessionManager::createSession(strEmail);
-                qStackedWidget_->setCurrentWidget(mainWindow_);
+                qStackedWidget_->setCurrentWidget(inviteGateway_);
                 QMessageBox::information(
                     &qWidget_,
                     "Success",
@@ -166,11 +166,21 @@ App::App(int argc, char *argv[])
         }
     );
 
+    QObject::connect(
+        inviteGateway_, 
+        &InviteGateway::createEvent, 
+        [this]() 
+        {
+            Logger::info("APP", "Create event button clicked");
+            qStackedWidget_->setCurrentWidget(createEventWindow_);
+        }
+    );
+
     if (ClientServer::sendVerifySessionRequest())
     {
-        qStackedWidget_->setCurrentWidget(mainWindow_);
-        Logger::info("CODE", "Current widget mainWindow_");
-    }
+        qStackedWidget_->setCurrentWidget(inviteGateway_);
+        Logger::info("CODE", "Current widget inviteGateway_");
+    } 
     else
     {
         qStackedWidget_->setCurrentWidget(startMenu_);

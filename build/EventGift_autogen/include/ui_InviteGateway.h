@@ -23,6 +23,7 @@ public:
     QLineEdit *codeLineEdit;
     QPushButton *Apply;
     QPushButton *Logout;
+    QPushButton *CreateEvent;
 
     void setupUi(QWidget *InviteGateway)
     {
@@ -59,6 +60,11 @@ public:
         Logout->setGeometry(QRect(315, 340, 71, 41));
         sizePolicy.setHeightForWidth(Logout->sizePolicy().hasHeightForWidth());
         Logout->setSizePolicy(sizePolicy);
+        CreateEvent = new QPushButton(InviteGateway);
+        CreateEvent->setObjectName("CreateEvent");
+        CreateEvent->setGeometry(QRect(315, 220, 171, 41));
+        sizePolicy.setHeightForWidth(CreateEvent->sizePolicy().hasHeightForWidth());
+        CreateEvent->setSizePolicy(sizePolicy);
 
         retranslateUi(InviteGateway);
 
@@ -73,6 +79,7 @@ public:
         codeLineEdit->setPlaceholderText(QCoreApplication::translate("InviteGateway", "Invite CODE", nullptr));
         Apply->setText(QCoreApplication::translate("InviteGateway", "Apply", nullptr));
         Logout->setText(QCoreApplication::translate("InviteGateway", "Logout", nullptr));
+        CreateEvent->setText(QCoreApplication::translate("InviteGateway", "CREATE EVENT", nullptr));
     } // retranslateUi
 
 };

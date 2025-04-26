@@ -19,6 +19,11 @@ InviteGateway::InviteGateway(QWidget *parent)
             QTimer::singleShot(0, this, &InviteGateway::attemptJoinEvent);
         }
     );
+    connect(ui_->CreateEvent, &QPushButton::clicked, this, [this]() 
+        {
+            QTimer::singleShot(0, this, &InviteGateway::createEvent);
+        }
+    );
 }
 
 InviteGateway::~InviteGateway()

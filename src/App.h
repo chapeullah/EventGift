@@ -8,7 +8,7 @@ class StartMenu;
 class Login;
 class Register;
 class InviteGateway;
-class MainWindow;
+class CreateEventWindow;
 
 class App
 {
@@ -26,5 +26,5 @@ private:
     Login *login_;
     Register *register_;
     InviteGateway *inviteGateway_;
-    MainWindow *mainWindow_;
+    CreateEventWindow *createEventWindow_;
 };

@@ -67,9 +67,9 @@
 },
 {
   "directory": "C:/projects/EventGift/build",
-  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 -IC:\\projects\\EventGift\\build\\EventGift_autogen\\include -IC:\\projects\\EventGift\\include -imsvcC:\\Qt\\6.9.0\\msvc2022_64\\include\\QtWidgets -imsvcC:\\Qt\\6.9.0\\msvc2022_64\\include -imsvcC:\\Qt\\6.9.0\\msvc2022_64\\include\\QtCore -imsvcC:\\Qt\\6.9.0\\msvc2022_64\\mkspecs\\win32-msvc -imsvcC:\\Qt\\6.9.0\\msvc2022_64\\include\\QtGui -imsvcC:\\VulkanSDK\\1.4.309.0\\include /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd /FoCMakeFiles\\EventGift.dir\\src\\ui\\MainWindow.cpp.obj /FdCMakeFiles\\EventGift.dir\\ -c -- C:\\projects\\EventGift\\src\\ui\\MainWindow.cpp",
-  "file": "C:\\projects\\EventGift\\src\\ui\\MainWindow.cpp",
-  "output": "CMakeFiles\\EventGift.dir\\src\\ui\\MainWindow.cpp.obj"
+  "command": "C:\\PROGRA~1\\LLVM\\bin\\clang-cl.exe  /nologo -TP -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64 -IC:\\projects\\EventGift\\build\\EventGift_autogen\\include -IC:\\projects\\EventGift\\include -imsvcC:\\Qt\\6.9.0\\msvc2022_64\\include\\QtWidgets -imsvcC:\\Qt\\6.9.0\\msvc2022_64\\include -imsvcC:\\Qt\\6.9.0\\msvc2022_64\\include\\QtCore -imsvcC:\\Qt\\6.9.0\\msvc2022_64\\mkspecs\\win32-msvc -imsvcC:\\Qt\\6.9.0\\msvc2022_64\\include\\QtGui -imsvcC:\\VulkanSDK\\1.4.309.0\\include /DWIN32 /D_WINDOWS /GR /EHsc /Zi /Ob0 /Od /RTC1 -std:c++20 -MDd /FoCMakeFiles\\EventGift.dir\\src\\ui\\CreateEventWindow.cpp.obj /FdCMakeFiles\\EventGift.dir\\ -c -- C:\\projects\\EventGift\\src\\ui\\CreateEventWindow.cpp",
+  "file": "C:\\projects\\EventGift\\src\\ui\\CreateEventWindow.cpp",
+  "output": "CMakeFiles\\EventGift.dir\\src\\ui\\CreateEventWindow.cpp.obj"
 },
 {
   "directory": "C:/projects/EventGift/build",
