@@ -158,11 +158,7 @@
          </layout>
         </item>
         <item>
-         <widget class="QTextEdit" name="eventDescriptionEdit">
-          <property name="placeholderText">
-           <string>Describe your event...</string>
-          </property>
-         </widget>
+         <widget class="QTextBrowser" name="describeEdit"/>
         </item>
        </layout>
       </widget>

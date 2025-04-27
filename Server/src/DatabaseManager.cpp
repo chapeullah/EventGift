@@ -36,12 +36,41 @@ void DatabaseManager::initTables()
     const char *SQLexec = 
         R"(
             CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            email TEXT NOT NULL UNIQUE,
-            password TEXT NOT NULL,
-            session INTEGER
-        );
-    )";
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                email TEXT NOT NULL UNIQUE,
+                password TEXT NOT NULL,
+                session INTEGER
+            );
+
+            CREATE TABLE IF NOT EXISTS events (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                title TEXT NOT NULL UNIQUE,
+                place TEXT NOT NULL,
+                date TEXT NOT NULL,
+                time TEXT NOT NULL,
+                description TEXT,
+                ownerId INTEGER NOT NULL,
+                FOREIGN KEY (ownerId) REFERENCES users(id)
+            );
+
+            CREATE TABLE IF NOT EXISTS event_gifts (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                eventId INTEGER NOT NULL,
+                name TEXT NOT NULL,
+                takenByUserId INTEGER DEFAULT -1,
+                FOREIGN KEY (eventId) REFERENCES events(id),
+                FOREIGN KEY (takenByUserId) REFERENCES users(id)
+            );
+
+            CREATE TABLE IF NOT EXISTS event_members (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                eventId INTEGER NOT NULL,
+                userId INTEGER NOT NULL,
+                isOrganizer INTEGER DEFAULT 0,
+                FOREIGN KEY (eventId) REFERENCES events(id),
+                FOREIGN KEY (userId) REFERENCES users(id)
+            );
+        )";
     char *errorMessage = nullptr;
     if (sqlite3_exec(
         database_,
