@@ -6,6 +6,7 @@
 
 #include <QTimer>
 #include <QCheckBox>
+#include <QTimeZone>
 
 CreateEventWindow::CreateEventWindow(QWidget *parent)
     : QWidget(parent), ui_(new Ui::CreateEventWindow)
@@ -13,6 +14,7 @@ CreateEventWindow::CreateEventWindow(QWidget *parent)
     ui_->setupUi(this);
 
     ui_->giftListLayout->setAlignment(Qt::AlignTop);
+    ui_->timeEdit->setTimeZone(QTimeZone::utc());
 
     connect(
         ui_->addGift, 

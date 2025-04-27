@@ -187,9 +187,6 @@
             <property name="displayFormat">
              <string>HH:mm</string>
             </property>
-            <property name="timeSpec">
-             <enum>Qt::TimeSpec::UTC</enum>
-            </property>
            </widget>
           </item>
          </layout>

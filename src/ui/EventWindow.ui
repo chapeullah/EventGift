@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>CreateEventWindow</class>
- <widget class="QWidget" name="CreateEventWindow">
+ <class>EventWindow</class>
+ <widget class="QWidget" name="EventWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -186,15 +186,7 @@
              <height>560</height>
             </rect>
            </property>
-           <layout class="QVBoxLayout" name="userListLayout">
-            <item>
-             <widget class="QLabel" name="guests">
-              <property name="text">
-               <string>Guests will be here...</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
+           <layout class="QVBoxLayout" name="userListLayout"/>
           </widget>
          </widget>
         </item>

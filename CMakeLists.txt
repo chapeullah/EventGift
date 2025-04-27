@@ -37,6 +37,8 @@ add_executable(EventGift
     src/ui/GiftWidget.ui
     src/ui/UserWidget.cpp
     src/ui/UserWidget.ui
+    src/ui/EventWindow.cpp
+    src/ui/EventWindow.ui
     ${APP_ICON_RESOURCE_WINDOWS}
 )
 

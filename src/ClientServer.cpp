@@ -83,3 +83,9 @@ bool ClientServer::sendVerifySessionRequest()
     }
     return false;
 }
+
+bool sendCreateEventRequest()
+{
+    
+    return false;
+}
