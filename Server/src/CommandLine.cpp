@@ -1,7 +1,7 @@
-#include "CommandLine.h"
+#include "CommandLine.hpp"
 
-#include "Bootstrap.h"
-#include "Logger.h"
+#include "Bootstrap.hpp"
+#include "Logger.hpp"
 
 #include <chrono>
 #include <iostream>

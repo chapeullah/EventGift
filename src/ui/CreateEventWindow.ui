@@ -44,26 +44,46 @@
        </property>
        <layout class="QVBoxLayout" name="verticalLayoutGifts">
         <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QPushButton" name="goBack">
+            <property name="text">
+             <string>BACK</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="create">
+            <property name="text">
+             <string>CREATE ✅</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
          <widget class="QScrollArea" name="scrollAreaGifts">
           <property name="widgetResizable">
            <bool>true</bool>
           </property>
           <widget class="QWidget" name="scrollAreaWidgetContentsGifts">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>230</width>
+             <height>498</height>
+            </rect>
+           </property>
            <layout class="QVBoxLayout" name="giftListLayout"/>
           </widget>
          </widget>
         </item>
         <item>
-         <widget class="QWidget" name="widget" native="true">
-          <layout class="QHBoxLayout" name="horizontalLayout_2">
-           <item>
-            <widget class="QPushButton" name="addGift">
-             <property name="text">
-              <string>ADD GIFT</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
+         <widget class="QPushButton" name="addGift">
+          <property name="text">
+           <string>ADD GIFT</string>
+          </property>
          </widget>
         </item>
        </layout>
@@ -73,47 +93,113 @@
       <widget class="QWidget" name="info" native="true">
        <layout class="QVBoxLayout" name="verticalLayoutInfo">
         <item>
-         <widget class="QLabel" name="eventTitleLabel">
-          <property name="text">
-           <string>Event Title</string>
-          </property>
-          <property name="wordWrap">
-           <bool>true</bool>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QLabel" name="eventTitle">
+            <property name="text">
+             <string>Event title:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="eventTitleIn">
+            <property name="placeholderText">
+             <string>Enter event title</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QLabel" name="eventDateLabel">
-          <property name="text">
-           <string>Date</string>
-          </property>
-          <property name="wordWrap">
-           <bool>true</bool>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <item>
+           <widget class="QLabel" name="place">
+            <property name="text">
+             <string>Place:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit">
+            <property name="placeholderText">
+             <string>Enter event place</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QLabel" name="eventTimeLabel">
-          <property name="text">
-           <string>Time</string>
-          </property>
-          <property name="wordWrap">
-           <bool>true</bool>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QLabel" name="date">
+            <property name="text">
+             <string>Date:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDateEdit" name="dateEdit">
+            <property name="dateTime">
+             <datetime>
+              <hour>20</hour>
+              <minute>59</minute>
+              <second>59</second>
+              <year>2025</year>
+              <month>4</month>
+              <day>27</day>
+             </datetime>
+            </property>
+            <property name="maximumDateTime">
+             <datetime>
+              <hour>20</hour>
+              <minute>59</minute>
+              <second>59</second>
+              <year>2200</year>
+              <month>12</month>
+              <day>31</day>
+             </datetime>
+            </property>
+            <property name="minimumDateTime">
+             <datetime>
+              <hour>0</hour>
+              <minute>0</minute>
+              <second>0</second>
+              <year>2025</year>
+              <month>4</month>
+              <day>27</day>
+             </datetime>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QLabel" name="eventPlaceLabel">
-          <property name="text">
-           <string>Place</string>
-          </property>
-          <property name="wordWrap">
-           <bool>true</bool>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <widget class="QLabel" name="time">
+            <property name="text">
+             <string>Time:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTimeEdit" name="timeEdit">
+            <property name="displayFormat">
+             <string>HH:mm</string>
+            </property>
+            <property name="timeSpec">
+             <enum>Qt::TimeSpec::UTC</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="QTextEdit" name="eventDescriptionEdit"/>
+         <widget class="QTextEdit" name="eventDescriptionEdit">
+          <property name="placeholderText">
+           <string>Describe your event...</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -141,7 +227,15 @@
              <height>560</height>
             </rect>
            </property>
-           <layout class="QVBoxLayout" name="userListLayout"/>
+           <layout class="QVBoxLayout" name="userListLayout">
+            <item>
+             <widget class="QLabel" name="guests">
+              <property name="text">
+               <string>Guests will be here...</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
           </widget>
          </widget>
         </item>

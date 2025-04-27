@@ -1,8 +1,8 @@
-#include "CreateEventWindow.h"
+#include "CreateEventWindow.hpp"
 
 #include "ui_CreateEventWindow.h"
 
-#include "GiftWidget.h"
+#include "GiftWidget.hpp"
 
 #include <QTimer>
 #include <QCheckBox>
@@ -11,8 +11,6 @@ CreateEventWindow::CreateEventWindow(QWidget *parent)
     : QWidget(parent), ui_(new Ui::CreateEventWindow)
 {
     ui_->setupUi(this);
-
-    
 
     ui_->giftListLayout->setAlignment(Qt::AlignTop);
 
@@ -23,8 +21,31 @@ CreateEventWindow::CreateEventWindow(QWidget *parent)
         [this]()
         {
             GiftWidget *giftWidget = new GiftWidget();
+            ui_->giftListLayout->addWidget(giftWidget);
+            connect(
+                giftWidget, 
+                &GiftWidget::deleteRequest, 
+                this, 
+                [this, giftWidget]() 
+                {
+                    ui_->giftListLayout->removeWidget(giftWidget);
+                    giftWidget->deleteLater();
+                }
+            );
         }
     );
+
+    connect(
+        ui_->goBack,
+        &QPushButton::clicked,
+        this,
+        [this]()
+        {
+            emit goBack();
+        }
+    );
+
+    
 }
 
 CreateEventWindow::~CreateEventWindow()

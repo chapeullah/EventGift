@@ -1,14 +1,14 @@
-#include "App.h"
+#include "App.hpp"
 
-#include "ui/StartMenu.h"
-#include "ui/Login.h"
-#include "ui/Register.h"
-#include "ui/InviteGateway.h"
-#include "ui/CreateEventWindow.h"
+#include "ui/StartMenu.hpp"
+#include "ui/Login.hpp"
+#include "ui/Register.hpp"
+#include "ui/InviteGateway.hpp"
+#include "ui/CreateEventWindow.hpp"
 
-#include "ClientServer.h"
-#include "Logger.h"
-#include "SessionManager.h"
+#include "ClientServer.hpp"
+#include "Logger.hpp"
+#include "SessionManager.hpp"
 
 #include <QVBoxLayout>
 #include <QMessageBox>
@@ -173,6 +173,16 @@ App::App(int argc, char *argv[])
         {
             Logger::info("APP", "Create event button clicked");
             qStackedWidget_->setCurrentWidget(createEventWindow_);
+        }
+    );
+
+    QObject::connect(
+        createEventWindow_,
+        &CreateEventWindow::goBack,
+        [this]()
+        {
+            Logger::info("APP", "Go back button clicked");
+            qStackedWidget_->setCurrentWidget(inviteGateway_);
         }
     );
 

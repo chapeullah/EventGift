@@ -1,6 +1,6 @@
-#include "DatabaseManager.h"
+#include "DatabaseManager.hpp"
 
-#include "Logger.h"
+#include "Logger.hpp"
 
 bool DatabaseManager::connect() 
 {

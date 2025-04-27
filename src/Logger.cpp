@@ -1,6 +1,6 @@
-#include "Logger.h"
+#include "Logger.hpp"
 
-#include "Time.h"
+#include "Time.hpp"
 
 std::ofstream Logger::out_("EventGift.log");
 

@@ -1,7 +1,7 @@
-#include "ClientServer.h"
+#include "ClientServer.hpp"
 
-#include "Logger.h"
-#include "SessionManager.h"
+#include "Logger.hpp"
+#include "SessionManager.hpp"
 
 #include <nlohmann/json.hpp>
 

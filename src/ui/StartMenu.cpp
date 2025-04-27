@@ -1,4 +1,4 @@
-#include "StartMenu.h"
+#include "StartMenu.hpp"
 
 #include "ui_StartMenu.h"
 

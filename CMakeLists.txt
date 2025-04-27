@@ -24,22 +24,16 @@ add_executable(EventGift
     src/SessionManager.cpp
     src/ClientServer.cpp
     src/ui/StartMenu.cpp
-    src/ui/StartMenu.h
     src/ui/StartMenu.ui
     src/ui/Login.cpp
-    src/ui/Login.h
     src/ui/Login.ui
     src/ui/Register.cpp
-    src/ui/Register.h
     src/ui/Register.ui
     src/ui/InviteGateway.cpp
-    src/ui/InviteGateway.h
     src/ui/InviteGateway.ui
     src/ui/CreateEventWindow.cpp
-    src/ui/CreateEventWindow.h
     src/ui/CreateEventWindow.ui
     src/ui/GiftWidget.cpp
-    src/ui/GiftWidget.h
     src/ui/GiftWidget.ui
     ${APP_ICON_RESOURCE_WINDOWS}
 )

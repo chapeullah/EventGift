@@ -1,7 +1,7 @@
-#include "DatabaseManager.h"
-#include "CommandLine.h"
-#include "Logger.h"
-#include "Bootstrap.h"
+#include "DatabaseManager.hpp"
+#include "CommandLine.hpp"
+#include "Logger.hpp"
+#include "Bootstrap.hpp"
 
 int main() 
 {

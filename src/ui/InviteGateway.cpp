@@ -1,4 +1,4 @@
-#include "InviteGateway.h"
+#include "InviteGateway.hpp"
 
 #include "ui_InviteGateway.h"
 

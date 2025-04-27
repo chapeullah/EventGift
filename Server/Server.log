@@ -1,16 +1,14 @@
-[18:11:23] [INFO] [DB] Database connection success: database/eventgift.db
-[18:11:23] [INFO] [DB] Table created or already exists
-[18:11:25] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[18:11:26] [INFO] [SERVER] Server is starting
-[18:11:26] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
-[18:11:28] [INFO] [DB] Request from192.168.0.25: Session validation success
-[18:12:14] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[18:12:14] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[18:12:18] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[18:12:18] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[18:12:59] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[18:12:59] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[18:20:47] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[18:20:47] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[18:21:12] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[18:21:12] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
+[04:04:29] [INFO] [DB] Database connection success: database/eventgift.db
+[04:04:29] [INFO] [DB] Table created or already exists
+[04:04:31] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
+[04:04:32] [INFO] [SERVER] Server is starting
+[04:04:32] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
+[04:04:35] [INFO] [DB] Request from192.168.0.25: Session validation success
+[04:08:39] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
+[04:08:39] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
+[04:08:51] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
+[04:08:51] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
+[04:09:16] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
+[04:09:16] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
+[04:09:25] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
+[04:09:25] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again

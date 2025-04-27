@@ -1,8 +1,8 @@
-#include "Bootstrap.h"
+#include "Bootstrap.hpp"
 
-#include "CommandLine.h"
-#include "DatabaseManager.h"
-#include "Logger.h"
+#include "CommandLine.hpp"
+#include "DatabaseManager.hpp"
+#include "Logger.hpp"
 
 #include <nlohmann/json.hpp>
 

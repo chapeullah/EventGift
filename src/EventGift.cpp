@@ -1,6 +1,6 @@
-#include "App.h"
-#include "Logger.h"
-#include "ClientServer.h"
+#include "App.hpp"
+#include "Logger.hpp"
+#include "ClientServer.hpp"
 
 int main(int argc, char *argv[])
 {
