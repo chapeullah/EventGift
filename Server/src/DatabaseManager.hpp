@@ -31,7 +31,10 @@ public:
         const std::string &time,
         const std::string &description
     );
-    static bool insertMember();
+    static bool insertEventMember(
+        const std::string &email, 
+        const std::string &inviteCode
+    );
 
 private:
     static bool userExists(const std::string &email);

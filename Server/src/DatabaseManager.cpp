@@ -56,15 +56,6 @@ void DatabaseManager::initTables()
                 FOREIGN KEY (ownerId) REFERENCES users(id)
             );
 
-            CREATE TABLE IF NOT EXISTS event_gifts (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                eventId INTEGER NOT NULL,
-                name TEXT NOT NULL,
-                takenByUserId INTEGER DEFAULT -1,
-                FOREIGN KEY (eventId) REFERENCES events(id),
-                FOREIGN KEY (takenByUserId) REFERENCES users(id)
-            );
-
             CREATE TABLE IF NOT EXISTS event_members (
                 eventId INTEGER NOT NULL,
                 userId INTEGER NOT NULL,
@@ -72,6 +63,15 @@ void DatabaseManager::initTables()
                 PRIMARY KEY (eventId, userId),
                 FOREIGN KEY (eventId) REFERENCES events(id),
                 FOREIGN KEY (userId) REFERENCES users(id)
+            );
+
+            CREATE TABLE IF NOT EXISTS event_gifts (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                eventId INTEGER NOT NULL,
+                name TEXT NOT NULL,
+                takenByUserId INTEGER DEFAULT -1,
+                FOREIGN KEY (eventId) REFERENCES events(id),
+                FOREIGN KEY (takenByUserId) REFERENCES users(id)
             );
         )";
     char *errorMessage = nullptr;
@@ -317,4 +317,12 @@ std::string DatabaseManager::generateInviteCode()
         inviteCode += '0' + distribution(generator);
     }
     return inviteCode;
+}
+
+bool DatabaseManager::insertEventMember(
+    const std::string &email, 
+    const std::string &inviteCode
+)
+{
+
 }

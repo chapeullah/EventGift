@@ -175,8 +175,23 @@ Bootstrap::Bootstrap()
         }
     );
 
-    server_.Get(
-        "/event/"
+    server_.Post(
+        "/event/join",
+        [this](const httplib::Request &req, httplib::Response &res)
+        {
+            std::string reqBody = req.body;
+
+            Logger::info(
+                "SERVER",
+                "Request from \"" + req.remote_addr + "\": \"" + reqBody + "\""
+            );
+
+            nlohmann::json jsonRequest = nlohmann::json::parse(reqBody);
+            
+            std::string
+                email = jsonRequest["email"],
+                inviteCode = jsonRequest["inviteCode"];
+        }
     );
 }
 
