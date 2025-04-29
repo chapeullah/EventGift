@@ -17,7 +17,16 @@ public:
 
 signals:
     void goBack();
+    void createEvent(
+        const QString &title,
+        const QString &place,
+        const QString &date,
+        const QString &time,
+        const QString &description
+    ); 
 
 private:
+    void attemptCreateEvent();
+
     Ui::CreateEventWindow *ui_;
 };

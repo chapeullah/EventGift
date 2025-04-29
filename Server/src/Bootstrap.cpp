@@ -126,6 +126,58 @@ Bootstrap::Bootstrap()
             }
         }
     );
+
+    server_.Post(
+        "/event/create",
+        [this](const httplib::Request &req, httplib::Response &res)
+        {
+            std::string reqBody = req.body;
+
+            Logger::info(
+                "SERVER",
+                "Request from \"" + req.remote_addr + "\": \"" + reqBody + "\""
+            );
+
+            nlohmann::json jsonRequest = nlohmann::json::parse(reqBody);
+
+            std::string 
+                email = jsonRequest["email"],
+                title = jsonRequest["title"],
+                place = jsonRequest["place"],
+                date = jsonRequest["date"],
+                time = jsonRequest["time"],
+                description = jsonRequest["description"];
+
+            if (
+                DatabaseManager::insertEvent(
+                    email, title, place, date, time, description
+                )
+            )
+            {
+                Logger::info(
+                    "DB",
+                    "Request from" 
+                        + req.remote_addr 
+                        + ": Insert event success"
+                );
+                res.set_content("OK", "text/plain");
+            }
+            else 
+            {
+                Logger::info(
+                    "DB",
+                    "Request from" 
+                        + req.remote_addr 
+                        + ": Insert event failed"
+                );
+                res.set_content("FAIL", "text/plain");
+            }
+        }
+    );
+
+    server_.Get(
+        "/event/"
+    );
 }
 
 void Bootstrap::start()

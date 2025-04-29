@@ -1,7 +1,3 @@
-[21:35:40] [INFO] [CODE] Current widget startMenu_
-[21:35:40] [INFO] [APP] EventGift.exe started
-[21:35:42] [INFO] [APP] Login button clicked
-[21:35:47] [INFO] [APP] Login clicked email: admin
-[21:35:47] [INFO] [HTTP] Result = OK
-[21:35:47] [INFO] [HTTP] Result = OK
-[21:35:49] [INFO] [APP] Create event button clicked
+[08:01:16] [INFO] [CODE] Current widget inviteGateway_
+[08:01:16] [INFO] [APP] EventGift.exe started
+[08:01:17] [INFO] [APP] Create event button clicked

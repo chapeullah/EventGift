@@ -186,6 +186,45 @@ App::App(int argc, char *argv[])
         }
     );
 
+    QObject::connect(
+        createEventWindow_, 
+        &CreateEventWindow::createEvent, 
+        [this](
+            const QString &title,
+            const QString &place,
+            const QString &date,
+            const QString &time,
+            const QString &description
+        ) 
+        {
+            if (
+                ClientServer::sendCreateEventRequest(
+                    title.toStdString(),
+                    place.toStdString(),
+                    date.toStdString(),
+                    time.toStdString(),
+                    description.toStdString()
+                )
+            )
+            {
+                qStackedWidget_->setCurrentWidget(inviteGateway_);
+                QMessageBox::information(
+                    &qWidget_, 
+                    "Success", 
+                    "Event created"
+                );
+            }
+            else
+            {
+                QMessageBox::warning(
+                    &qWidget_, 
+                    "Failed", 
+                    "Something went wrong"
+                );
+            }
+        }
+    );
+
     if (ClientServer::sendVerifySessionRequest())
     {
         qStackedWidget_->setCurrentWidget(inviteGateway_);

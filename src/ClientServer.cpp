@@ -84,8 +84,37 @@ bool ClientServer::sendVerifySessionRequest()
     return false;
 }
 
-bool sendCreateEventRequest()
+bool ClientServer::sendCreateEventRequest(
+    const std::string &title,
+    const std::string &place,
+    const std::string &date,
+    const std::string &time,
+    const std::string &description
+)
 {
-    
+    if (SessionManager::getSessionEmail() == "") 
+    {
+        return false;
+    }
+    nlohmann::json jsonRequest;
+    jsonRequest["email"] = SessionManager::getSessionEmail();
+    jsonRequest["title"] = title;
+    jsonRequest["place"] = place;
+    jsonRequest["date"] = date;
+    jsonRequest["time"] = time;
+    jsonRequest["description"] = description;
+
+    std::string stringRequest = jsonRequest.dump();
+
+    httplib::Result result = 
+        client_.Post(
+            "/event/create",
+            stringRequest,
+            "application/json"
+        );
+    if (result->body == "OK")
+    {
+        return true;
+    }
     return false;
 }

@@ -120,7 +120,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit">
+           <widget class="QLineEdit" name="placeIn">
             <property name="placeholderText">
              <string>Enter event place</string>
             </property>
@@ -141,7 +141,7 @@
            <widget class="QDateEdit" name="dateEdit">
             <property name="dateTime">
              <datetime>
-              <hour>20</hour>
+              <hour>17</hour>
               <minute>59</minute>
               <second>59</second>
               <year>2025</year>
@@ -151,7 +151,7 @@
             </property>
             <property name="maximumDateTime">
              <datetime>
-              <hour>20</hour>
+              <hour>17</hour>
               <minute>59</minute>
               <second>59</second>
               <year>2200</year>
@@ -161,12 +161,12 @@
             </property>
             <property name="minimumDateTime">
              <datetime>
-              <hour>0</hour>
+              <hour>21</hour>
               <minute>0</minute>
               <second>0</second>
               <year>2025</year>
               <month>4</month>
-              <day>27</day>
+              <day>26</day>
              </datetime>
             </property>
            </widget>

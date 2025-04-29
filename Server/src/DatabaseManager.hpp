@@ -23,10 +23,20 @@ public:
     );
     static void insertSession(const std::string &email);
     static bool isSessionValid(const std::string &email);
+    static bool insertEvent(
+        const std::string &email,
+        const std::string &title,
+        const std::string &place,
+        const std::string &date,
+        const std::string &time,
+        const std::string &description
+    );
+    static bool insertMember();
 
 private:
     static bool userExists(const std::string &email);
     static std::string expirationTime();
+    static std::string generateInviteCode();
 
     inline static sqlite3 *database_ = nullptr;
     inline static constexpr 

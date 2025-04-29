@@ -2,6 +2,8 @@
 
 #include "Logger.hpp"
 
+#include <random>
+
 bool DatabaseManager::connect() 
 {
     if (sqlite3_open(DATABASE_PATH, &database_) == SQLITE_OK) 
@@ -49,6 +51,7 @@ void DatabaseManager::initTables()
                 date TEXT NOT NULL,
                 time TEXT NOT NULL,
                 description TEXT,
+                inviteCode TEXT NOT NULL,
                 ownerId INTEGER NOT NULL,
                 FOREIGN KEY (ownerId) REFERENCES users(id)
             );
@@ -63,10 +66,10 @@ void DatabaseManager::initTables()
             );
 
             CREATE TABLE IF NOT EXISTS event_members (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
                 eventId INTEGER NOT NULL,
                 userId INTEGER NOT NULL,
                 isOrganizer INTEGER DEFAULT 0,
+                PRIMARY KEY (eventId, userId),
                 FOREIGN KEY (eventId) REFERENCES events(id),
                 FOREIGN KEY (userId) REFERENCES users(id)
             );
@@ -237,4 +240,81 @@ bool DatabaseManager::isSessionValid(const std::string &email)
 std::string DatabaseManager::expirationTime()
 {
     return std::to_string(std::time(nullptr) + sessionDuration_.count());
+}
+
+bool DatabaseManager::insertEvent(
+        const std::string &email,
+        const std::string &title,
+        const std::string &place,
+        const std::string &date,
+        const std::string &time,
+        const std::string &description
+)
+{
+    int ownerId{-1};
+    std::string ownerIdQuery =
+        "SELECT id FROM users WHERE email = '" + email + "';";
+    
+    sqlite3_exec(
+        database_,
+        ownerIdQuery.c_str(),
+        [](void *data, int argc, char **argv, char **) -> int {
+            if (argc > 0 && argv[0]) {
+                auto *result = static_cast<int *>(data);
+                *result = std::stoi(argv[0]);
+            }
+            return 0;
+        },
+        &ownerId,
+        nullptr
+    );
+    if (ownerId == -1)
+    {
+        Logger::error("DB", "User with email " + email + " doesnt exists");
+        return false;
+    }
+
+    std::string query = 
+        "INSERT INTO events ("
+            "title, "
+            "place, "
+            "date, "
+            "time, "
+            "description, "
+            "inviteCode, "
+            "ownerId"
+            ") " 
+        "VALUES ("
+            "'" + title + "', "
+            "'" + place + "', "
+            "'" + date + "', "
+            "'" + time + "', "
+            "'" + description + "', "
+            "'" + generateInviteCode() + "', "
+            "'" + std::to_string(ownerId) + "'"
+        ")";
+    int responseCode = sqlite3_exec(
+        database_, 
+        query.c_str(), 
+        nullptr, 
+        nullptr, 
+        nullptr
+    );
+    if (responseCode != SQLITE_OK)
+    {
+        return false;
+    }
+    return true;
+}
+
+std::string DatabaseManager::generateInviteCode()
+{
+    std::default_random_engine generator(std::random_device{}());
+    std::uniform_int_distribution<int> distribution(0,9);
+    std::string inviteCode;
+    for (int i = 0; i < 6; ++i)
+    {
+        inviteCode += '0' + distribution(generator);
+    }
+    return inviteCode;
 }
