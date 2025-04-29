@@ -1,62 +1,26 @@
-[08:01:12] [INFO] [DB] Database connection success: database/eventgift.db
-[08:01:12] [INFO] [DB] Table created or already exists
-[08:01:14] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[08:01:15] [INFO] [SERVER] Server is starting
-[08:01:15] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
-[08:01:16] [INFO] [DB] Request from192.168.0.25: Session validation success
-[08:01:26] [INFO] [SERVER] Request from "192.168.0.25": "{"date":"2025-04-30","description":"123","email":"admin","place":"123","time":"00:00","title":"123"}"
-[08:01:26] [INFO] [DB] Request from192.168.0.25: Insert event failed
-[08:01:41] [INFO] [SERVER] Request from "192.168.0.25": "{"date":"2025-04-30","description":"123","email":"admin","place":"123","time":"00:00","title":"123"}"
-[08:01:41] [INFO] [DB] Request from192.168.0.25: Insert event success
-[08:18:46] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[08:18:46] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[08:23:43] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[08:23:43] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[08:23:47] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[08:23:47] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[08:25:04] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[08:25:04] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[08:25:22] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[08:25:22] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[08:25:23] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[08:25:23] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[08:27:47] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[08:27:47] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[08:28:21] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[08:28:21] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[08:28:49] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
-[08:28:50] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Restart
-[08:28:51] [INFO] [SERVER] Server is restarting
-[08:28:51] [INFO] [SERVER] Server is stoping
-[08:28:51] [INFO] [SERVER] Server stopped
-[08:28:51] [INFO] [SERVER] Server is starting
-[08:28:51] [INFO] [SERVER] Server restarted
-[08:28:51] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
-[08:29:06] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Restart
-[08:29:07] [INFO] [SERVER] Server is restarting
-[08:29:07] [INFO] [SERVER] Server is stoping
-[08:29:07] [INFO] [SERVER] Server stopped
-[08:29:07] [INFO] [SERVER] Server is starting
-[08:29:07] [INFO] [SERVER] Server restarted
-[08:29:07] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
-[08:29:10] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Restart
-[08:29:11] [INFO] [SERVER] Server is restarting
-[08:29:11] [INFO] [SERVER] Server is stoping
-[08:29:11] [INFO] [SERVER] Server stopped
-[08:29:11] [INFO] [SERVER] Server is starting
-[08:29:11] [INFO] [SERVER] Server restarted
-[08:29:11] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
-[08:29:52] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Restart
-[08:29:53] [INFO] [SERVER] Server is restarting
-[08:29:53] [INFO] [SERVER] Server is stoping
-[08:29:53] [INFO] [SERVER] Server stopped
-[08:29:53] [INFO] [SERVER] Server is starting
-[08:29:53] [INFO] [SERVER] Server restarted
-[08:29:53] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
-[08:42:05] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Restart
-[08:42:06] [INFO] [SERVER] Server is restarting
-[08:42:06] [INFO] [SERVER] Server is stoping
-[08:42:06] [INFO] [SERVER] Server stopped
-[08:42:06] [INFO] [SERVER] Server is starting
-[08:42:06] [INFO] [SERVER] Server restarted
-[08:42:06] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
+[07:00:49] [INFO] [DB] Database connection success: database/eventgift.db
+[07:00:49] [INFO] [DB] Table created or already exists
+[07:00:50] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
+[07:00:51] [INFO] [SERVER] Server is starting
+[07:00:51] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
+[07:00:52] [INFO] [DB] Request from192.168.0.25: Session validation SUCCESS
+[07:02:02] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
+[07:02:02] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
+[07:05:12] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
+[07:05:12] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
+[07:05:13] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
+[07:05:13] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
+[07:07:06] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
+[07:07:06] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
+[07:07:11] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
+[07:07:11] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
+[07:37:31] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
+[07:37:31] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
+[07:38:05] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Restart
+[07:38:05] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Stop
+[07:38:05] [INFO] [CMD] Pressed DOWN - CommandLine::currentCommand_ = Exit
+[07:38:06] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Exit
+[07:38:07] [INFO] [SERVER] Server is stoping
+[07:38:07] [INFO] [SERVER] Server stopped
+[07:38:07] [INFO] [CMD] Exit from server
+[07:38:07] [INFO] [DB] Database connection closed: database/eventgift.db

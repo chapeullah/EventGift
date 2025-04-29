@@ -33,13 +33,15 @@ public:
     );
     static bool insertEventMember(
         const std::string &email, 
-        const std::string &inviteCode
+        std::string &inviteCode,
+        const bool isOrganizer
     );
 
 private:
     static bool userExists(const std::string &email);
     static std::string expirationTime();
     static std::string generateInviteCode();
+    static std::string getInviteCodeByOwnerEmail(const std::string &email);
 
     inline static sqlite3 *database_ = nullptr;
     inline static constexpr 

@@ -22,6 +22,10 @@ public:
         const std::string &time,
         const std::string &description
     );
+    static bool sendCreateEventMemberRequest(
+        const std::string &inviteCode = "__create__",
+        bool isOrganizer = false
+    );
 
 private:
     static httplib::Client client_;

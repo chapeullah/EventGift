@@ -110,7 +110,7 @@ Bootstrap::Bootstrap()
                     "DB",
                     "Request from" 
                         + req.remote_addr 
-                        + ": Session validation success"
+                        + ": Session validation SUCCESS"
                 );
                 res.set_content("OK", "text/plain");
             }
@@ -120,7 +120,7 @@ Bootstrap::Bootstrap()
                     "DB",
                     "Request from" 
                         + req.remote_addr 
-                        + ": Session validation failed"
+                        + ": Session validation FAILED"
                 );
                 res.set_content("FAIL", "text/plain");
             }
@@ -158,7 +158,7 @@ Bootstrap::Bootstrap()
                     "DB",
                     "Request from" 
                         + req.remote_addr 
-                        + ": Insert event success"
+                        + ": Insert event SUCCESS"
                 );
                 res.set_content("OK", "text/plain");
             }
@@ -168,7 +168,7 @@ Bootstrap::Bootstrap()
                     "DB",
                     "Request from" 
                         + req.remote_addr 
-                        + ": Insert event failed"
+                        + ": Insert event FAILED"
                 );
                 res.set_content("FAIL", "text/plain");
             }
@@ -191,6 +191,32 @@ Bootstrap::Bootstrap()
             std::string
                 email = jsonRequest["email"],
                 inviteCode = jsonRequest["inviteCode"];
+            bool isOrganizer = jsonRequest.value("isOrganizer", false);
+            
+            if (
+                DatabaseManager::insertEventMember(
+                    email, inviteCode, isOrganizer
+                )
+            )
+            {
+                Logger::info(
+                    "DB",
+                    "Request from" 
+                        + req.remote_addr 
+                        + ": Insert event member SUCCESS"
+                );
+                res.set_content("OK", "text/plain");
+            }
+            else 
+            {
+                Logger::info(
+                    "DB",
+                    "Request from" 
+                        + req.remote_addr 
+                        + ": Insert event member FAILED"
+                );
+                res.set_content("FAIL", "text/plain");
+            }
         }
     );
 }

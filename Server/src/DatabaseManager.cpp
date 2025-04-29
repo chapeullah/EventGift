@@ -52,26 +52,26 @@ void DatabaseManager::initTables()
                 time TEXT NOT NULL,
                 description TEXT,
                 inviteCode TEXT NOT NULL,
-                ownerId INTEGER NOT NULL,
-                FOREIGN KEY (ownerId) REFERENCES users(id)
+                ownerEmail TEXT NOT NULL,
+                FOREIGN KEY (ownerEmail) REFERENCES users(email)
             );
 
             CREATE TABLE IF NOT EXISTS event_members (
                 eventId INTEGER NOT NULL,
-                userId INTEGER NOT NULL,
+                userEmail TEXT NOT NULL,
                 isOrganizer INTEGER DEFAULT 0,
-                PRIMARY KEY (eventId, userId),
+                PRIMARY KEY (eventId, userEmail),
                 FOREIGN KEY (eventId) REFERENCES events(id),
-                FOREIGN KEY (userId) REFERENCES users(id)
+                FOREIGN KEY (userEmail) REFERENCES users(email)
             );
 
             CREATE TABLE IF NOT EXISTS event_gifts (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 eventId INTEGER NOT NULL,
                 name TEXT NOT NULL,
-                takenByUserId INTEGER DEFAULT -1,
+                takenByUserEmail TEXT DEFAULT NULL,
                 FOREIGN KEY (eventId) REFERENCES events(id),
-                FOREIGN KEY (takenByUserId) REFERENCES users(id)
+                FOREIGN KEY (takenByUserEmail) REFERENCES users(email)
             );
         )";
     char *errorMessage = nullptr;
@@ -270,7 +270,7 @@ bool DatabaseManager::insertEvent(
     );
     if (ownerId == -1)
     {
-        Logger::error("DB", "User with email " + email + " doesnt exists");
+        Logger::error("DB", "User with email " + email + " does not exists");
         return false;
     }
 
@@ -321,8 +321,59 @@ std::string DatabaseManager::generateInviteCode()
 
 bool DatabaseManager::insertEventMember(
     const std::string &email, 
-    const std::string &inviteCode
+    std::string &inviteCode,
+    const bool isOrganizer
 )
 {
+    if (inviteCode == "__create__")
+    {
+        inviteCode = getInviteCodeByOwnerEmail(email);
+        if (inviteCode.empty())
+        {
+            return false;
+        }
+    }
+    std::string query = 
+        "INSERT INTO event_members ("
+            "email, "
+            "inviteCode, "
+            "isOrganizer) "
+        "VALUES ("
+            "'" + email + "', "
+            "'" + inviteCode + "', "
+            + std::to_string(isOrganizer) + ");";
+    int responseCode = sqlite3_exec(
+        database_, 
+        query.c_str(), 
+        nullptr, 
+        nullptr, 
+        nullptr
+    );
+    if (responseCode == SQLITE_OK)
+    {
+        return true;
+    }
+    return false;
+}
 
+std::string DatabaseManager::getInviteCodeByOwnerEmail(const std::string &email)
+{
+    std::string inviteCodeQuery =
+        "SELECT inviteCode "
+        "FROM events "
+        "WHERE ownerEmail = '" + email + "' LIMIT 1;";
+    std::string inviteCode = "";
+    sqlite3_exec(
+        database_,
+        inviteCodeQuery.c_str(),
+        [](void* data, int argc, char** argv, char** colName) -> int
+        {
+            if (argc > 0 && argv[0])
+                *static_cast<std::string*>(data) = argv[0];
+            return 0;
+        },
+        &inviteCode,
+        nullptr
+    );
+    return inviteCode;
 }

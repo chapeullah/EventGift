@@ -118,3 +118,35 @@ bool ClientServer::sendCreateEventRequest(
     }
     return false;
 }
+
+bool ClientServer::sendCreateEventMemberRequest(
+    const std::string &inviteCode,
+    bool isOrganizer
+)
+{
+    if (SessionManager::getSessionEmail() == "") 
+    {
+        return false;
+    }
+    if (inviteCode == "__create__")
+    {
+        isOrganizer = true;
+    }
+    nlohmann::json jsonRequest;
+    jsonRequest["email"] = SessionManager::getSessionEmail();
+    jsonRequest["inviteCode"] = inviteCode;
+    jsonRequest["isOrganizer"] = isOrganizer;
+
+    std::string stringRequest = jsonRequest.dump();
+    httplib::Result result = 
+        client_.Post(
+            "/event/join",
+            stringRequest,
+            "application/json"
+        );
+    if (result->body == "OK")
+    {
+        return true;
+    }
+    return false;
+}

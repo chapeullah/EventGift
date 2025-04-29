@@ -207,7 +207,9 @@ App::App(int argc, char *argv[])
                 )
             )
             {
+                ClientServer::sendCreateEventMemberRequest();
                 qStackedWidget_->setCurrentWidget(inviteGateway_);
+
                 QMessageBox::information(
                     &qWidget_, 
                     "Success", 
