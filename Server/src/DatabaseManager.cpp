@@ -51,18 +51,20 @@ void DatabaseManager::initTables()
                 date TEXT NOT NULL,
                 time TEXT NOT NULL,
                 description TEXT,
-                inviteCode TEXT NOT NULL,
+                inviteCode TEXT NOT NULL UNIQUE,
                 ownerEmail TEXT NOT NULL,
                 FOREIGN KEY (ownerEmail) REFERENCES users(email)
             );
 
             CREATE TABLE IF NOT EXISTS event_members (
-                eventId INTEGER NOT NULL,
-                userEmail TEXT NOT NULL,
-                isOrganizer INTEGER DEFAULT 0,
-                PRIMARY KEY (eventId, userEmail),
-                FOREIGN KEY (eventId) REFERENCES events(id),
-                FOREIGN KEY (userEmail) REFERENCES users(email)
+                inviteCode TEXT NOT NULL, 
+                userEmail TEXT NOT NULL, 
+                isOrganizer INTEGER DEFAULT 0, 
+                PRIMARY KEY (inviteCode, userEmail), 
+                FOREIGN KEY (inviteCode) 
+                    REFERENCES events(inviteCode) 
+                    ON DELETE CASCADE, 
+                FOREIGN KEY (userEmail) REFERENCES users(email) 
             );
 
             CREATE TABLE IF NOT EXISTS event_gifts (
@@ -116,7 +118,7 @@ bool DatabaseManager::queryRegister(
     const std::string &password
 )
 {
-    if (userExists(email))
+    if (userExists_(email))
     {
         Logger::info(
             "DB",
@@ -156,7 +158,7 @@ bool DatabaseManager::queryLogin(
     const std::string &password
 )
 {
-    if (!userExists(email))
+    if (!userExists_(email))
     {
         Logger::info(
             "DB", 
@@ -194,7 +196,7 @@ bool DatabaseManager::queryLogin(
     }
 }
 
-bool DatabaseManager::userExists(const std::string &email)
+bool DatabaseManager::userExists_(const std::string &email)
 {
     std::string query =
         "SELECT 1 FROM users WHERE email = '" + email + "';";
@@ -208,13 +210,19 @@ bool DatabaseManager::userExists(const std::string &email)
     return result;
 }
 
-void DatabaseManager::insertSession(const std::string &email)
+bool DatabaseManager::insertSession(const std::string &email)
 {
     std::string query =
         "UPDATE users SET session = " + 
-        expirationTime() +
+        expirationTime_() +
         " WHERE email = '" + email + "';";
-    sqlite3_exec(database_, query.c_str(), nullptr, nullptr, nullptr);
+    int responseCode = 
+        sqlite3_exec(database_, query.c_str(), nullptr, nullptr, nullptr);
+    if (responseCode == SQLITE_OK)
+    {
+        return true;
+    }
+    return false;
 }
 
 bool DatabaseManager::isSessionValid(const std::string &email)
@@ -225,7 +233,8 @@ bool DatabaseManager::isSessionValid(const std::string &email)
     sqlite3_exec(
         database_, 
         query.c_str(), 
-        [](void *data, int argc, char **argv, char **) -> int{
+        [](void *data, int argc, char **argv, char **) -> int
+        {
             auto *result = static_cast<bool *>(data);
             std::time_t session = std::stoll(argv[0]);
             *result = std::time(nullptr) < session;
@@ -237,7 +246,7 @@ bool DatabaseManager::isSessionValid(const std::string &email)
     return isValid;
 }
 
-std::string DatabaseManager::expirationTime()
+std::string DatabaseManager::expirationTime_()
 {
     return std::to_string(std::time(nullptr) + sessionDuration_.count());
 }
@@ -251,29 +260,6 @@ bool DatabaseManager::insertEvent(
         const std::string &description
 )
 {
-    int ownerId{-1};
-    std::string ownerIdQuery =
-        "SELECT id FROM users WHERE email = '" + email + "';";
-    
-    sqlite3_exec(
-        database_,
-        ownerIdQuery.c_str(),
-        [](void *data, int argc, char **argv, char **) -> int {
-            if (argc > 0 && argv[0]) {
-                auto *result = static_cast<int *>(data);
-                *result = std::stoi(argv[0]);
-            }
-            return 0;
-        },
-        &ownerId,
-        nullptr
-    );
-    if (ownerId == -1)
-    {
-        Logger::error("DB", "User with email " + email + " does not exists");
-        return false;
-    }
-
     std::string query = 
         "INSERT INTO events ("
             "title, "
@@ -282,7 +268,7 @@ bool DatabaseManager::insertEvent(
             "time, "
             "description, "
             "inviteCode, "
-            "ownerId"
+            "ownerEmail"
             ") " 
         "VALUES ("
             "'" + title + "', "
@@ -290,8 +276,8 @@ bool DatabaseManager::insertEvent(
             "'" + date + "', "
             "'" + time + "', "
             "'" + description + "', "
-            "'" + generateInviteCode() + "', "
-            "'" + std::to_string(ownerId) + "'"
+            "'" + generateInviteCode_() + "', "
+            "'" + email + "'"
         ")";
     int responseCode = sqlite3_exec(
         database_, 
@@ -307,16 +293,40 @@ bool DatabaseManager::insertEvent(
     return true;
 }
 
-std::string DatabaseManager::generateInviteCode()
+std::string DatabaseManager::generateInviteCode_()
 {
     std::default_random_engine generator(std::random_device{}());
     std::uniform_int_distribution<int> distribution(0,9);
     std::string inviteCode;
-    for (int i = 0; i < 6; ++i)
+    do 
     {
-        inviteCode += '0' + distribution(generator);
+        inviteCode.clear();
+        for (int i = 0; i < 6; ++i)
+        {
+            inviteCode += '0' + distribution(generator);
+        }
     }
+    while (!isInviteCodeUnique_(inviteCode));
     return inviteCode;
+}
+
+bool DatabaseManager::isInviteCodeUnique_(const std::string &inviteCode)
+{
+    std::string query = 
+        "SELECT 1 FROM events WHERE inviteCode = '" + inviteCode + "' LIMIT 1;";
+    bool result = false;
+    sqlite3_exec(
+        database_, 
+        query.c_str(),
+        [](void* data, int argc, char** argv, char**) -> int 
+        {
+            *static_cast<bool*>(data) = true;
+            return 0;
+        },
+        &result, 
+        nullptr
+    );
+    return !result;
 }
 
 bool DatabaseManager::insertEventMember(
@@ -327,21 +337,56 @@ bool DatabaseManager::insertEventMember(
 {
     if (inviteCode == "__create__")
     {
-        inviteCode = getInviteCodeByOwnerEmail(email);
+        inviteCode = getInviteCodeByOwnerEmail_(email);
         if (inviteCode.empty())
         {
+            Logger::error(
+                "DB",
+                "insertEventMember: " + email + " is not owner"
+            );
             return false;
         }
     }
+    
     std::string query = 
         "INSERT INTO event_members ("
-            "email, "
             "inviteCode, "
-            "isOrganizer) "
+            "userEmail, "
+            "isOrganizer"
+        ") "
         "VALUES ("
-            "'" + email + "', "
             "'" + inviteCode + "', "
+            "'" + email + "', "
             + std::to_string(isOrganizer) + ");";
+    Logger::info("DB", "insertEventMember query: " + query);
+    char* errMsg = nullptr;
+
+    int responseCode = sqlite3_exec(
+        database_, 
+        query.c_str(), 
+        nullptr, 
+        nullptr, 
+        &errMsg
+    );
+    if (responseCode == SQLITE_OK)
+    {
+        Logger::info(
+            "DB",
+            "insertEventMember: response code == SQLITE_OK"
+        );
+        return true;
+    }
+    Logger::error(
+        "DB",
+        "insertEventMember: response code != SQLITE_OK " + std::string(errMsg)
+    );
+    return false;
+}
+
+bool DatabaseManager::deleteEventMember(const std::string &email)
+{
+    std::string query = 
+        "DELETE FROM event_members WHERE userEmail = '" + email + "';";
     int responseCode = sqlite3_exec(
         database_, 
         query.c_str(), 
@@ -356,16 +401,18 @@ bool DatabaseManager::insertEventMember(
     return false;
 }
 
-std::string DatabaseManager::getInviteCodeByOwnerEmail(const std::string &email)
+std::string DatabaseManager::getInviteCodeByOwnerEmail_(
+    const std::string &email
+)
 {
-    std::string inviteCodeQuery =
+    std::string query =
         "SELECT inviteCode "
         "FROM events "
         "WHERE ownerEmail = '" + email + "' LIMIT 1;";
     std::string inviteCode = "";
     sqlite3_exec(
         database_,
-        inviteCodeQuery.c_str(),
+        query.c_str(),
         [](void* data, int argc, char** argv, char** colName) -> int
         {
             if (argc > 0 && argv[0])
@@ -376,4 +423,60 @@ std::string DatabaseManager::getInviteCodeByOwnerEmail(const std::string &email)
         nullptr
     );
     return inviteCode;
+}
+
+std::string DatabaseManager::getInviteCodeByEmail(const std::string &email)
+{
+    std::string query =
+        "SELECT inviteCode "
+        "FROM event_members "
+        "WHERE userEmail = '" + email + "' LIMIT 1;";
+    std::string inviteCode = "";
+    sqlite3_exec(
+        database_,
+        query.c_str(),
+        [](void* data, int argc, char** argv, char** colName) -> int
+        {
+            if (argc > 0 && argv[0])
+                *static_cast<std::string*>(data) = argv[0];
+            return 0;
+        },
+        &inviteCode,
+        nullptr
+    );
+    return inviteCode;
+}
+
+nlohmann::json DatabaseManager::updateEvent(const std::string &email)
+{
+    nlohmann::json jsonResponse;
+    std::string inviteCode = getInviteCodeByEmail(email);
+    if (inviteCode.empty())
+    {
+        jsonResponse["result"] = false;
+        return jsonResponse;
+    }
+    std::string query =
+        "SELECT title, place, date, time, description, ownerEmail "
+        "FROM events WHERE inviteCode = '" + inviteCode + "' LIMIT 1;";
+    
+    sqlite3_exec(
+        database_,
+        query.c_str(),
+        [](void* data, int argc, char** argv, char**) -> int 
+        {
+            auto* j = static_cast<nlohmann::json*>(data);
+            (*j)["title"] = argv[0] ? argv[0] : "";
+            (*j)["place"] = argv[1] ? argv[1] : "";
+            (*j)["date"] = argv[2] ? argv[2] : "";
+            (*j)["time"] = argv[3] ? argv[3] : "";
+            (*j)["description"] = argv[4] ? argv[4] : "";
+            (*j)["ownerEmail"] = argv[5] ? argv[5] : "";
+            return 0;
+        },
+        &jsonResponse,
+        nullptr
+    );
+    jsonResponse["inviteCode"] = inviteCode;
+    return jsonResponse;
 }

@@ -3,10 +3,6 @@
 #include "Logger.hpp"
 #include "SessionManager.hpp"
 
-#include <nlohmann/json.hpp>
-
-#include <string>
-
 httplib::Client ClientServer::client_("http://192.168.0.25:8080");
 
 bool ClientServer::sendLoginRequest(
@@ -94,6 +90,7 @@ bool ClientServer::sendCreateEventRequest(
 {
     if (SessionManager::getSessionEmail() == "") 
     {
+        Logger::error("APP", "Create event: FAILED to get session email");
         return false;
     }
     nlohmann::json jsonRequest;
@@ -114,8 +111,10 @@ bool ClientServer::sendCreateEventRequest(
         );
     if (result->body == "OK")
     {
+        Logger::info("HTTP", "Create event: result->body == \"OK\"");
         return true;
     }
+    Logger::info("HTTP", "Create event: result->body == \"FAIL\"");
     return false;
 }
 
@@ -124,7 +123,8 @@ bool ClientServer::sendCreateEventMemberRequest(
     bool isOrganizer
 )
 {
-    if (SessionManager::getSessionEmail() == "") 
+    std::string email = SessionManager::getSessionEmail();
+    if (email.empty()) 
     {
         return false;
     }
@@ -133,7 +133,7 @@ bool ClientServer::sendCreateEventMemberRequest(
         isOrganizer = true;
     }
     nlohmann::json jsonRequest;
-    jsonRequest["email"] = SessionManager::getSessionEmail();
+    jsonRequest["email"] = email;
     jsonRequest["inviteCode"] = inviteCode;
     jsonRequest["isOrganizer"] = isOrganizer;
 
@@ -149,4 +149,50 @@ bool ClientServer::sendCreateEventMemberRequest(
         return true;
     }
     return false;
+}
+
+bool ClientServer::sendDeleteEventMemberRequest()
+{
+    std::string email = SessionManager::getSessionEmail();
+    if (email.empty()) 
+    {
+        return false;
+    }
+    nlohmann::json jsonRequest;
+    jsonRequest["email"] = email;
+    std::string stringRequest = jsonRequest.dump();
+    httplib::Result result = 
+        client_.Post("/event/delete", stringRequest, "application/json");
+    if (result->body == "OK")
+    {
+        return true;
+    }
+    return false;
+}
+
+std::string ClientServer::getInviteCode()
+{
+    std::string email = SessionManager::getSessionEmail();
+    if (email.empty())
+    {
+        return "";
+    }
+    httplib::Result result = client_.Get("/invite-code?email=" + email);
+    if (result->body != "FAIL")
+    {
+        return result->body;
+    }
+    return "";
+}
+
+nlohmann::json ClientServer::updateEvent()
+{
+    std::string email = SessionManager::getSessionEmail();
+    if (email.empty()) 
+    {
+        return false;
+    }
+    httplib::Result result = client_.Get("/event/update?email=" + email);
+    nlohmann::json jsonResponse = nlohmann::json::parse(result->body);
+    return jsonResponse;   
 }

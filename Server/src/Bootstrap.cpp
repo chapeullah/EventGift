@@ -19,7 +19,7 @@ Bootstrap::Bootstrap()
         
             Logger::info(
                 "SERVER", 
-                "Request from \"" + req.remote_addr + "\": \"" + reqBody + "\""
+                "Request from " + req.remote_addr + ": " + reqBody + ""
             );
 
             nlohmann::json jsonRequest = nlohmann::json::parse(reqBody);
@@ -31,10 +31,22 @@ Bootstrap::Bootstrap()
             if (DatabaseManager::queryLogin(email, password))
             {
                 DatabaseManager::insertSession(email);
+                Logger::info(
+                    "DB",
+                    "Response to " 
+                        + req.remote_addr 
+                        + ": Insert session SUCCESS"
+                );
                 res.set_content("OK", "text/plain");
             }
             else
             {
+                Logger::error(
+                    "DB",
+                    "Response to " 
+                        + req.remote_addr 
+                        + ": Insert session FAILED"
+                );
                 res.set_content("FAIL", "text/plain");
             }
         }
@@ -47,7 +59,7 @@ Bootstrap::Bootstrap()
         
             Logger::info(
                 "SERVER", 
-                "Request from \"" + req.remote_addr + "\": \"" + reqBody + "\""
+                "Request from " + req.remote_addr + ": " + reqBody
             );
 
             nlohmann::json jsonRequest = nlohmann::json::parse(reqBody);
@@ -58,10 +70,22 @@ Bootstrap::Bootstrap()
             
             if (DatabaseManager::queryRegister(email, password))
             {
+                Logger::info(
+                    "DB",
+                    "Response to " 
+                        + req.remote_addr 
+                        + ": Register insert SUCCESS"
+                );
                 res.set_content("OK", "text/plain");
             }
             else
             {
+                Logger::error(
+                    "DB",
+                    "Response to " 
+                        + req.remote_addr 
+                        + ": Register insert FAILED"
+                );
                 res.set_content("FAIL", "text/plain");
             }
         }
@@ -75,14 +99,32 @@ Bootstrap::Bootstrap()
 
             Logger::info(
                 "SERVER",
-                "Request from \"" + req.remote_addr + "\": \"" + reqBody + "\""
+                "Request from " + req.remote_addr + ": " + reqBody
             );
 
             nlohmann::json jsonRequest = nlohmann::json::parse(reqBody);
             std::string email = jsonRequest["email"];
 
-            DatabaseManager::insertSession(email);
-            res.set_content("OK", "text/plain");
+            if (DatabaseManager::insertSession(email))
+            {
+                Logger::info(
+                    "DB",
+                    "Response to " 
+                        + req.remote_addr 
+                        + ": Session insert SUCCESS"
+                );
+                res.set_content("OK", "text/plain");
+            }
+            else 
+            {
+                Logger::error(
+                    "DB",
+                    "Response to " 
+                        + req.remote_addr 
+                        + ": Session insert FAILED"
+                );
+                res.set_content("FAIL", "text/plain");
+            }
         }
     );
 
@@ -90,13 +132,17 @@ Bootstrap::Bootstrap()
         "/session/verify",
         [this](const httplib::Request &req, httplib::Response &res)
         {
+            Logger::info(
+                "SERVER",
+                "Request from " + req.remote_addr + ": " + req.body
+            );
             if (!req.has_param("email"))
             {
                 Logger::warning(
                     "HTTP", 
-                    "Request from" 
+                    "Response to " 
                         + req.remote_addr 
-                        + ": Has no param = \"email\""
+                        + ": Has no param = email"
                 );
                 res.set_content("FAIL", "text/plain");
                 return;
@@ -108,7 +154,7 @@ Bootstrap::Bootstrap()
             {
                 Logger::info(
                     "DB",
-                    "Request from" 
+                    "Response to " 
                         + req.remote_addr 
                         + ": Session validation SUCCESS"
                 );
@@ -116,9 +162,9 @@ Bootstrap::Bootstrap()
             }
             else
             {
-                Logger::info(
+                Logger::error(
                     "DB",
-                    "Request from" 
+                    "Response to " 
                         + req.remote_addr 
                         + ": Session validation FAILED"
                 );
@@ -134,8 +180,8 @@ Bootstrap::Bootstrap()
             std::string reqBody = req.body;
 
             Logger::info(
-                "SERVER",
-                "Request from \"" + req.remote_addr + "\": \"" + reqBody + "\""
+                "HTTP",
+                "Request from " + req.remote_addr + ": " + reqBody
             );
 
             nlohmann::json jsonRequest = nlohmann::json::parse(reqBody);
@@ -156,7 +202,7 @@ Bootstrap::Bootstrap()
             {
                 Logger::info(
                     "DB",
-                    "Request from" 
+                    "Response to " 
                         + req.remote_addr 
                         + ": Insert event SUCCESS"
                 );
@@ -164,9 +210,9 @@ Bootstrap::Bootstrap()
             }
             else 
             {
-                Logger::info(
+                Logger::error(
                     "DB",
-                    "Request from" 
+                    "Response to " 
                         + req.remote_addr 
                         + ": Insert event FAILED"
                 );
@@ -182,8 +228,8 @@ Bootstrap::Bootstrap()
             std::string reqBody = req.body;
 
             Logger::info(
-                "SERVER",
-                "Request from \"" + req.remote_addr + "\": \"" + reqBody + "\""
+                "HTTP",
+                "Request from " + req.remote_addr + ": " + reqBody
             );
 
             nlohmann::json jsonRequest = nlohmann::json::parse(reqBody);
@@ -201,7 +247,7 @@ Bootstrap::Bootstrap()
             {
                 Logger::info(
                     "DB",
-                    "Request from" 
+                    "Response to " 
                         + req.remote_addr 
                         + ": Insert event member SUCCESS"
                 );
@@ -209,9 +255,104 @@ Bootstrap::Bootstrap()
             }
             else 
             {
+                Logger::error(
+                    "DB",
+                    "Response to " 
+                        + req.remote_addr 
+                        + ": Insert event member FAILED"
+                );
+                res.set_content("FAIL", "text/plain");
+            }
+        }
+    );
+
+    server_.Get(
+        "/invite-code",
+        [this](const httplib::Request &req, httplib::Response &res)
+        {
+            if (!req.has_param("email"))
+            {
+                res.set_content("FAIL", "text/plain");
+                return;
+            }
+
+            std::string email = req.get_param_value("email");
+            std::string inviteCode = 
+                DatabaseManager::getInviteCodeByEmail(email);
+            if (inviteCode.empty())
+            {
+                Logger::error(
+                    "DB",
+                    "Response to " 
+                        + req.remote_addr 
+                        + ": Invite code not found. FAILED"
+                );
+                res.set_content("FAIL", "text/plain");
+            }
+            else
+            {
                 Logger::info(
                     "DB",
-                    "Request from" 
+                    "Response to " 
+                        + req.remote_addr 
+                        + ": Invite code found. SUCCESS"
+                );
+                res.set_content(inviteCode, "text/plain");
+            }
+        }
+    );
+
+    server_.Get(
+        "/event/update",
+        [this](const httplib::Request &req, httplib::Response &res)
+        {
+            nlohmann::json jsonResponse;
+            if (!req.has_param("email"))
+            {
+                jsonResponse["result"] = false;
+                res.set_content(jsonResponse.dump(), "application/json");
+                return;
+            }
+            
+            jsonResponse = 
+                DatabaseManager::updateEvent(req.get_param_value("email"));
+            
+            if (jsonResponse["result"] == false)
+            {
+                res.set_content(jsonResponse.dump(), "application/json");
+                return;
+            }
+            jsonResponse["result"] = true;
+            res.set_content(jsonResponse.dump(), "application/json");
+        }
+    );
+
+    server_.Post(
+        "/event/delete",
+        [this](const httplib::Request &req, httplib::Response &res)
+        {
+            std::string reqBody = req.body;
+            Logger::info(
+                "HTTP",
+                "Request from " + req.remote_addr + ": " + reqBody
+            );
+            nlohmann::json jsonRequest = nlohmann::json::parse(reqBody);
+            std::string email = jsonRequest["email"];
+            if (DatabaseManager::deleteEventMember(email))
+            {
+                Logger::info(
+                    "DB",
+                    "Response to " 
+                        + req.remote_addr 
+                        + ": Delete event member SUCCESS"
+                );
+                res.set_content("OK", "text/plain");
+            }
+            else 
+            {
+                Logger::error(
+                    "DB",
+                    "Response to " 
                         + req.remote_addr 
                         + ": Insert event member FAILED"
                 );

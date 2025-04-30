@@ -5,6 +5,7 @@
 #include "ui/Register.hpp"
 #include "ui/InviteGateway.hpp"
 #include "ui/CreateEventWindow.hpp"
+#include "ui/EventWindow.hpp"
 
 #include "ClientServer.hpp"
 #include "Logger.hpp"
@@ -21,6 +22,7 @@ App::App(int argc, char *argv[])
     register_ = new Register();
     inviteGateway_ = new InviteGateway();
     createEventWindow_ = new CreateEventWindow();
+    eventWindow_ = new EventWindow();
 
     QVBoxLayout *layout = new QVBoxLayout(&qWidget_);
 
@@ -32,6 +34,7 @@ App::App(int argc, char *argv[])
     qStackedWidget_->addWidget(register_);
     qStackedWidget_->addWidget(inviteGateway_);
     qStackedWidget_->addWidget(createEventWindow_);
+    qStackedWidget_->addWidget(eventWindow_);
 
     QObject::connect(
         startMenu_, 
@@ -207,14 +210,35 @@ App::App(int argc, char *argv[])
                 )
             )
             {
-                ClientServer::sendCreateEventMemberRequest();
-                qStackedWidget_->setCurrentWidget(inviteGateway_);
-
-                QMessageBox::information(
-                    &qWidget_, 
-                    "Success", 
-                    "Event created"
-                );
+                if (ClientServer::sendCreateEventMemberRequest())
+                {
+                    std::string inviteCode = ClientServer::getInviteCode();
+                    if (inviteCode.empty())
+                    {
+                        QMessageBox::information(
+                            &qWidget_, 
+                            "Failed", 
+                            "Invite code empty"
+                        );
+                        return;
+                    }
+                    event_ = std::make_unique<Event>();
+                    eventWindow_->setEventData(event_.get());
+                    qStackedWidget_->setCurrentWidget(eventWindow_);
+                    QMessageBox::information(
+                        &qWidget_, 
+                        "Success", 
+                        "Event created"
+                    );
+                }
+                else
+                {
+                    QMessageBox::warning(
+                        &qWidget_, 
+                        "Failed", 
+                        "Member: Something went wrong"
+                    );
+                }               
             }
             else
             {
@@ -227,10 +251,64 @@ App::App(int argc, char *argv[])
         }
     );
 
+    QObject::connect(
+        inviteGateway_, 
+        &InviteGateway::applyClicked,
+        [this](const QString &inviteCode)
+        {
+            if (
+                ClientServer::sendCreateEventMemberRequest(
+                    inviteCode.toStdString()
+                )
+            )
+            {
+                event_ = std::make_unique<Event>();
+                eventWindow_->setEventData(event_.get());
+                qStackedWidget_->setCurrentWidget(eventWindow_);
+                QMessageBox::information(
+                    &qWidget_, 
+                    "Success", 
+                    "You have joined the event"
+                );
+            }
+            else 
+            {
+                QMessageBox::warning(
+                    &qWidget_, 
+                    "Failed", 
+                    "Something went wrong"
+                );
+            }
+        }
+    );
+
+    QObject::connect(
+        eventWindow_, 
+        &EventWindow::goBack,
+        [this]()
+        {
+            ClientServer::sendDeleteEventMemberRequest();
+            qStackedWidget_->setCurrentWidget(inviteGateway_);
+            event_.reset();
+            eventWindow_->setEventData(nullptr);
+        }
+    );
+
     if (ClientServer::sendVerifySessionRequest())
     {
-        qStackedWidget_->setCurrentWidget(inviteGateway_);
-        Logger::info("CODE", "Current widget inviteGateway_");
+        std::string inviteCode = ClientServer::getInviteCode();
+        if (!inviteCode.empty())
+        {
+            event_ = std::make_unique<Event>();
+            eventWindow_->setEventData(event_.get());
+            qStackedWidget_->setCurrentWidget(eventWindow_);
+            Logger::info("CODE", "Current widget eventWindow_");
+        }
+        else
+        {
+            qStackedWidget_->setCurrentWidget(inviteGateway_);
+            Logger::info("CODE", "Current widget inviteGateway_");
+        }
     } 
     else
     {

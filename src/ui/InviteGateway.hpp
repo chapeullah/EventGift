@@ -16,7 +16,7 @@ public:
 
 signals:
     void goBack();
-    void applyClicked(const QString &code);
+    void applyClicked(const QString &inviteCode);
     void createEvent();
 
 private:

@@ -1,2 +1,6 @@
-[07:00:52] [INFO] [CODE] Current widget inviteGateway_
-[07:00:52] [INFO] [APP] EventGift.exe started
+[10:06:23] [INFO] [CODE] Current widget eventWindow_
+[10:06:23] [INFO] [APP] EventGift.exe started
+[10:07:11] [INFO] [APP] Apply button clicked
+[10:07:25] [INFO] [APP] Create event button clicked
+[10:07:31] [INFO] [HTTP] Create event: result->body == "OK"
+[10:08:15] [INFO] [APP] Apply button clicked

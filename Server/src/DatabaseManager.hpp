@@ -2,6 +2,8 @@
 
 #include <sqlite3.h>
 
+#include "nlohmann/json.hpp"
+
 #include <string>
 #include <chrono>
 
@@ -21,7 +23,7 @@ public:
         const std::string &email, 
         const std::string &password
     );
-    static void insertSession(const std::string &email);
+    static bool insertSession(const std::string &email);
     static bool isSessionValid(const std::string &email);
     static bool insertEvent(
         const std::string &email,
@@ -36,12 +38,16 @@ public:
         std::string &inviteCode,
         const bool isOrganizer
     );
+    static bool deleteEventMember(const std::string &email);
+    static std::string getInviteCodeByEmail(const std::string &email);
+    static nlohmann::json updateEvent(const std::string &email);
 
 private:
-    static bool userExists(const std::string &email);
-    static std::string expirationTime();
-    static std::string generateInviteCode();
-    static std::string getInviteCodeByOwnerEmail(const std::string &email);
+    static bool userExists_(const std::string &email);
+    static std::string expirationTime_();
+    static std::string generateInviteCode_();
+    static std::string getInviteCodeByOwnerEmail_(const std::string &email);
+    static bool isInviteCodeUnique_(const std::string &inviteCode);
 
     inline static sqlite3 *database_ = nullptr;
     inline static constexpr 

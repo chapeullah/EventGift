@@ -3,6 +3,7 @@
 #include "ui_InviteGateway.h"
 
 #include <QTimer>
+#include <QMessageBox>
 
 InviteGateway::InviteGateway(QWidget *parent)
     : QWidget(parent), ui_(new Ui::InviteGateway)
@@ -33,5 +34,13 @@ InviteGateway::~InviteGateway()
 
 void InviteGateway::attemptJoinEvent()
 {
-    QString code = ui_->codeLineEdit->text();
+    QString inviteCode = ui_->codeLineEdit->text();
+    if (inviteCode.size() != 6)
+    {
+        QMessageBox::warning(
+            this, "Failed", "Invite code length must be 6 letters"
+        );
+        return;
+    }
+    emit applyClicked(inviteCode);
 }

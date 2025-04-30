@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Event.hpp"
+
 #include <QApplication>
 #include <QWidget>
 #include <QStackedWidget>
@@ -9,6 +11,7 @@ class Login;
 class Register;
 class InviteGateway;
 class CreateEventWindow;
+class EventWindow;
 
 class App
 {
@@ -27,4 +30,7 @@ private:
     Register *register_;
     InviteGateway *inviteGateway_;
     CreateEventWindow *createEventWindow_;
+    EventWindow *eventWindow_;
+
+    std::unique_ptr<Event> event_;
 };

@@ -23,6 +23,7 @@ add_executable(EventGift
     src/Time.cpp
     src/SessionManager.cpp
     src/ClientServer.cpp
+    src/Event.cpp
     src/ui/StartMenu.cpp
     src/ui/StartMenu.ui
     src/ui/Login.cpp
@@ -42,7 +43,11 @@ add_executable(EventGift
     ${APP_ICON_RESOURCE_WINDOWS}
 )
 
-target_include_directories(EventGift PRIVATE include)
+target_include_directories(EventGift PRIVATE 
+    include
+    src
+)
+
 target_link_libraries(EventGift PRIVATE Qt6::Widgets)
 set_target_properties(EventGift PROPERTIES
     WIN32_EXECUTABLE TRUE

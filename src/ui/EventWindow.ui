@@ -86,6 +86,24 @@
       <widget class="QWidget" name="info" native="true">
        <layout class="QVBoxLayout" name="verticalLayoutInfo">
         <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_8">
+          <item>
+           <widget class="QLabel" name="inviteCode">
+            <property name="text">
+             <string>INVITE CODE:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="inviteCodeLabel">
+            <property name="text">
+             <string>inviteCodeLabel</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
          <layout class="QHBoxLayout" name="horizontalLayout_4">
           <item>
            <widget class="QLabel" name="eventTitle">

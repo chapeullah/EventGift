@@ -2,6 +2,8 @@
 
 #include "httplib.h"
 
+#include <nlohmann/json.hpp>
+
 class ClientServer
 {
 public:
@@ -26,6 +28,9 @@ public:
         const std::string &inviteCode = "__create__",
         bool isOrganizer = false
     );
+    static bool sendDeleteEventMemberRequest();
+    static std::string getInviteCode();
+    static nlohmann::json updateEvent();
 
 private:
     static httplib::Client client_;
