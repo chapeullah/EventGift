@@ -25,8 +25,7 @@ public:
         const std::string &description
     );
     static bool sendCreateEventMemberRequest(
-        const std::string &inviteCode = "__create__",
-        bool isOrganizer = false
+        const std::string &inviteCode = "__create__"
     );
     static bool sendDeleteEventMemberRequest();
     static std::string getInviteCode();

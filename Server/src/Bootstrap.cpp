@@ -237,11 +237,10 @@ Bootstrap::Bootstrap()
             std::string
                 email = jsonRequest["email"],
                 inviteCode = jsonRequest["inviteCode"];
-            bool isOrganizer = jsonRequest.value("isOrganizer", false);
             
             if (
                 DatabaseManager::insertEventMember(
-                    email, inviteCode, isOrganizer
+                    email, inviteCode
                 )
             )
             {

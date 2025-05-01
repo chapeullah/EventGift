@@ -59,7 +59,6 @@ void DatabaseManager::initTables()
             CREATE TABLE IF NOT EXISTS event_members (
                 inviteCode TEXT NOT NULL, 
                 userEmail TEXT NOT NULL, 
-                isOrganizer INTEGER DEFAULT 0, 
                 PRIMARY KEY (inviteCode, userEmail), 
                 FOREIGN KEY (inviteCode) 
                     REFERENCES events(inviteCode) 
@@ -331,8 +330,7 @@ bool DatabaseManager::isInviteCodeUnique_(const std::string &inviteCode)
 
 bool DatabaseManager::insertEventMember(
     const std::string &email, 
-    std::string &inviteCode,
-    const bool isOrganizer
+    std::string &inviteCode
 )
 {
     if (inviteCode == "__create__")
@@ -351,13 +349,11 @@ bool DatabaseManager::insertEventMember(
     std::string query = 
         "INSERT INTO event_members ("
             "inviteCode, "
-            "userEmail, "
-            "isOrganizer"
+            "userEmail"
         ") "
         "VALUES ("
             "'" + inviteCode + "', "
-            "'" + email + "', "
-            + std::to_string(isOrganizer) + ");";
+            "'" + email + "');";
     Logger::info("DB", "insertEventMember query: " + query);
     char* errMsg = nullptr;
 

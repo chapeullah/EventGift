@@ -119,8 +119,7 @@ bool ClientServer::sendCreateEventRequest(
 }
 
 bool ClientServer::sendCreateEventMemberRequest(
-    const std::string &inviteCode,
-    bool isOrganizer
+    const std::string &inviteCode
 )
 {
     std::string email = SessionManager::getSessionEmail();
@@ -128,14 +127,9 @@ bool ClientServer::sendCreateEventMemberRequest(
     {
         return false;
     }
-    if (inviteCode == "__create__")
-    {
-        isOrganizer = true;
-    }
     nlohmann::json jsonRequest;
     jsonRequest["email"] = email;
     jsonRequest["inviteCode"] = inviteCode;
-    jsonRequest["isOrganizer"] = isOrganizer;
 
     std::string stringRequest = jsonRequest.dump();
     httplib::Result result = 

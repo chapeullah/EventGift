@@ -238,7 +238,7 @@ App::App(int argc, char *argv[])
                         "Failed", 
                         "Member: Something went wrong"
                     );
-                }               
+                }
             }
             else
             {

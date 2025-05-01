@@ -35,8 +35,7 @@ public:
     );
     static bool insertEventMember(
         const std::string &email, 
-        std::string &inviteCode,
-        const bool isOrganizer
+        std::string &inviteCode
     );
     static bool deleteEventMember(const std::string &email);
     static std::string getInviteCodeByEmail(const std::string &email);
