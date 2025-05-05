@@ -175,6 +175,16 @@ App::App(int argc, char *argv[])
         &InviteGateway::goBack, 
         [this]() 
         {
+            QMessageBox::StandardButton reply;
+            reply = QMessageBox::question(
+                &qWidget_,
+                "Confirm",
+                "Are you sure you want to logout?",
+                QMessageBox::Yes | QMessageBox::No
+            );
+            if (reply != QMessageBox::Yes) {
+                return;
+            }
             Logger::info("APP", "Cancel button clicked");
             qStackedWidget_->setCurrentWidget(startMenu_);
             ClientServer::sendDeleteSessionRequest();

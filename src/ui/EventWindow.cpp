@@ -54,10 +54,30 @@ EventWindow::EventWindow(QWidget *parent)
                 SessionManager::getSessionEmail()
             )
             {
+                QMessageBox::StandardButton reply;
+                reply = QMessageBox::question(
+                    this,
+                    "Confirm",
+                    "Are you sure you want to delete the event?",
+                    QMessageBox::Yes | QMessageBox::No
+                );
+                if (reply != QMessageBox::Yes) {
+                    return;
+                }
                 emit goBackO();
             }
             else
             {
+                QMessageBox::StandardButton reply;
+                reply = QMessageBox::question(
+                    this,
+                    "Confirm",
+                    "Are you sure you want to leave the event?",
+                    QMessageBox::Yes | QMessageBox::No
+                );
+                if (reply != QMessageBox::Yes) {
+                    return;
+                }
                 emit goBackG();
             }
         }
@@ -250,6 +270,16 @@ void EventWindow::updateSelectButtonState_(bool hasSelected)
                 }
 
                 QString giftName = selectedGift_->getGiftName();
+                QMessageBox::StandardButton reply;
+                reply = QMessageBox::question(
+                    this,
+                    "Confirm",
+                    "Are you sure you want to unselect gift: " + giftName,
+                    QMessageBox::Yes | QMessageBox::No
+                );
+                if (reply != QMessageBox::Yes) {
+                    return;
+                }
                 if (
                     !ClientServer::sendUnselectGiftRequest(
                         giftName.toStdString()
@@ -287,9 +317,18 @@ void EventWindow::updateSelectButtonState_(bool hasSelected)
                     );
                     return;
                 }
-        
+                
                 QString giftName = selectedGift_->getGiftName();
-        
+                QMessageBox::StandardButton reply;
+                reply = QMessageBox::question(
+                    this,
+                    "Confirm",
+                    "Are you sure you want to select gift: " + giftName,
+                    QMessageBox::Yes | QMessageBox::No
+                );
+                if (reply != QMessageBox::Yes) {
+                    return;
+                }
                 if (
                     !ClientServer::sendSelectGiftRequest(
                         giftName.toStdString()
