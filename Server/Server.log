@@ -1,5 +1,0 @@
-[07:53:29] [INFO] [DB] Database connection success: database/eventgift.db
-[07:53:29] [INFO] [DB] Table created or already exists
-[07:53:29] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[07:53:30] [INFO] [SERVER] Server is starting
-[07:53:30] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
