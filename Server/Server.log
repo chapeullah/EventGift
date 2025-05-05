@@ -1,180 +1,264 @@
-[09:42:13] [INFO] [DB] Database connection success: database/eventgift.db
-[09:42:13] [INFO] [DB] Table created or already exists
-[09:42:13] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[09:42:14] [INFO] [SERVER] Server is starting
-[09:42:14] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
-[09:42:15] [INFO] [SERVER] Request from 192.168.0.25: 
-[09:42:15] [INFO] [DB] isSessionValid query: SELECT session FROM users WHERE email = '1234';
-[09:42:15] [INFO] [DB] User "1234" isSessionValid: SUCCESS
-[09:42:15] [INFO] [DB] Response to 192.168.0.25: 1234 Session validation SUCCESS
-[09:42:15] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = '1234' LIMIT 1;
-[09:42:15] [ERROR] [DB] getInviteCodeByEmail: FAILED
-[09:42:15] [ERROR] [DB] Response to 192.168.0.25: Invite code not found. FAILED
-[09:42:29] [INFO] [HTTP] Request from 192.168.0.25: {"date":"2025-07-27","description":"123","email":"1234","gifts":["1","2","3","4","5"],"place":"123","time":"00:00","title":"123"}
-[09:42:29] [INFO] [DB] isInviteCodeUnique_ query: SELECT 1 FROM events WHERE inviteCode = '030033' LIMIT 1;
-[09:42:29] [INFO] [DB] Invite code: 030033 is UNIQUE: SUCCESS
-[09:42:29] [INFO] [DB] Generated invite code: 030033
-[09:42:29] [INFO] [DB] insertEvent INFO query: INSERT INTO events (title, place, date, time, description, inviteCode, ownerEmail) VALUES ('123', '123', '2025-07-27', '00:00', '123', '030033', '1234')
-[09:42:29] [INFO] [DB] insertEvent GIFTS query: INSERT INTO event_gifts (inviteCode, name) VALUES('030033', '1');
-[09:42:29] [INFO] [DB] insertEvent GIFTS query: INSERT INTO event_gifts (inviteCode, name) VALUES('030033', '2');
-[09:42:29] [INFO] [DB] insertEvent GIFTS query: INSERT INTO event_gifts (inviteCode, name) VALUES('030033', '3');
-[09:42:29] [INFO] [DB] insertEvent GIFTS query: INSERT INTO event_gifts (inviteCode, name) VALUES('030033', '4');
-[09:42:29] [INFO] [DB] insertEvent GIFTS query: INSERT INTO event_gifts (inviteCode, name) VALUES('030033', '5');
-[09:42:29] [INFO] [DB] User "1234" expirationTime_: SUCCESS
-[09:42:29] [INFO] [DB] Response to 192.168.0.25: Insert event SUCCESS
-[09:42:29] [INFO] [HTTP] Request from 192.168.0.25: {"email":"1234","inviteCode":"__create__"}
-[09:42:29] [INFO] [DB] deleteEvent query: SELECT inviteCode FROM events WHERE ownerEmail = '1234' LIMIT 1;
-[09:42:29] [INFO] [DB] getInviteCodeByOwnerEmail_: 030033 SUCCESS
-[09:42:29] [INFO] [DB] insertEventMember [query]: INSERT INTO event_members (inviteCode, userEmail) VALUES ('030033', '1234');
-[09:42:29] [INFO] [DB] insertEventMember: SUCCESS
-[09:42:29] [INFO] [DB] Response to 192.168.0.25: Insert event member SUCCESS
-[09:42:29] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = '1234' LIMIT 1;
-[09:42:29] [INFO] [DB] getInviteCodeByEmail: 030033 SUCCESS
-[09:42:29] [INFO] [DB] Response to 192.168.0.25: Invite code found. SUCCESS
-[09:42:29] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = '1234' LIMIT 1;
-[09:42:29] [INFO] [DB] getInviteCodeByEmail: 030033 SUCCESS
-[09:42:29] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '030033' LIMIT 1;
-[09:42:29] [INFO] [DB] getEventInfo: SUCCESS
-[09:42:29] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = '1234' LIMIT 1;
-[09:42:29] [INFO] [DB] getInviteCodeByEmail: 030033 SUCCESS
-[09:42:29] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '030033';
-[09:42:29] [INFO] [DB] getEventMembers: SUCCESS
-[09:42:29] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = '1234' LIMIT 1;
-[09:42:29] [INFO] [DB] getInviteCodeByEmail: 030033 SUCCESS
-[09:42:29] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '030033';
-[09:42:29] [INFO] [DB] getEventGifts: SUCCESS
-[09:42:44] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[09:42:44] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[09:42:47] [INFO] [SERVER] Request from 192.168.0.25: 
-[09:42:47] [INFO] [DB] isSessionValid query: SELECT session FROM users WHERE email = 'admin';
-[09:42:47] [INFO] [DB] User "admin" isSessionValid: SUCCESS
-[09:42:47] [INFO] [DB] Response to 192.168.0.25: admin Session validation SUCCESS
-[09:42:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin' LIMIT 1;
-[09:42:47] [ERROR] [DB] getInviteCodeByEmail: FAILED
-[09:42:47] [ERROR] [DB] Response to 192.168.0.25: Invite code not found. FAILED
-[09:42:56] [INFO] [HTTP] Request from 192.168.0.25: {"email":"admin","inviteCode":"030033"}
-[09:42:56] [INFO] [DB] insertEventMember [query]: INSERT INTO event_members (inviteCode, userEmail) VALUES ('030033', 'admin');
-[09:42:56] [ERROR] [DB] insertEventMember: FAILED database is locked
-[09:42:56] [ERROR] [DB] Response to 192.168.0.25: Insert event member FAILED
-[09:43:40] [INFO] [HTTP] Request from 192.168.0.25: {"email":"admin","inviteCode":"030033"}
-[09:43:40] [INFO] [DB] insertEventMember [query]: INSERT INTO event_members (inviteCode, userEmail) VALUES ('030033', 'admin');
-[09:43:40] [INFO] [DB] insertEventMember: SUCCESS
-[09:43:40] [INFO] [DB] Response to 192.168.0.25: Insert event member SUCCESS
-[09:43:40] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin' LIMIT 1;
-[09:43:40] [INFO] [DB] getInviteCodeByEmail: 030033 SUCCESS
-[09:43:40] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '030033' LIMIT 1;
-[09:43:40] [INFO] [DB] getEventInfo: SUCCESS
-[09:43:40] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin' LIMIT 1;
-[09:43:40] [INFO] [DB] getInviteCodeByEmail: 030033 SUCCESS
-[09:43:40] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '030033';
-[09:43:40] [INFO] [DB] getEventMembers: SUCCESS
-[09:43:40] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin' LIMIT 1;
-[09:43:40] [INFO] [DB] getInviteCodeByEmail: 030033 SUCCESS
-[09:43:40] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '030033';
-[09:43:40] [INFO] [DB] getEventGifts: SUCCESS
-[09:43:46] [INFO] [HTTP] Request from 192.168.0.25: {"email":"admin","giftName":"3"}
-[09:43:46] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin' LIMIT 1;
-[09:43:46] [INFO] [DB] getInviteCodeByEmail: 030033 SUCCESS
-[09:43:46] [INFO] [DB] selectGift query: UPDATE event_gifts SET takenByUserEmail = 'admin' WHERE inviteCode = '030033' AND name = '3' AND takenByUserEmail IS NULL;
-[09:43:46] [INFO] [DB] selectGift: SUCCESS
-[09:43:46] [INFO] [DB] Response to 192.168.0.25: Delete event SUCCESS
-[09:43:46] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin' LIMIT 1;
-[09:43:46] [INFO] [DB] getInviteCodeByEmail: 030033 SUCCESS
-[09:43:46] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '030033' LIMIT 1;
-[09:43:46] [INFO] [DB] getEventInfo: SUCCESS
-[09:43:46] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin' LIMIT 1;
-[09:43:46] [INFO] [DB] getInviteCodeByEmail: 030033 SUCCESS
-[09:43:46] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '030033';
-[09:43:46] [INFO] [DB] getEventMembers: SUCCESS
-[09:43:46] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin' LIMIT 1;
-[09:43:46] [INFO] [DB] getInviteCodeByEmail: 030033 SUCCESS
-[09:43:46] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '030033';
-[09:43:46] [INFO] [DB] getEventGifts: SUCCESS
-[09:53:26] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[09:53:26] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[09:53:32] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[09:53:32] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[09:56:37] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[09:56:37] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[09:56:37] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[09:56:37] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[09:56:50] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[09:56:50] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[09:56:51] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[09:56:51] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[09:56:54] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[09:56:54] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[09:58:52] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[09:58:52] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[09:59:53] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[09:59:53] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:02:37] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:02:37] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:02:38] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:02:38] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:02:39] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:02:39] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:02:40] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:02:40] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:02:45] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:02:45] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:02:52] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:02:52] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:02:59] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:02:59] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:03:19] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:03:19] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:03:19] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:03:19] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:03:23] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:03:23] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:03:23] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:03:23] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:03:28] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:03:28] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:03:31] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:03:31] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:03:34] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:03:34] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:03:43] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:03:43] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:03:44] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:03:44] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:05:01] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:05:01] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:06:06] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:06:06] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:06:32] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:06:32] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:06:33] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:06:33] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:06:35] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:06:35] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:06:38] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:06:38] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:06:43] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:06:43] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:07:19] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:07:19] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:07:19] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:07:19] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:07:30] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:07:30] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:07:30] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:07:30] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:08:00] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:08:00] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:08:06] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:08:06] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:08:14] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:08:14] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:08:31] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:08:31] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:09:01] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:09:01] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:09:05] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:09:05] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:09:13] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:09:13] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
-[10:09:27] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
-[10:09:27] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
+[06:21:15] [INFO] [DB] Database connection success: database/eventgift.db
+[06:21:15] [INFO] [DB] Table created or already exists
+[06:21:15] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
+[06:21:16] [INFO] [SERVER] Server is starting
+[06:21:16] [INFO] [SERVER] Server started. Listening 0.0.0.0:8080
+[06:21:17] [INFO] [HTTP] Request from 192.168.0.25: 
+[06:21:17] [INFO] [DB] isSessionValid query: SELECT session FROM users WHERE email = 'admin@mail.ru';
+[06:21:17] [INFO] [DB] User "admin@mail.ru" isSessionValid: SUCCESS
+[06:21:17] [INFO] [HTTP] Response to 192.168.0.25: admin@mail.ru Session validation SUCCESS
+[06:21:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:21:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:21:17] [INFO] [HTTP] Response to 192.168.0.25: Invite code found. SUCCESS
+[06:21:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:21:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:21:17] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '922264' LIMIT 1;
+[06:21:17] [INFO] [DB] getEventInfo: SUCCESS
+[06:21:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:21:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:21:17] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '922264';
+[06:21:17] [INFO] [DB] getEventMembers: SUCCESS
+[06:21:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:21:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:21:17] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '922264';
+[06:21:17] [INFO] [DB] getEventGifts: SUCCESS
+[06:21:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:21:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:21:47] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '922264' LIMIT 1;
+[06:21:47] [INFO] [DB] getEventInfo: SUCCESS
+[06:21:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:21:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:21:47] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '922264';
+[06:21:47] [INFO] [DB] getEventMembers: SUCCESS
+[06:21:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:21:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:21:47] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '922264';
+[06:21:47] [INFO] [DB] getEventGifts: SUCCESS
+[06:22:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:22:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:22:17] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '922264' LIMIT 1;
+[06:22:17] [INFO] [DB] getEventInfo: SUCCESS
+[06:22:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:22:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:22:17] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '922264';
+[06:22:17] [INFO] [DB] getEventMembers: SUCCESS
+[06:22:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:22:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:22:17] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '922264';
+[06:22:17] [INFO] [DB] getEventGifts: SUCCESS
+[06:22:46] [INFO] [HTTP] Request from 192.168.0.25: {"email":"admin@mail.ru","giftName":"Boat"}
+[06:22:46] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:22:46] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:22:46] [INFO] [DB] unselectGift query: UPDATE event_gifts SET takenByUserEmail = NULL WHERE inviteCode = '922264' AND name = 'Boat' AND takenByUserEmail = 'admin@mail.ru';
+[06:22:46] [INFO] [DB] unselectGift: SUCCESS
+[06:22:46] [INFO] [HTTP] Response to 192.168.0.25: Delete event SUCCESS
+[06:22:46] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:22:46] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:22:46] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '922264' LIMIT 1;
+[06:22:46] [INFO] [DB] getEventInfo: SUCCESS
+[06:22:46] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:22:46] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:22:46] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '922264';
+[06:22:46] [INFO] [DB] getEventMembers: SUCCESS
+[06:22:46] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:22:46] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:22:46] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '922264';
+[06:22:46] [INFO] [DB] getEventGifts: SUCCESS
+[06:22:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:22:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:22:47] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '922264' LIMIT 1;
+[06:22:47] [INFO] [DB] getEventInfo: SUCCESS
+[06:22:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:22:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:22:47] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '922264';
+[06:22:47] [INFO] [DB] getEventMembers: SUCCESS
+[06:22:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:22:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:22:47] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '922264';
+[06:22:47] [INFO] [DB] getEventGifts: SUCCESS
+[06:22:48] [INFO] [HTTP] Request from 192.168.0.25: {"email":"admin@mail.ru","giftName":"In. Comporated Lil Brother"}
+[06:22:48] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:22:48] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:22:48] [INFO] [DB] selectGift query: UPDATE event_gifts SET takenByUserEmail = 'admin@mail.ru' WHERE inviteCode = '922264' AND name = 'In. Comporated Lil Brother' AND takenByUserEmail IS NULL;
+[06:22:48] [INFO] [DB] selectGift: SUCCESS
+[06:22:48] [INFO] [HTTP] Response to 192.168.0.25: Delete event SUCCESS
+[06:22:48] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:22:48] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:22:48] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '922264' LIMIT 1;
+[06:22:48] [INFO] [DB] getEventInfo: SUCCESS
+[06:22:48] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:22:48] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:22:48] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '922264';
+[06:22:48] [INFO] [DB] getEventMembers: SUCCESS
+[06:22:48] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:22:48] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:22:48] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '922264';
+[06:22:48] [INFO] [DB] getEventGifts: SUCCESS
+[06:23:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:23:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:23:17] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '922264' LIMIT 1;
+[06:23:17] [INFO] [DB] getEventInfo: SUCCESS
+[06:23:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:23:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:23:17] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '922264';
+[06:23:17] [INFO] [DB] getEventMembers: SUCCESS
+[06:23:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:23:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:23:17] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '922264';
+[06:23:17] [INFO] [DB] getEventGifts: SUCCESS
+[06:23:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:23:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:23:47] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '922264' LIMIT 1;
+[06:23:47] [INFO] [DB] getEventInfo: SUCCESS
+[06:23:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:23:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:23:47] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '922264';
+[06:23:47] [INFO] [DB] getEventMembers: SUCCESS
+[06:23:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:23:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:23:47] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '922264';
+[06:23:47] [INFO] [DB] getEventGifts: SUCCESS
+[06:24:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:24:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:24:17] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '922264' LIMIT 1;
+[06:24:17] [INFO] [DB] getEventInfo: SUCCESS
+[06:24:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:24:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:24:17] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '922264';
+[06:24:17] [INFO] [DB] getEventMembers: SUCCESS
+[06:24:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:24:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:24:17] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '922264';
+[06:24:17] [INFO] [DB] getEventGifts: SUCCESS
+[06:24:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:24:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:24:47] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '922264' LIMIT 1;
+[06:24:47] [INFO] [DB] getEventInfo: SUCCESS
+[06:24:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:24:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:24:47] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '922264';
+[06:24:47] [INFO] [DB] getEventMembers: SUCCESS
+[06:24:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:24:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:24:47] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '922264';
+[06:24:47] [INFO] [DB] getEventGifts: SUCCESS
+[06:25:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:25:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:25:17] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '922264' LIMIT 1;
+[06:25:17] [INFO] [DB] getEventInfo: SUCCESS
+[06:25:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:25:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:25:17] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '922264';
+[06:25:17] [INFO] [DB] getEventMembers: SUCCESS
+[06:25:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:25:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:25:17] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '922264';
+[06:25:17] [INFO] [DB] getEventGifts: SUCCESS
+[06:25:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:25:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:25:47] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '922264' LIMIT 1;
+[06:25:47] [INFO] [DB] getEventInfo: SUCCESS
+[06:25:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:25:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:25:47] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '922264';
+[06:25:47] [INFO] [DB] getEventMembers: SUCCESS
+[06:25:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:25:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:25:47] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '922264';
+[06:25:47] [INFO] [DB] getEventGifts: SUCCESS
+[06:26:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:26:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:26:17] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '922264' LIMIT 1;
+[06:26:17] [INFO] [DB] getEventInfo: SUCCESS
+[06:26:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:26:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:26:17] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '922264';
+[06:26:17] [INFO] [DB] getEventMembers: SUCCESS
+[06:26:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:26:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:26:17] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '922264';
+[06:26:17] [INFO] [DB] getEventGifts: SUCCESS
+[06:26:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:26:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:26:47] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '922264' LIMIT 1;
+[06:26:47] [INFO] [DB] getEventInfo: SUCCESS
+[06:26:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:26:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:26:47] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '922264';
+[06:26:47] [INFO] [DB] getEventMembers: SUCCESS
+[06:26:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:26:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:26:47] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '922264';
+[06:26:47] [INFO] [DB] getEventGifts: SUCCESS
+[06:26:51] [INFO] [HTTP] Request from 192.168.0.25: {"email":"admin@mail.ru","giftName":"In. Comporated Lil Brother"}
+[06:26:51] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:26:51] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:26:51] [INFO] [DB] unselectGift query: UPDATE event_gifts SET takenByUserEmail = NULL WHERE inviteCode = '922264' AND name = 'In. Comporated Lil Brother' AND takenByUserEmail = 'admin@mail.ru';
+[06:26:51] [INFO] [DB] unselectGift: SUCCESS
+[06:26:51] [INFO] [HTTP] Response to 192.168.0.25: Delete event SUCCESS
+[06:26:51] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:26:51] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:26:51] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '922264' LIMIT 1;
+[06:26:51] [INFO] [DB] getEventInfo: SUCCESS
+[06:26:51] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:26:51] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:26:51] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '922264';
+[06:26:51] [INFO] [DB] getEventMembers: SUCCESS
+[06:26:51] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:26:51] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:26:51] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '922264';
+[06:26:51] [INFO] [DB] getEventGifts: SUCCESS
+[06:27:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:27:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:27:17] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '922264' LIMIT 1;
+[06:27:17] [INFO] [DB] getEventInfo: SUCCESS
+[06:27:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:27:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:27:17] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '922264';
+[06:27:17] [INFO] [DB] getEventMembers: SUCCESS
+[06:27:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:27:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:27:17] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '922264';
+[06:27:17] [INFO] [DB] getEventGifts: SUCCESS
+[06:27:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:27:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:27:47] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '922264' LIMIT 1;
+[06:27:47] [INFO] [DB] getEventInfo: SUCCESS
+[06:27:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:27:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:27:47] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '922264';
+[06:27:47] [INFO] [DB] getEventMembers: SUCCESS
+[06:27:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:27:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:27:47] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '922264';
+[06:27:47] [INFO] [DB] getEventGifts: SUCCESS
+[06:28:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:28:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:28:17] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '922264' LIMIT 1;
+[06:28:17] [INFO] [DB] getEventInfo: SUCCESS
+[06:28:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:28:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:28:17] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '922264';
+[06:28:17] [INFO] [DB] getEventMembers: SUCCESS
+[06:28:17] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:28:17] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:28:17] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '922264';
+[06:28:17] [INFO] [DB] getEventGifts: SUCCESS
+[06:28:44] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
+[06:28:44] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
+[06:28:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:28:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:28:47] [INFO] [DB] getEventInfo query: SELECT title, place, date, time, description, ownerEmail FROM events WHERE inviteCode = '922264' LIMIT 1;
+[06:28:47] [INFO] [DB] getEventInfo: SUCCESS
+[06:28:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:28:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:28:47] [INFO] [DB] getEventMembers query: SELECT userEmail FROM event_members WHERE inviteCode = '922264';
+[06:28:47] [INFO] [DB] getEventMembers: SUCCESS
+[06:28:47] [INFO] [DB] getInviteCodeByEmail query: SELECT inviteCode FROM event_members WHERE userEmail = 'admin@mail.ru' LIMIT 1;
+[06:28:47] [INFO] [DB] getInviteCodeByEmail: 922264 SUCCESS
+[06:28:47] [INFO] [DB] getEventGifts query: SELECT name, takenByUserEmail FROM event_gifts WHERE inviteCode = '922264';
+[06:28:47] [INFO] [DB] getEventGifts: SUCCESS
+[06:28:49] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
+[06:28:49] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again
+[06:28:51] [INFO] [CMD] Pressed ENTER - CommandLine::currentCommand_ = Start
+[06:28:51] [WARNING] [SERVER] Server is ALREADY running. Unable to START it again

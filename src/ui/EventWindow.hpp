@@ -3,6 +3,7 @@
 #include "Event.hpp"
 
 #include <QWidget>
+#include <QTimer>
 
 class GiftEWidget;
 
@@ -34,4 +35,5 @@ private:
     GiftEWidget *selectedGift_ = nullptr;
     Ui::EventWindow *ui_;
     Event *event_;
+    QTimer *refreshTimer_;
 };

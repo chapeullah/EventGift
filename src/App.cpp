@@ -92,7 +92,19 @@ App::App(int argc, char *argv[])
             )
             {
                 SessionManager::createSession(strEmail);
-                qStackedWidget_->setCurrentWidget(inviteGateway_);
+                std::string inviteCode = ClientServer::getInviteCode();
+                if (!inviteCode.empty())
+                {
+                    event_ = std::make_unique<Event>();
+                    eventWindow_->setEventData(event_.get());
+                    qStackedWidget_->setCurrentWidget(eventWindow_);
+                    Logger::info("APP", "Current widget eventWindow_");
+                }
+                else
+                {
+                    qStackedWidget_->setCurrentWidget(inviteGateway_);
+                    Logger::info("APP", "Current widget inviteGateway_");
+                }
                 QMessageBox::information(
                     &qWidget_,
                     "Success",
@@ -165,20 +177,8 @@ App::App(int argc, char *argv[])
         {
             Logger::info("APP", "Cancel button clicked");
             qStackedWidget_->setCurrentWidget(startMenu_);
+            ClientServer::sendDeleteSessionRequest();
             SessionManager::deleteSessionEmail();
-        }
-    );
-
-    Logger::info(
-        "APP", 
-        "Connect: inviteGateway_ -> InviteGateway::applyClicked"
-    );
-    QObject::connect(
-        inviteGateway_, 
-        &InviteGateway::applyClicked, 
-        [this]() 
-        {
-            Logger::info("APP", "Apply button clicked");
         }
     );
 

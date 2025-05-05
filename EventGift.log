@@ -1,24 +1,162 @@
-[09:42:47] [INFO] [LOGGER] powershell for logger started
-[09:42:47] [INFO] [APP] Setting up..
-[09:42:47] [INFO] [APP] qStackedWidget_ added widgets
-[09:42:47] [INFO] [APP] Connect: startMenu_ -> StartMenu::loginClicked
-[09:42:47] [INFO] [APP] Connect: startMenu_ -> StartMenu::registerClicked
-[09:42:47] [INFO] [APP] Connect: login_ -> Login::goBack
-[09:42:47] [INFO] [APP] Connect: login_ -> Login::applyClicked
-[09:42:47] [INFO] [APP] Connect: register_ -> Register::goBack
-[09:42:47] [INFO] [APP] Connect: register_ -> Register::applyClicked
-[09:42:47] [INFO] [APP] Connect: inviteGateway_ -> InviteGateway::goBack
-[09:42:47] [INFO] [APP] Connect: inviteGateway_ -> InviteGateway::applyClicked
-[09:42:47] [INFO] [APP] Connect: inviteGateway_ -> InviteGateway::createEvent
-[09:42:47] [INFO] [APP] Connect: createEventWindow_ -> CreateEventWindow::goBack
-[09:42:47] [INFO] [APP] Connect: createEventWindow_ -> CreateEventWindow::createEvent
-[09:42:47] [INFO] [APP] Connect: inviteGateway_ -> InviteGateway::applyClicked
-[09:42:47] [INFO] [APP] Connect: eventWindow_ -> EventWindow::goBack guest
-[09:42:47] [INFO] [APP] Connect: eventWindow_ -> EventWindow::goBack owner
-[09:42:47] [INFO] [APP] Sending: ClientServer::sendVerifySessionRequest
-[09:42:47] [INFO] [APP] Current widget inviteGateway_
-[09:42:47] [INFO] [APP] EventGift.exe started
-[09:42:56] [INFO] [APP] Apply button clicked
-[09:43:40] [INFO] [APP] Apply button clicked
-[09:43:40] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")
-[09:43:46] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")
+[06:21:17] [INFO] [LOGGER] powershell for logger started
+[06:21:17] [INFO] [APP] Setting up..
+[06:21:17] [INFO] [APP] qStackedWidget_ added widgets
+[06:21:17] [INFO] [APP] Connect: startMenu_ -> StartMenu::loginClicked
+[06:21:17] [INFO] [APP] Connect: startMenu_ -> StartMenu::registerClicked
+[06:21:17] [INFO] [APP] Connect: login_ -> Login::goBack
+[06:21:17] [INFO] [APP] Connect: login_ -> Login::applyClicked
+[06:21:17] [INFO] [APP] Connect: register_ -> Register::goBack
+[06:21:17] [INFO] [APP] Connect: register_ -> Register::applyClicked
+[06:21:17] [INFO] [APP] Connect: inviteGateway_ -> InviteGateway::goBack
+[06:21:17] [INFO] [APP] Connect: inviteGateway_ -> InviteGateway::createEvent
+[06:21:17] [INFO] [APP] Connect: createEventWindow_ -> CreateEventWindow::goBack
+[06:21:17] [INFO] [APP] Connect: createEventWindow_ -> CreateEventWindow::createEvent
+[06:21:17] [INFO] [APP] Connect: inviteGateway_ -> InviteGateway::applyClicked
+[06:21:17] [INFO] [APP] Connect: eventWindow_ -> EventWindow::goBack guest
+[06:21:17] [INFO] [APP] Connect: eventWindow_ -> EventWindow::goBack owner
+[06:21:17] [INFO] [APP] Sending: ClientServer::sendVerifySessionRequest
+[06:21:17] [INFO] [HTTP] sendVerifySessionRequest: SENDING admin@mail.ru
+[06:21:17] [INFO] [HTTP] sendVerifySessionRequest: RESULT OK
+[06:21:17] [INFO] [HTTP] getInviteCode: SENDING admin@mail.ru
+[06:21:17] [INFO] [HTTP] getInviteCode: RESULT 922264
+[06:21:17] [INFO] [HTTP] getEventInfo: SENDING admin@mail.ru
+[06:21:17] [INFO] [HTTP] getEventInfo: RESULT {"date":"2025-06-27","description":"A birthday is more than just a celebration of age – it is a personal New Year. It marks not only the passage of time but also the experiences, challenges, growth, and joy that have filled the days between then and now.\nEach birthday is a reminder that life is not measured solely by numbers but by the moments that take our breath away – the laughter we share, the people we meet, and the memories we build. It is a day to pause and appreciate the journey so far, no matter how smooth or rough the road has been.\nOn this special day, we celebrate not only who we are but who we are becoming. Every year gives us new wisdom, fresh perspective, and the opportunity to continue shaping the life we dream of. It is a chance to be thankful – for the lessons, the love, and the simple joys that make life meaningful.\nSo here is to another year of growth, another chapter of stories, and another step closer to becoming the person we are meant to be. Let today be a reminder that we are loved, that we matter, and that every day is a gift.","inviteCode":"922264","ownerEmail":"chapeullah@gmail.com","place":"Moscow, Arbat","result":true,"time":"12:00","title":"Birth Day"}
+[06:21:17] [INFO] [HTTP] getEventMembers: SENDING admin@mail.ru
+[06:21:17] [INFO] [HTTP] getEventMembers: RESULT ["admin@mail.ru","chapeullah@gmail.com"]
+[06:21:17] [INFO] [HTTP] getEventGifts: SENDING admin@mail.ru
+[06:21:17] [INFO] [HTTP] getEventGifts: RESULT true
+[06:21:17] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")
+[06:21:18] [INFO] [APP] Current widget eventWindow_
+[06:21:18] [INFO] [APP] EventGift.exe started
+[06:21:47] [INFO] [HTTP] getEventInfo: SENDING admin@mail.ru
+[06:21:47] [INFO] [HTTP] getEventInfo: RESULT {"date":"2025-06-27","description":"A birthday is more than just a celebration of age – it is a personal New Year. It marks not only the passage of time but also the experiences, challenges, growth, and joy that have filled the days between then and now.\nEach birthday is a reminder that life is not measured solely by numbers but by the moments that take our breath away – the laughter we share, the people we meet, and the memories we build. It is a day to pause and appreciate the journey so far, no matter how smooth or rough the road has been.\nOn this special day, we celebrate not only who we are but who we are becoming. Every year gives us new wisdom, fresh perspective, and the opportunity to continue shaping the life we dream of. It is a chance to be thankful – for the lessons, the love, and the simple joys that make life meaningful.\nSo here is to another year of growth, another chapter of stories, and another step closer to becoming the person we are meant to be. Let today be a reminder that we are loved, that we matter, and that every day is a gift.","inviteCode":"922264","ownerEmail":"chapeullah@gmail.com","place":"Moscow, Arbat","result":true,"time":"12:00","title":"Birth Day"}
+[06:21:47] [INFO] [HTTP] getEventMembers: SENDING admin@mail.ru
+[06:21:47] [INFO] [HTTP] getEventMembers: RESULT ["admin@mail.ru","chapeullah@gmail.com"]
+[06:21:47] [INFO] [HTTP] getEventGifts: SENDING admin@mail.ru
+[06:21:47] [INFO] [HTTP] getEventGifts: RESULT true
+[06:21:47] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")
+[06:22:17] [INFO] [HTTP] getEventInfo: SENDING admin@mail.ru
+[06:22:17] [INFO] [HTTP] getEventInfo: RESULT {"date":"2025-06-27","description":"A birthday is more than just a celebration of age – it is a personal New Year. It marks not only the passage of time but also the experiences, challenges, growth, and joy that have filled the days between then and now.\nEach birthday is a reminder that life is not measured solely by numbers but by the moments that take our breath away – the laughter we share, the people we meet, and the memories we build. It is a day to pause and appreciate the journey so far, no matter how smooth or rough the road has been.\nOn this special day, we celebrate not only who we are but who we are becoming. Every year gives us new wisdom, fresh perspective, and the opportunity to continue shaping the life we dream of. It is a chance to be thankful – for the lessons, the love, and the simple joys that make life meaningful.\nSo here is to another year of growth, another chapter of stories, and another step closer to becoming the person we are meant to be. Let today be a reminder that we are loved, that we matter, and that every day is a gift.","inviteCode":"922264","ownerEmail":"chapeullah@gmail.com","place":"Moscow, Arbat","result":true,"time":"12:00","title":"Birth Day"}
+[06:22:17] [INFO] [HTTP] getEventMembers: SENDING admin@mail.ru
+[06:22:17] [INFO] [HTTP] getEventMembers: RESULT ["admin@mail.ru","chapeullah@gmail.com"]
+[06:22:17] [INFO] [HTTP] getEventGifts: SENDING admin@mail.ru
+[06:22:17] [INFO] [HTTP] getEventGifts: RESULT true
+[06:22:17] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")
+[06:22:46] [INFO] [HTTP] sendUnselectGiftRequest: SENDING {"email":"admin@mail.ru","giftName":"Boat"}
+[06:22:46] [INFO] [HTTP] sendUnselectGiftRequest: RESULT OK
+[06:22:46] [INFO] [HTTP] getEventInfo: SENDING admin@mail.ru
+[06:22:46] [INFO] [HTTP] getEventInfo: RESULT {"date":"2025-06-27","description":"A birthday is more than just a celebration of age – it is a personal New Year. It marks not only the passage of time but also the experiences, challenges, growth, and joy that have filled the days between then and now.\nEach birthday is a reminder that life is not measured solely by numbers but by the moments that take our breath away – the laughter we share, the people we meet, and the memories we build. It is a day to pause and appreciate the journey so far, no matter how smooth or rough the road has been.\nOn this special day, we celebrate not only who we are but who we are becoming. Every year gives us new wisdom, fresh perspective, and the opportunity to continue shaping the life we dream of. It is a chance to be thankful – for the lessons, the love, and the simple joys that make life meaningful.\nSo here is to another year of growth, another chapter of stories, and another step closer to becoming the person we are meant to be. Let today be a reminder that we are loved, that we matter, and that every day is a gift.","inviteCode":"922264","ownerEmail":"chapeullah@gmail.com","place":"Moscow, Arbat","result":true,"time":"12:00","title":"Birth Day"}
+[06:22:46] [INFO] [HTTP] getEventMembers: SENDING admin@mail.ru
+[06:22:46] [INFO] [HTTP] getEventMembers: RESULT ["admin@mail.ru","chapeullah@gmail.com"]
+[06:22:46] [INFO] [HTTP] getEventGifts: SENDING admin@mail.ru
+[06:22:46] [INFO] [HTTP] getEventGifts: RESULT true
+[06:22:46] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")
+[06:22:47] [INFO] [HTTP] getEventInfo: SENDING admin@mail.ru
+[06:22:47] [INFO] [HTTP] getEventInfo: RESULT {"date":"2025-06-27","description":"A birthday is more than just a celebration of age – it is a personal New Year. It marks not only the passage of time but also the experiences, challenges, growth, and joy that have filled the days between then and now.\nEach birthday is a reminder that life is not measured solely by numbers but by the moments that take our breath away – the laughter we share, the people we meet, and the memories we build. It is a day to pause and appreciate the journey so far, no matter how smooth or rough the road has been.\nOn this special day, we celebrate not only who we are but who we are becoming. Every year gives us new wisdom, fresh perspective, and the opportunity to continue shaping the life we dream of. It is a chance to be thankful – for the lessons, the love, and the simple joys that make life meaningful.\nSo here is to another year of growth, another chapter of stories, and another step closer to becoming the person we are meant to be. Let today be a reminder that we are loved, that we matter, and that every day is a gift.","inviteCode":"922264","ownerEmail":"chapeullah@gmail.com","place":"Moscow, Arbat","result":true,"time":"12:00","title":"Birth Day"}
+[06:22:47] [INFO] [HTTP] getEventMembers: SENDING admin@mail.ru
+[06:22:47] [INFO] [HTTP] getEventMembers: RESULT ["admin@mail.ru","chapeullah@gmail.com"]
+[06:22:47] [INFO] [HTTP] getEventGifts: SENDING admin@mail.ru
+[06:22:47] [INFO] [HTTP] getEventGifts: RESULT true
+[06:22:47] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")
+[06:22:48] [INFO] [HTTP] sendSelectGiftRequest: SENDING {"email":"admin@mail.ru","giftName":"In. Comporated Lil Brother"}
+[06:22:48] [INFO] [HTTP] sendSelectGiftRequest: RESULT OK
+[06:22:48] [INFO] [HTTP] getEventInfo: SENDING admin@mail.ru
+[06:22:48] [INFO] [HTTP] getEventInfo: RESULT {"date":"2025-06-27","description":"A birthday is more than just a celebration of age – it is a personal New Year. It marks not only the passage of time but also the experiences, challenges, growth, and joy that have filled the days between then and now.\nEach birthday is a reminder that life is not measured solely by numbers but by the moments that take our breath away – the laughter we share, the people we meet, and the memories we build. It is a day to pause and appreciate the journey so far, no matter how smooth or rough the road has been.\nOn this special day, we celebrate not only who we are but who we are becoming. Every year gives us new wisdom, fresh perspective, and the opportunity to continue shaping the life we dream of. It is a chance to be thankful – for the lessons, the love, and the simple joys that make life meaningful.\nSo here is to another year of growth, another chapter of stories, and another step closer to becoming the person we are meant to be. Let today be a reminder that we are loved, that we matter, and that every day is a gift.","inviteCode":"922264","ownerEmail":"chapeullah@gmail.com","place":"Moscow, Arbat","result":true,"time":"12:00","title":"Birth Day"}
+[06:22:48] [INFO] [HTTP] getEventMembers: SENDING admin@mail.ru
+[06:22:48] [INFO] [HTTP] getEventMembers: RESULT ["admin@mail.ru","chapeullah@gmail.com"]
+[06:22:48] [INFO] [HTTP] getEventGifts: SENDING admin@mail.ru
+[06:22:48] [INFO] [HTTP] getEventGifts: RESULT true
+[06:22:48] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")
+[06:23:17] [INFO] [HTTP] getEventInfo: SENDING admin@mail.ru
+[06:23:17] [INFO] [HTTP] getEventInfo: RESULT {"date":"2025-06-27","description":"A birthday is more than just a celebration of age – it is a personal New Year. It marks not only the passage of time but also the experiences, challenges, growth, and joy that have filled the days between then and now.\nEach birthday is a reminder that life is not measured solely by numbers but by the moments that take our breath away – the laughter we share, the people we meet, and the memories we build. It is a day to pause and appreciate the journey so far, no matter how smooth or rough the road has been.\nOn this special day, we celebrate not only who we are but who we are becoming. Every year gives us new wisdom, fresh perspective, and the opportunity to continue shaping the life we dream of. It is a chance to be thankful – for the lessons, the love, and the simple joys that make life meaningful.\nSo here is to another year of growth, another chapter of stories, and another step closer to becoming the person we are meant to be. Let today be a reminder that we are loved, that we matter, and that every day is a gift.","inviteCode":"922264","ownerEmail":"chapeullah@gmail.com","place":"Moscow, Arbat","result":true,"time":"12:00","title":"Birth Day"}
+[06:23:17] [INFO] [HTTP] getEventMembers: SENDING admin@mail.ru
+[06:23:17] [INFO] [HTTP] getEventMembers: RESULT ["admin@mail.ru","chapeullah@gmail.com"]
+[06:23:17] [INFO] [HTTP] getEventGifts: SENDING admin@mail.ru
+[06:23:17] [INFO] [HTTP] getEventGifts: RESULT true
+[06:23:17] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")
+[06:23:47] [INFO] [HTTP] getEventInfo: SENDING admin@mail.ru
+[06:23:47] [INFO] [HTTP] getEventInfo: RESULT {"date":"2025-06-27","description":"A birthday is more than just a celebration of age – it is a personal New Year. It marks not only the passage of time but also the experiences, challenges, growth, and joy that have filled the days between then and now.\nEach birthday is a reminder that life is not measured solely by numbers but by the moments that take our breath away – the laughter we share, the people we meet, and the memories we build. It is a day to pause and appreciate the journey so far, no matter how smooth or rough the road has been.\nOn this special day, we celebrate not only who we are but who we are becoming. Every year gives us new wisdom, fresh perspective, and the opportunity to continue shaping the life we dream of. It is a chance to be thankful – for the lessons, the love, and the simple joys that make life meaningful.\nSo here is to another year of growth, another chapter of stories, and another step closer to becoming the person we are meant to be. Let today be a reminder that we are loved, that we matter, and that every day is a gift.","inviteCode":"922264","ownerEmail":"chapeullah@gmail.com","place":"Moscow, Arbat","result":true,"time":"12:00","title":"Birth Day"}
+[06:23:47] [INFO] [HTTP] getEventMembers: SENDING admin@mail.ru
+[06:23:47] [INFO] [HTTP] getEventMembers: RESULT ["admin@mail.ru","chapeullah@gmail.com"]
+[06:23:47] [INFO] [HTTP] getEventGifts: SENDING admin@mail.ru
+[06:23:47] [INFO] [HTTP] getEventGifts: RESULT true
+[06:23:47] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")
+[06:24:17] [INFO] [HTTP] getEventInfo: SENDING admin@mail.ru
+[06:24:17] [INFO] [HTTP] getEventInfo: RESULT {"date":"2025-06-27","description":"A birthday is more than just a celebration of age – it is a personal New Year. It marks not only the passage of time but also the experiences, challenges, growth, and joy that have filled the days between then and now.\nEach birthday is a reminder that life is not measured solely by numbers but by the moments that take our breath away – the laughter we share, the people we meet, and the memories we build. It is a day to pause and appreciate the journey so far, no matter how smooth or rough the road has been.\nOn this special day, we celebrate not only who we are but who we are becoming. Every year gives us new wisdom, fresh perspective, and the opportunity to continue shaping the life we dream of. It is a chance to be thankful – for the lessons, the love, and the simple joys that make life meaningful.\nSo here is to another year of growth, another chapter of stories, and another step closer to becoming the person we are meant to be. Let today be a reminder that we are loved, that we matter, and that every day is a gift.","inviteCode":"922264","ownerEmail":"chapeullah@gmail.com","place":"Moscow, Arbat","result":true,"time":"12:00","title":"Birth Day"}
+[06:24:17] [INFO] [HTTP] getEventMembers: SENDING admin@mail.ru
+[06:24:17] [INFO] [HTTP] getEventMembers: RESULT ["admin@mail.ru","chapeullah@gmail.com"]
+[06:24:17] [INFO] [HTTP] getEventGifts: SENDING admin@mail.ru
+[06:24:17] [INFO] [HTTP] getEventGifts: RESULT true
+[06:24:17] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")
+[06:24:47] [INFO] [HTTP] getEventInfo: SENDING admin@mail.ru
+[06:24:47] [INFO] [HTTP] getEventInfo: RESULT {"date":"2025-06-27","description":"A birthday is more than just a celebration of age – it is a personal New Year. It marks not only the passage of time but also the experiences, challenges, growth, and joy that have filled the days between then and now.\nEach birthday is a reminder that life is not measured solely by numbers but by the moments that take our breath away – the laughter we share, the people we meet, and the memories we build. It is a day to pause and appreciate the journey so far, no matter how smooth or rough the road has been.\nOn this special day, we celebrate not only who we are but who we are becoming. Every year gives us new wisdom, fresh perspective, and the opportunity to continue shaping the life we dream of. It is a chance to be thankful – for the lessons, the love, and the simple joys that make life meaningful.\nSo here is to another year of growth, another chapter of stories, and another step closer to becoming the person we are meant to be. Let today be a reminder that we are loved, that we matter, and that every day is a gift.","inviteCode":"922264","ownerEmail":"chapeullah@gmail.com","place":"Moscow, Arbat","result":true,"time":"12:00","title":"Birth Day"}
+[06:24:47] [INFO] [HTTP] getEventMembers: SENDING admin@mail.ru
+[06:24:47] [INFO] [HTTP] getEventMembers: RESULT ["admin@mail.ru","chapeullah@gmail.com"]
+[06:24:47] [INFO] [HTTP] getEventGifts: SENDING admin@mail.ru
+[06:24:47] [INFO] [HTTP] getEventGifts: RESULT true
+[06:24:47] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")
+[06:25:17] [INFO] [HTTP] getEventInfo: SENDING admin@mail.ru
+[06:25:17] [INFO] [HTTP] getEventInfo: RESULT {"date":"2025-06-27","description":"A birthday is more than just a celebration of age – it is a personal New Year. It marks not only the passage of time but also the experiences, challenges, growth, and joy that have filled the days between then and now.\nEach birthday is a reminder that life is not measured solely by numbers but by the moments that take our breath away – the laughter we share, the people we meet, and the memories we build. It is a day to pause and appreciate the journey so far, no matter how smooth or rough the road has been.\nOn this special day, we celebrate not only who we are but who we are becoming. Every year gives us new wisdom, fresh perspective, and the opportunity to continue shaping the life we dream of. It is a chance to be thankful – for the lessons, the love, and the simple joys that make life meaningful.\nSo here is to another year of growth, another chapter of stories, and another step closer to becoming the person we are meant to be. Let today be a reminder that we are loved, that we matter, and that every day is a gift.","inviteCode":"922264","ownerEmail":"chapeullah@gmail.com","place":"Moscow, Arbat","result":true,"time":"12:00","title":"Birth Day"}
+[06:25:17] [INFO] [HTTP] getEventMembers: SENDING admin@mail.ru
+[06:25:17] [INFO] [HTTP] getEventMembers: RESULT ["admin@mail.ru","chapeullah@gmail.com"]
+[06:25:17] [INFO] [HTTP] getEventGifts: SENDING admin@mail.ru
+[06:25:17] [INFO] [HTTP] getEventGifts: RESULT true
+[06:25:17] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")
+[06:25:47] [INFO] [HTTP] getEventInfo: SENDING admin@mail.ru
+[06:25:47] [INFO] [HTTP] getEventInfo: RESULT {"date":"2025-06-27","description":"A birthday is more than just a celebration of age – it is a personal New Year. It marks not only the passage of time but also the experiences, challenges, growth, and joy that have filled the days between then and now.\nEach birthday is a reminder that life is not measured solely by numbers but by the moments that take our breath away – the laughter we share, the people we meet, and the memories we build. It is a day to pause and appreciate the journey so far, no matter how smooth or rough the road has been.\nOn this special day, we celebrate not only who we are but who we are becoming. Every year gives us new wisdom, fresh perspective, and the opportunity to continue shaping the life we dream of. It is a chance to be thankful – for the lessons, the love, and the simple joys that make life meaningful.\nSo here is to another year of growth, another chapter of stories, and another step closer to becoming the person we are meant to be. Let today be a reminder that we are loved, that we matter, and that every day is a gift.","inviteCode":"922264","ownerEmail":"chapeullah@gmail.com","place":"Moscow, Arbat","result":true,"time":"12:00","title":"Birth Day"}
+[06:25:47] [INFO] [HTTP] getEventMembers: SENDING admin@mail.ru
+[06:25:47] [INFO] [HTTP] getEventMembers: RESULT ["admin@mail.ru","chapeullah@gmail.com"]
+[06:25:47] [INFO] [HTTP] getEventGifts: SENDING admin@mail.ru
+[06:25:47] [INFO] [HTTP] getEventGifts: RESULT true
+[06:25:47] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")
+[06:26:17] [INFO] [HTTP] getEventInfo: SENDING admin@mail.ru
+[06:26:17] [INFO] [HTTP] getEventInfo: RESULT {"date":"2025-06-27","description":"A birthday is more than just a celebration of age – it is a personal New Year. It marks not only the passage of time but also the experiences, challenges, growth, and joy that have filled the days between then and now.\nEach birthday is a reminder that life is not measured solely by numbers but by the moments that take our breath away – the laughter we share, the people we meet, and the memories we build. It is a day to pause and appreciate the journey so far, no matter how smooth or rough the road has been.\nOn this special day, we celebrate not only who we are but who we are becoming. Every year gives us new wisdom, fresh perspective, and the opportunity to continue shaping the life we dream of. It is a chance to be thankful – for the lessons, the love, and the simple joys that make life meaningful.\nSo here is to another year of growth, another chapter of stories, and another step closer to becoming the person we are meant to be. Let today be a reminder that we are loved, that we matter, and that every day is a gift.","inviteCode":"922264","ownerEmail":"chapeullah@gmail.com","place":"Moscow, Arbat","result":true,"time":"12:00","title":"Birth Day"}
+[06:26:17] [INFO] [HTTP] getEventMembers: SENDING admin@mail.ru
+[06:26:17] [INFO] [HTTP] getEventMembers: RESULT ["admin@mail.ru","chapeullah@gmail.com"]
+[06:26:17] [INFO] [HTTP] getEventGifts: SENDING admin@mail.ru
+[06:26:17] [INFO] [HTTP] getEventGifts: RESULT true
+[06:26:17] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")
+[06:26:47] [INFO] [HTTP] getEventInfo: SENDING admin@mail.ru
+[06:26:47] [INFO] [HTTP] getEventInfo: RESULT {"date":"2025-06-27","description":"A birthday is more than just a celebration of age – it is a personal New Year. It marks not only the passage of time but also the experiences, challenges, growth, and joy that have filled the days between then and now.\nEach birthday is a reminder that life is not measured solely by numbers but by the moments that take our breath away – the laughter we share, the people we meet, and the memories we build. It is a day to pause and appreciate the journey so far, no matter how smooth or rough the road has been.\nOn this special day, we celebrate not only who we are but who we are becoming. Every year gives us new wisdom, fresh perspective, and the opportunity to continue shaping the life we dream of. It is a chance to be thankful – for the lessons, the love, and the simple joys that make life meaningful.\nSo here is to another year of growth, another chapter of stories, and another step closer to becoming the person we are meant to be. Let today be a reminder that we are loved, that we matter, and that every day is a gift.","inviteCode":"922264","ownerEmail":"chapeullah@gmail.com","place":"Moscow, Arbat","result":true,"time":"12:00","title":"Birth Day"}
+[06:26:47] [INFO] [HTTP] getEventMembers: SENDING admin@mail.ru
+[06:26:47] [INFO] [HTTP] getEventMembers: RESULT ["admin@mail.ru","chapeullah@gmail.com"]
+[06:26:47] [INFO] [HTTP] getEventGifts: SENDING admin@mail.ru
+[06:26:47] [INFO] [HTTP] getEventGifts: RESULT true
+[06:26:47] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")
+[06:26:51] [INFO] [HTTP] sendUnselectGiftRequest: SENDING {"email":"admin@mail.ru","giftName":"In. Comporated Lil Brother"}
+[06:26:51] [INFO] [HTTP] sendUnselectGiftRequest: RESULT OK
+[06:26:51] [INFO] [HTTP] getEventInfo: SENDING admin@mail.ru
+[06:26:51] [INFO] [HTTP] getEventInfo: RESULT {"date":"2025-06-27","description":"A birthday is more than just a celebration of age – it is a personal New Year. It marks not only the passage of time but also the experiences, challenges, growth, and joy that have filled the days between then and now.\nEach birthday is a reminder that life is not measured solely by numbers but by the moments that take our breath away – the laughter we share, the people we meet, and the memories we build. It is a day to pause and appreciate the journey so far, no matter how smooth or rough the road has been.\nOn this special day, we celebrate not only who we are but who we are becoming. Every year gives us new wisdom, fresh perspective, and the opportunity to continue shaping the life we dream of. It is a chance to be thankful – for the lessons, the love, and the simple joys that make life meaningful.\nSo here is to another year of growth, another chapter of stories, and another step closer to becoming the person we are meant to be. Let today be a reminder that we are loved, that we matter, and that every day is a gift.","inviteCode":"922264","ownerEmail":"chapeullah@gmail.com","place":"Moscow, Arbat","result":true,"time":"12:00","title":"Birth Day"}
+[06:26:51] [INFO] [HTTP] getEventMembers: SENDING admin@mail.ru
+[06:26:51] [INFO] [HTTP] getEventMembers: RESULT ["admin@mail.ru","chapeullah@gmail.com"]
+[06:26:51] [INFO] [HTTP] getEventGifts: SENDING admin@mail.ru
+[06:26:51] [INFO] [HTTP] getEventGifts: RESULT true
+[06:26:51] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")
+[06:27:17] [INFO] [HTTP] getEventInfo: SENDING admin@mail.ru
+[06:27:17] [INFO] [HTTP] getEventInfo: RESULT {"date":"2025-06-27","description":"A birthday is more than just a celebration of age – it is a personal New Year. It marks not only the passage of time but also the experiences, challenges, growth, and joy that have filled the days between then and now.\nEach birthday is a reminder that life is not measured solely by numbers but by the moments that take our breath away – the laughter we share, the people we meet, and the memories we build. It is a day to pause and appreciate the journey so far, no matter how smooth or rough the road has been.\nOn this special day, we celebrate not only who we are but who we are becoming. Every year gives us new wisdom, fresh perspective, and the opportunity to continue shaping the life we dream of. It is a chance to be thankful – for the lessons, the love, and the simple joys that make life meaningful.\nSo here is to another year of growth, another chapter of stories, and another step closer to becoming the person we are meant to be. Let today be a reminder that we are loved, that we matter, and that every day is a gift.","inviteCode":"922264","ownerEmail":"chapeullah@gmail.com","place":"Moscow, Arbat","result":true,"time":"12:00","title":"Birth Day"}
+[06:27:17] [INFO] [HTTP] getEventMembers: SENDING admin@mail.ru
+[06:27:17] [INFO] [HTTP] getEventMembers: RESULT ["admin@mail.ru","chapeullah@gmail.com"]
+[06:27:17] [INFO] [HTTP] getEventGifts: SENDING admin@mail.ru
+[06:27:17] [INFO] [HTTP] getEventGifts: RESULT true
+[06:27:17] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")
+[06:27:47] [INFO] [HTTP] getEventInfo: SENDING admin@mail.ru
+[06:27:47] [INFO] [HTTP] getEventInfo: RESULT {"date":"2025-06-27","description":"A birthday is more than just a celebration of age – it is a personal New Year. It marks not only the passage of time but also the experiences, challenges, growth, and joy that have filled the days between then and now.\nEach birthday is a reminder that life is not measured solely by numbers but by the moments that take our breath away – the laughter we share, the people we meet, and the memories we build. It is a day to pause and appreciate the journey so far, no matter how smooth or rough the road has been.\nOn this special day, we celebrate not only who we are but who we are becoming. Every year gives us new wisdom, fresh perspective, and the opportunity to continue shaping the life we dream of. It is a chance to be thankful – for the lessons, the love, and the simple joys that make life meaningful.\nSo here is to another year of growth, another chapter of stories, and another step closer to becoming the person we are meant to be. Let today be a reminder that we are loved, that we matter, and that every day is a gift.","inviteCode":"922264","ownerEmail":"chapeullah@gmail.com","place":"Moscow, Arbat","result":true,"time":"12:00","title":"Birth Day"}
+[06:27:47] [INFO] [HTTP] getEventMembers: SENDING admin@mail.ru
+[06:27:47] [INFO] [HTTP] getEventMembers: RESULT ["admin@mail.ru","chapeullah@gmail.com"]
+[06:27:47] [INFO] [HTTP] getEventGifts: SENDING admin@mail.ru
+[06:27:47] [INFO] [HTTP] getEventGifts: RESULT true
+[06:27:47] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")
+[06:28:17] [INFO] [HTTP] getEventInfo: SENDING admin@mail.ru
+[06:28:17] [INFO] [HTTP] getEventInfo: RESULT {"date":"2025-06-27","description":"A birthday is more than just a celebration of age – it is a personal New Year. It marks not only the passage of time but also the experiences, challenges, growth, and joy that have filled the days between then and now.\nEach birthday is a reminder that life is not measured solely by numbers but by the moments that take our breath away – the laughter we share, the people we meet, and the memories we build. It is a day to pause and appreciate the journey so far, no matter how smooth or rough the road has been.\nOn this special day, we celebrate not only who we are but who we are becoming. Every year gives us new wisdom, fresh perspective, and the opportunity to continue shaping the life we dream of. It is a chance to be thankful – for the lessons, the love, and the simple joys that make life meaningful.\nSo here is to another year of growth, another chapter of stories, and another step closer to becoming the person we are meant to be. Let today be a reminder that we are loved, that we matter, and that every day is a gift.","inviteCode":"922264","ownerEmail":"chapeullah@gmail.com","place":"Moscow, Arbat","result":true,"time":"12:00","title":"Birth Day"}
+[06:28:17] [INFO] [HTTP] getEventMembers: SENDING admin@mail.ru
+[06:28:17] [INFO] [HTTP] getEventMembers: RESULT ["admin@mail.ru","chapeullah@gmail.com"]
+[06:28:17] [INFO] [HTTP] getEventGifts: SENDING admin@mail.ru
+[06:28:17] [INFO] [HTTP] getEventGifts: RESULT true
+[06:28:17] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")
+[06:28:47] [INFO] [HTTP] getEventInfo: SENDING admin@mail.ru
+[06:28:47] [INFO] [HTTP] getEventInfo: RESULT {"date":"2025-06-27","description":"A birthday is more than just a celebration of age – it is a personal New Year. It marks not only the passage of time but also the experiences, challenges, growth, and joy that have filled the days between then and now.\nEach birthday is a reminder that life is not measured solely by numbers but by the moments that take our breath away – the laughter we share, the people we meet, and the memories we build. It is a day to pause and appreciate the journey so far, no matter how smooth or rough the road has been.\nOn this special day, we celebrate not only who we are but who we are becoming. Every year gives us new wisdom, fresh perspective, and the opportunity to continue shaping the life we dream of. It is a chance to be thankful – for the lessons, the love, and the simple joys that make life meaningful.\nSo here is to another year of growth, another chapter of stories, and another step closer to becoming the person we are meant to be. Let today be a reminder that we are loved, that we matter, and that every day is a gift.","inviteCode":"922264","ownerEmail":"chapeullah@gmail.com","place":"Moscow, Arbat","result":true,"time":"12:00","title":"Birth Day"}
+[06:28:47] [INFO] [HTTP] getEventMembers: SENDING admin@mail.ru
+[06:28:47] [INFO] [HTTP] getEventMembers: RESULT ["admin@mail.ru","chapeullah@gmail.com"]
+[06:28:47] [INFO] [HTTP] getEventGifts: SENDING admin@mail.ru
+[06:28:47] [INFO] [HTTP] getEventGifts: RESULT true
+[06:28:47] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")

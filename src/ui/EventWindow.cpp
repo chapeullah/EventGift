@@ -16,6 +16,19 @@
 EventWindow::EventWindow(QWidget *parent)
     : QWidget(parent), ui_(new Ui::EventWindow)
 {
+    refreshTimer_ = new QTimer(this);
+    refreshTimer_->setInterval(30000);
+    connect(
+        refreshTimer_, 
+        &QTimer::timeout, 
+        this, 
+        [this]() 
+        {
+            emit eventDataRefresh();
+        }
+    );
+    refreshTimer_->start();
+
     ui_->setupUi(this);
 
     ui_->userListLayout->setAlignment(Qt::AlignTop);
@@ -121,10 +134,10 @@ void EventWindow::UpdateUI_()
         {
             hasSelectedGift = true;
         }
-        Logger::error(
+        Logger::info(
             "APP", 
             "EventWindow.cpp: "
-                "user is NOT owner -> leaveEvent->setText(\"Delete event\")"
+                "user is NOT owner -> leaveEvent->setText(\"Leave event\")"
         );
         ui_->leaveEvent->setText("Leave event");
         ui_->leaveEvent->setStyleSheet("");
@@ -179,18 +192,11 @@ void EventWindow::UpdateUI_()
     {
         if (data.ownerEmail == SessionManager::getSessionEmail())
         {
-            bool flag;
-            if (gift.second.empty())
-            {
-                flag = false;
-            }
-            else 
-            {
-                flag = true;
-            }
             GiftEOWidget *giftEOWidget =
                 new GiftEOWidget(
-                    QString::fromStdString(gift.first), flag, this
+                    QString::fromStdString(gift.first), 
+                    !gift.second.empty(), 
+                    this
                 );
             ui_->giftListLayout->addWidget(giftEOWidget);
         }
@@ -203,6 +209,10 @@ void EventWindow::UpdateUI_()
                     selected,
                     this
                 );
+            if (gift.second == SessionManager::getSessionEmail())
+            {
+                selectedGift_ = giftEWidget;
+            }
             connect(
                 giftEWidget, 
                 &GiftEWidget::selected, 
@@ -234,7 +244,7 @@ void EventWindow::updateSelectButtonState_(bool hasSelected)
                 if (!selectedGift_) 
                 {
                     QMessageBox::warning(
-                        this, "Failed", "Please select a gift"
+                        this, "Failed", "selectedGift_ = nullptr"
                     );
                     return;
                 }
@@ -272,7 +282,9 @@ void EventWindow::updateSelectButtonState_(bool hasSelected)
             {
                 if (!selectedGift_) 
                 {
-                    QMessageBox::warning(this, "Failed", "Please select a gift");
+                    QMessageBox::warning(
+                        this, "Failed", "selectedGift_ = nullptr"
+                    );
                     return;
                 }
         
@@ -291,7 +303,6 @@ void EventWindow::updateSelectButtonState_(bool hasSelected)
                 }
                 
                 selectedGift_->setEnabled(false);
-                selectedGift_ = nullptr;
                 emit eventDataRefresh();
                 QMessageBox::information(
                     this, "Gift Selected", "You selected: " + giftName

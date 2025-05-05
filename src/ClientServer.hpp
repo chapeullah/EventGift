@@ -16,6 +16,7 @@ public:
         const std::string &password
     );
     static bool sendVerifySessionRequest();
+    static bool sendDeleteSessionRequest();
     static bool sendCreateEventRequest(
         const std::string &title,
         const std::string &place,

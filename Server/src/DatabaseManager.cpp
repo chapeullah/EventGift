@@ -659,6 +659,7 @@ nlohmann::json DatabaseManager::getEventInfo(const std::string &email)
         nullptr
     );
     jsonResponse["inviteCode"] = inviteCode;
+    jsonResponse["result"] = true;
     Logger::info("DB", "getEventInfo: SUCCESS");
     return jsonResponse;
 }

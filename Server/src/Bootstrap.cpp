@@ -18,7 +18,7 @@ Bootstrap::Bootstrap()
             std::string reqBody = req.body;
         
             Logger::info(
-                "SERVER", 
+                "HTTP", 
                 "Request from " + req.remote_addr + ": " + reqBody + ""
             );
 
@@ -32,7 +32,7 @@ Bootstrap::Bootstrap()
             {
                 DatabaseManager::insertSession(email);
                 Logger::info(
-                    "DB",
+                    "HTTP",
                     "Response to " 
                         + req.remote_addr 
                         + ": Insert session SUCCESS"
@@ -42,7 +42,7 @@ Bootstrap::Bootstrap()
             else
             {
                 Logger::error(
-                    "DB",
+                    "HTTP",
                     "Response to " 
                         + req.remote_addr 
                         + ": Insert session FAILED"
@@ -58,7 +58,7 @@ Bootstrap::Bootstrap()
             std::string reqBody = req.body;
         
             Logger::info(
-                "SERVER", 
+                "HTTP", 
                 "Request from " + req.remote_addr + ": " + reqBody
             );
 
@@ -71,7 +71,7 @@ Bootstrap::Bootstrap()
             if (DatabaseManager::queryRegister(email, password))
             {
                 Logger::info(
-                    "DB",
+                    "HTTP",
                     "Response to " 
                         + req.remote_addr 
                         + ": Register insert SUCCESS"
@@ -81,7 +81,7 @@ Bootstrap::Bootstrap()
             else
             {
                 Logger::error(
-                    "DB",
+                    "HTTP",
                     "Response to " 
                         + req.remote_addr 
                         + ": Register insert FAILED"
@@ -96,7 +96,7 @@ Bootstrap::Bootstrap()
         [this](const httplib::Request &req, httplib::Response &res)
         {
             Logger::info(
-                "SERVER",
+                "HTTP",
                 "Request from " + req.remote_addr + ": " + req.body
             );
             if (!req.has_param("email"))
@@ -116,7 +116,7 @@ Bootstrap::Bootstrap()
             if (DatabaseManager::isSessionValid(email))
             {
                 Logger::info(
-                    "DB",
+                    "HTTP",
                     "Response to " 
                         + req.remote_addr 
                         + ": " + email + " Session validation SUCCESS"
@@ -126,10 +126,44 @@ Bootstrap::Bootstrap()
             else
             {
                 Logger::error(
-                    "DB",
+                    "HTTP",
                     "Response to " 
                         + req.remote_addr 
                         + ": Session validation FAILED"
+                );
+                res.set_content("FAIL", "text/plain");
+            }
+        }
+    );
+
+    server_.Post(
+        "/session/delete",
+        [this](const httplib::Request &req, httplib::Response &res)
+        {
+            std::string reqBody = req.body;
+            Logger::info(
+                "HTTP",
+                "Request from " + req.remote_addr + ": " + reqBody
+            );
+            nlohmann::json jsonRequest = nlohmann::json::parse(reqBody);
+            std::string email = jsonRequest["email"];
+            if (DatabaseManager::deleteSession(email))
+            {
+                Logger::info(
+                    "HTTP",
+                    "Response to " 
+                        + req.remote_addr 
+                        + ": Session delete SUCCESS"
+                );
+                res.set_content("OK", "text/plain");
+            }
+            else
+            {
+                Logger::error(
+                    "HTTP",
+                    "Response to " 
+                        + req.remote_addr 
+                        + ": Session delete FAILED"
                 );
                 res.set_content("FAIL", "text/plain");
             }
@@ -165,7 +199,7 @@ Bootstrap::Bootstrap()
             )
             {
                 Logger::info(
-                    "DB",
+                    "HTTP",
                     "Response to " 
                         + req.remote_addr 
                         + ": Insert event SUCCESS"
@@ -175,7 +209,7 @@ Bootstrap::Bootstrap()
             else 
             {
                 Logger::error(
-                    "DB",
+                    "HTTP",
                     "Response to " 
                         + req.remote_addr 
                         + ": Insert event FAILED"
@@ -209,7 +243,7 @@ Bootstrap::Bootstrap()
             )
             {
                 Logger::info(
-                    "DB",
+                    "HTTP",
                     "Response to " 
                         + req.remote_addr 
                         + ": Insert event member SUCCESS"
@@ -219,7 +253,7 @@ Bootstrap::Bootstrap()
             else 
             {
                 Logger::error(
-                    "DB",
+                    "HTTP",
                     "Response to " 
                         + req.remote_addr 
                         + ": Insert event member FAILED"
@@ -245,7 +279,7 @@ Bootstrap::Bootstrap()
             if (inviteCode.empty())
             {
                 Logger::error(
-                    "DB",
+                    "HTTP",
                     "Response to " 
                         + req.remote_addr 
                         + ": Invite code not found. FAILED"
@@ -255,7 +289,7 @@ Bootstrap::Bootstrap()
             else
             {
                 Logger::info(
-                    "DB",
+                    "HTTP",
                     "Response to " 
                         + req.remote_addr 
                         + ": Invite code found. SUCCESS"
@@ -356,7 +390,7 @@ Bootstrap::Bootstrap()
             if (DatabaseManager::deleteEventMember(email))
             {
                 Logger::info(
-                    "DB",
+                    "HTTP",
                     "Response to " 
                         + req.remote_addr 
                         + ": Delete event member SUCCESS"
@@ -366,7 +400,7 @@ Bootstrap::Bootstrap()
             else 
             {
                 Logger::error(
-                    "DB",
+                    "HTTP",
                     "Response to " 
                         + req.remote_addr 
                         + ": Insert event member FAILED"
@@ -390,7 +424,7 @@ Bootstrap::Bootstrap()
             if (DatabaseManager::deleteEvent(email))
             {
                 Logger::info(
-                    "DB",
+                    "HTTP",
                     "Response to " 
                         + req.remote_addr 
                         + ": Delete event SUCCESS"
@@ -400,7 +434,7 @@ Bootstrap::Bootstrap()
             else 
             {
                 Logger::error(
-                    "DB",
+                    "HTTP",
                     "Response to " 
                         + req.remote_addr 
                         + ": Insert event FAILED"
@@ -425,7 +459,7 @@ Bootstrap::Bootstrap()
             if (DatabaseManager::selectGift(giftName, email))
             {
                 Logger::info(
-                    "DB",
+                    "HTTP",
                     "Response to " 
                         + req.remote_addr 
                         + ": Delete event SUCCESS"
@@ -435,7 +469,7 @@ Bootstrap::Bootstrap()
             else 
             {
                 Logger::error(
-                    "DB",
+                    "HTTP",
                     "Response to " 
                         + req.remote_addr 
                         + ": Insert event FAILED"
@@ -460,7 +494,7 @@ Bootstrap::Bootstrap()
             if (DatabaseManager::unselectGift(giftName, email))
             {
                 Logger::info(
-                    "DB",
+                    "HTTP",
                     "Response to " 
                         + req.remote_addr 
                         + ": Delete event SUCCESS"
@@ -470,7 +504,7 @@ Bootstrap::Bootstrap()
             else 
             {
                 Logger::error(
-                    "DB",
+                    "HTTP",
                     "Response to " 
                         + req.remote_addr 
                         + ": Insert event FAILED"
