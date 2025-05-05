@@ -71,6 +71,22 @@ void CreateEventWindow::attemptCreateEvent()
     QString date = ui_->dateEdit->date().toString("yyyy-MM-dd");
     QString time = ui_->timeEdit->time().toString("HH:mm");
     QString description = ui_->eventDescriptionEdit->toPlainText();
+
+    std::vector<std::string> gifts; 
+    for (int i = 0; i < ui_->giftListLayout->count(); ++i)
+    {
+        QWidget* widget = ui_->giftListLayout->itemAt(i)->widget();
+        GiftWidget* giftWidget = qobject_cast<GiftWidget*>(widget);
+        if (giftWidget)
+        {
+            QString name = giftWidget->getGiftName().trimmed();
+            if (!name.isEmpty())
+            {
+                gifts.push_back(name.toStdString());
+            }
+        }
+    }
+
     if (title == "") 
     {
         QMessageBox::warning(this, "Failed", "Please fill title edit");
@@ -98,5 +114,12 @@ void CreateEventWindow::attemptCreateEvent()
         );
         return;
     }
-    emit createEvent(title, place, date, time, description);
+    if (gifts.empty())
+    {
+        QMessageBox::warning(
+            this, "Failed", "Please chose at least one gift"
+        );
+        return;
+    }
+    emit createEvent(title, place, date, time, description, gifts);
 }

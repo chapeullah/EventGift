@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>GiftWidget</class>
- <widget class="QWidget" name="GiftWidget">
+ <class>GiftEWidget</class>
+ <widget class="QWidget" name="GiftEWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -59,6 +59,13 @@
    </item>
    <item>
     <widget class="QLabel" name="label">
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="email">
      <property name="text">
       <string>TextLabel</string>
      </property>

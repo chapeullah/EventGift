@@ -11,7 +11,9 @@ static constexpr const char *DATABASE_PATH = "database/eventgift.db";
 
 class DatabaseManager 
 {
-public:    
+public:
+    DatabaseManager();
+
     bool connect();
     void initTables();
     void close();
@@ -24,6 +26,7 @@ public:
         const std::string &password
     );
     static bool insertSession(const std::string &email);
+    static bool deleteSession(const std::string &email);
     static bool isSessionValid(const std::string &email);
     static bool insertEvent(
         const std::string &email,
@@ -31,15 +34,27 @@ public:
         const std::string &place,
         const std::string &date,
         const std::string &time,
-        const std::string &description
+        const std::string &description,
+        const std::vector<std::string> &gifts
     );
+    static bool deleteEvent(const std::string &email);
     static bool insertEventMember(
         const std::string &email, 
         std::string &inviteCode
     );
     static bool deleteEventMember(const std::string &email);
     static std::string getInviteCodeByEmail(const std::string &email);
-    static nlohmann::json updateEvent(const std::string &email);
+    static nlohmann::json getEventGifts(const std::string &email);
+    static nlohmann::json getEventInfo(const std::string &email);
+    static nlohmann::json getEventMembers(const std::string &inviteCode);
+    static bool selectGift(
+        const std::string &giftName, 
+        const std::string &email
+    );
+    static bool unselectGift(
+        const std::string &giftName, 
+        const std::string &email
+    );
 
 private:
     static bool userExists_(const std::string &email);

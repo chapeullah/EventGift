@@ -6,6 +6,7 @@ std::ofstream Logger::out_("EventGift.log");
 
 Logger::Logger()
 {
+    info("LOGGER", "powershell for logger started");
     system("start powershell -NoExit -Command \"Get-Content "
         "-Path 'EventGift.log' -Wait\"");
 }

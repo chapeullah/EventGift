@@ -17,6 +17,7 @@
 App::App(int argc, char *argv[]) 
     : qApplication_(argc, argv)
 {
+    Logger::info("APP", "Setting up..");
     startMenu_ = new StartMenu();
     login_ = new Login();
     register_ = new Register();
@@ -35,7 +36,9 @@ App::App(int argc, char *argv[])
     qStackedWidget_->addWidget(inviteGateway_);
     qStackedWidget_->addWidget(createEventWindow_);
     qStackedWidget_->addWidget(eventWindow_);
+    Logger::info("APP", "qStackedWidget_ added widgets");
 
+    Logger::info("APP", "Connect: startMenu_ -> StartMenu::loginClicked");
     QObject::connect(
         startMenu_, 
         &StartMenu::loginClicked, 
@@ -46,6 +49,7 @@ App::App(int argc, char *argv[])
         }
     );
 
+    Logger::info("APP", "Connect: startMenu_ -> StartMenu::registerClicked");
     QObject::connect(
         startMenu_, 
         &StartMenu::registerClicked, 
@@ -56,6 +60,7 @@ App::App(int argc, char *argv[])
         }
     );
 
+    Logger::info("APP", "Connect: login_ -> Login::goBack");
     QObject::connect(
         login_, 
         &Login::goBack, 
@@ -66,6 +71,7 @@ App::App(int argc, char *argv[])
         }
     );
 
+    Logger::info("APP", "Connect: login_ -> Login::applyClicked");
     QObject::connect(
         login_, 
         &Login::applyClicked, 
@@ -104,6 +110,7 @@ App::App(int argc, char *argv[])
         }
     );
 
+    Logger::info("APP", "Connect: register_ -> Register::goBack");
     QObject::connect(
         register_, 
         &Register::goBack, 
@@ -114,6 +121,7 @@ App::App(int argc, char *argv[])
         }
     );
 
+    Logger::info("APP", "Connect: register_ -> Register::applyClicked");
     QObject::connect(
         register_, 
         &Register::applyClicked, 
@@ -149,6 +157,7 @@ App::App(int argc, char *argv[])
         }
     );
 
+    Logger::info("APP", "Connect: inviteGateway_ -> InviteGateway::goBack");
     QObject::connect(
         inviteGateway_, 
         &InviteGateway::goBack, 
@@ -160,6 +169,10 @@ App::App(int argc, char *argv[])
         }
     );
 
+    Logger::info(
+        "APP", 
+        "Connect: inviteGateway_ -> InviteGateway::applyClicked"
+    );
     QObject::connect(
         inviteGateway_, 
         &InviteGateway::applyClicked, 
@@ -169,6 +182,10 @@ App::App(int argc, char *argv[])
         }
     );
 
+    Logger::info(
+        "APP", 
+        "Connect: inviteGateway_ -> InviteGateway::createEvent"
+    );
     QObject::connect(
         inviteGateway_, 
         &InviteGateway::createEvent, 
@@ -179,6 +196,10 @@ App::App(int argc, char *argv[])
         }
     );
 
+    Logger::info(
+        "APP", 
+        "Connect: createEventWindow_ -> CreateEventWindow::goBack"
+    );
     QObject::connect(
         createEventWindow_,
         &CreateEventWindow::goBack,
@@ -189,6 +210,10 @@ App::App(int argc, char *argv[])
         }
     );
 
+    Logger::info(
+        "APP", 
+        "Connect: createEventWindow_ -> CreateEventWindow::createEvent"
+    );
     QObject::connect(
         createEventWindow_, 
         &CreateEventWindow::createEvent, 
@@ -197,7 +222,8 @@ App::App(int argc, char *argv[])
             const QString &place,
             const QString &date,
             const QString &time,
-            const QString &description
+            const QString &description,
+            const std::vector<std::string> &gifts
         ) 
         {
             if (
@@ -206,7 +232,8 @@ App::App(int argc, char *argv[])
                     place.toStdString(),
                     date.toStdString(),
                     time.toStdString(),
-                    description.toStdString()
+                    description.toStdString(),
+                    gifts
                 )
             )
             {
@@ -251,6 +278,10 @@ App::App(int argc, char *argv[])
         }
     );
 
+    Logger::info(
+        "APP", 
+        "Connect: inviteGateway_ -> InviteGateway::applyClicked"
+    );
     QObject::connect(
         inviteGateway_, 
         &InviteGateway::applyClicked,
@@ -282,18 +313,53 @@ App::App(int argc, char *argv[])
         }
     );
 
+    Logger::info(
+        "APP", 
+        "Connect: eventWindow_ -> EventWindow::goBack guest"
+    );
     QObject::connect(
         eventWindow_, 
-        &EventWindow::goBack,
+        &EventWindow::goBackG,
         [this]()
         {
+            Logger::info("APP", "Signal goBackG(uest) received");
             ClientServer::sendDeleteEventMemberRequest();
             qStackedWidget_->setCurrentWidget(inviteGateway_);
             event_.reset();
-            eventWindow_->setEventData(nullptr);
         }
     );
 
+    Logger::info(
+        "APP", 
+        "Connect: eventWindow_ -> EventWindow::goBack owner"
+    );
+    QObject::connect(
+        eventWindow_, 
+        &EventWindow::goBackO,
+        [this]()
+        {
+            Logger::info("APP", "Signal goBackO(wner) received");
+            ClientServer::sendDeleteEventRequest();
+            qStackedWidget_->setCurrentWidget(inviteGateway_);
+            event_.reset();
+        }
+    );
+
+    QObject::connect(
+        eventWindow_,
+        &EventWindow::eventDataRefresh,
+        [this]()
+        {
+            event_.reset();
+            event_ = std::make_unique<Event>();
+            eventWindow_->setEventData(event_.get());
+        }
+    );
+
+    Logger::info(
+        "APP", 
+        "Sending: ClientServer::sendVerifySessionRequest"
+    );
     if (ClientServer::sendVerifySessionRequest())
     {
         std::string inviteCode = ClientServer::getInviteCode();
@@ -302,18 +368,18 @@ App::App(int argc, char *argv[])
             event_ = std::make_unique<Event>();
             eventWindow_->setEventData(event_.get());
             qStackedWidget_->setCurrentWidget(eventWindow_);
-            Logger::info("CODE", "Current widget eventWindow_");
+            Logger::info("APP", "Current widget eventWindow_");
         }
         else
         {
             qStackedWidget_->setCurrentWidget(inviteGateway_);
-            Logger::info("CODE", "Current widget inviteGateway_");
+            Logger::info("APP", "Current widget inviteGateway_");
         }
     } 
     else
     {
         qStackedWidget_->setCurrentWidget(startMenu_);
-        Logger::info("CODE", "Current widget startMenu_");
+        Logger::info("APP", "Current widget startMenu_");
     }
 
     qWidget_.setFixedSize(800, 600);

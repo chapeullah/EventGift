@@ -14,6 +14,8 @@ class GiftWidget : public QWidget
 public:
     explicit GiftWidget(QWidget *parent = nullptr);
     ~GiftWidget();
+    
+    QString getGiftName() const;
 
 signals:
     void deleteRequest();

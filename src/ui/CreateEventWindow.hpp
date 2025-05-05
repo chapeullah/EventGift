@@ -22,7 +22,8 @@ signals:
         const QString &place,
         const QString &date,
         const QString &time,
-        const QString &description
+        const QString &description,
+        const std::vector<std::string> &gifts
     ); 
 
 private:

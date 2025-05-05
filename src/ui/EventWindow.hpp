@@ -4,6 +4,8 @@
 
 #include <QWidget>
 
+class GiftEWidget;
+
 namespace Ui
 {
     class EventWindow;
@@ -20,11 +22,16 @@ public:
     void setEventData(Event *event);
 
 signals:
-    void goBack();
+    void goBackO();
+    void goBackG();
+    void eventDataRefresh();
+
 
 private:
-    void UpdateUI();
+    void UpdateUI_();
+    void updateSelectButtonState_(bool hasSelected);
 
+    GiftEWidget *selectedGift_ = nullptr;
     Ui::EventWindow *ui_;
     Event *event_;
 };

@@ -23,3 +23,8 @@ GiftWidget::~GiftWidget()
 {
     delete ui_;
 }
+
+QString GiftWidget::getGiftName() const
+{
+    return ui_->giftName->text();
+}

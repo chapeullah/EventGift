@@ -1,6 +1,24 @@
-[10:06:23] [INFO] [CODE] Current widget eventWindow_
-[10:06:23] [INFO] [APP] EventGift.exe started
-[10:07:11] [INFO] [APP] Apply button clicked
-[10:07:25] [INFO] [APP] Create event button clicked
-[10:07:31] [INFO] [HTTP] Create event: result->body == "OK"
-[10:08:15] [INFO] [APP] Apply button clicked
+[09:42:47] [INFO] [LOGGER] powershell for logger started
+[09:42:47] [INFO] [APP] Setting up..
+[09:42:47] [INFO] [APP] qStackedWidget_ added widgets
+[09:42:47] [INFO] [APP] Connect: startMenu_ -> StartMenu::loginClicked
+[09:42:47] [INFO] [APP] Connect: startMenu_ -> StartMenu::registerClicked
+[09:42:47] [INFO] [APP] Connect: login_ -> Login::goBack
+[09:42:47] [INFO] [APP] Connect: login_ -> Login::applyClicked
+[09:42:47] [INFO] [APP] Connect: register_ -> Register::goBack
+[09:42:47] [INFO] [APP] Connect: register_ -> Register::applyClicked
+[09:42:47] [INFO] [APP] Connect: inviteGateway_ -> InviteGateway::goBack
+[09:42:47] [INFO] [APP] Connect: inviteGateway_ -> InviteGateway::applyClicked
+[09:42:47] [INFO] [APP] Connect: inviteGateway_ -> InviteGateway::createEvent
+[09:42:47] [INFO] [APP] Connect: createEventWindow_ -> CreateEventWindow::goBack
+[09:42:47] [INFO] [APP] Connect: createEventWindow_ -> CreateEventWindow::createEvent
+[09:42:47] [INFO] [APP] Connect: inviteGateway_ -> InviteGateway::applyClicked
+[09:42:47] [INFO] [APP] Connect: eventWindow_ -> EventWindow::goBack guest
+[09:42:47] [INFO] [APP] Connect: eventWindow_ -> EventWindow::goBack owner
+[09:42:47] [INFO] [APP] Sending: ClientServer::sendVerifySessionRequest
+[09:42:47] [INFO] [APP] Current widget inviteGateway_
+[09:42:47] [INFO] [APP] EventGift.exe started
+[09:42:56] [INFO] [APP] Apply button clicked
+[09:43:40] [INFO] [APP] Apply button clicked
+[09:43:40] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")
+[09:43:46] [ERROR] [APP] EventWindow.cpp: user is NOT owner -> leaveEvent->setText("Delete event")

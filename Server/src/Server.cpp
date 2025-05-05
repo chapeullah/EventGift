@@ -5,13 +5,10 @@
 
 int main() 
 {
-    DatabaseManager databaseManager;
     CommandLine commandLine;
     Bootstrap bootstrap;
     Logger logger;
-
-    databaseManager.connect();
-    databaseManager.initTables();
+    DatabaseManager databaseManager;
 
     commandLine.mainConsole();
 

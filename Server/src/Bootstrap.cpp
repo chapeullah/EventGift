@@ -91,43 +91,6 @@ Bootstrap::Bootstrap()
         }
     );
 
-    server_.Post(
-        "/session/create",
-        [this](const httplib::Request &req, httplib::Response &res) 
-        {
-            std::string reqBody = req.body;
-
-            Logger::info(
-                "SERVER",
-                "Request from " + req.remote_addr + ": " + reqBody
-            );
-
-            nlohmann::json jsonRequest = nlohmann::json::parse(reqBody);
-            std::string email = jsonRequest["email"];
-
-            if (DatabaseManager::insertSession(email))
-            {
-                Logger::info(
-                    "DB",
-                    "Response to " 
-                        + req.remote_addr 
-                        + ": Session insert SUCCESS"
-                );
-                res.set_content("OK", "text/plain");
-            }
-            else 
-            {
-                Logger::error(
-                    "DB",
-                    "Response to " 
-                        + req.remote_addr 
-                        + ": Session insert FAILED"
-                );
-                res.set_content("FAIL", "text/plain");
-            }
-        }
-    );
-
     server_.Get(
         "/session/verify",
         [this](const httplib::Request &req, httplib::Response &res)
@@ -156,7 +119,7 @@ Bootstrap::Bootstrap()
                     "DB",
                     "Response to " 
                         + req.remote_addr 
-                        + ": Session validation SUCCESS"
+                        + ": " + email + " Session validation SUCCESS"
                 );
                 res.set_content("OK", "text/plain");
             }
@@ -193,10 +156,11 @@ Bootstrap::Bootstrap()
                 date = jsonRequest["date"],
                 time = jsonRequest["time"],
                 description = jsonRequest["description"];
+            std::vector<std::string> gifts = jsonRequest["gifts"];
 
             if (
                 DatabaseManager::insertEvent(
-                    email, title, place, date, time, description
+                    email, title, place, date, time, description, gifts
                 )
             )
             {
@@ -222,7 +186,7 @@ Bootstrap::Bootstrap()
     );
 
     server_.Post(
-        "/event/join",
+        "/event/members/create",
         [this](const httplib::Request &req, httplib::Response &res)
         {
             std::string reqBody = req.body;
@@ -266,7 +230,7 @@ Bootstrap::Bootstrap()
     );
 
     server_.Get(
-        "/invite-code",
+        "/event/inviteCode/get",
         [this](const httplib::Request &req, httplib::Response &res)
         {
             if (!req.has_param("email"))
@@ -302,7 +266,7 @@ Bootstrap::Bootstrap()
     );
 
     server_.Get(
-        "/event/update",
+        "/event/info/get",
         [this](const httplib::Request &req, httplib::Response &res)
         {
             nlohmann::json jsonResponse;
@@ -314,7 +278,7 @@ Bootstrap::Bootstrap()
             }
             
             jsonResponse = 
-                DatabaseManager::updateEvent(req.get_param_value("email"));
+                DatabaseManager::getEventInfo(req.get_param_value("email"));
             
             if (jsonResponse["result"] == false)
             {
@@ -326,17 +290,69 @@ Bootstrap::Bootstrap()
         }
     );
 
-    server_.Post(
-        "/event/delete",
+    server_.Get(
+        "/event/members/get",
         [this](const httplib::Request &req, httplib::Response &res)
         {
-            std::string reqBody = req.body;
+            nlohmann::json jsonResponse;
+            if (!req.has_param("email"))
+            {
+                jsonResponse["result"] = false;
+                res.set_content(jsonResponse.dump(), "application/json");
+                return;
+            }
+            jsonResponse = 
+                DatabaseManager::getEventMembers(
+                    DatabaseManager::getInviteCodeByEmail(
+                        req.get_param_value("email")
+                    )
+                );
+            if (jsonResponse["result"] == false)
+            {
+                res.set_content(jsonResponse.dump(), "application/json");
+                return;
+            }
+            jsonResponse["result"] = true;
+            res.set_content(jsonResponse.dump(), "application/json");
+        }
+    );
+
+    server_.Get(
+        "/event/gifts/get",
+        [this](const httplib::Request &req, httplib::Response &res)
+        {
+            nlohmann::json jsonResponse;
+            if (!req.has_param("email"))
+            {
+                jsonResponse["result"] = false;
+                res.set_content(jsonResponse.dump(), "application/json");
+                return;
+            }
+            jsonResponse = 
+                DatabaseManager::getEventGifts(
+                    DatabaseManager::getInviteCodeByEmail(
+                        req.get_param_value("email")
+                    )
+                );
+            if (jsonResponse["result"] == false)
+            {
+                res.set_content(jsonResponse.dump(), "application/json");
+                return;
+            }
+            jsonResponse["result"] = true;
+            res.set_content(jsonResponse.dump(), "application/json");
+        }
+    );
+
+    server_.Get(
+        "/event/members/delete",
+        [this](const httplib::Request &req, httplib::Response &res)
+        {
+            std::string email = req.get_param_value("email");
             Logger::info(
                 "HTTP",
-                "Request from " + req.remote_addr + ": " + reqBody
+                "Request from " + req.remote_addr + ": " + email
             );
-            nlohmann::json jsonRequest = nlohmann::json::parse(reqBody);
-            std::string email = jsonRequest["email"];
             if (DatabaseManager::deleteEventMember(email))
             {
                 Logger::info(
@@ -354,6 +370,110 @@ Bootstrap::Bootstrap()
                     "Response to " 
                         + req.remote_addr 
                         + ": Insert event member FAILED"
+                );
+                res.set_content("FAIL", "text/plain");
+            }
+        }
+    );
+
+    server_.Post(
+        "/event/delete",
+        [this](const httplib::Request &req, httplib::Response &res)
+        {
+            std::string reqBody = req.body;
+            Logger::info(
+                "HTTP",
+                "Request from " + req.remote_addr + ": " + reqBody
+            );
+            nlohmann::json jsonRequest = nlohmann::json::parse(reqBody);
+            std::string email = jsonRequest["email"];
+            if (DatabaseManager::deleteEvent(email))
+            {
+                Logger::info(
+                    "DB",
+                    "Response to " 
+                        + req.remote_addr 
+                        + ": Delete event SUCCESS"
+                );
+                res.set_content("OK", "text/plain");
+            }
+            else 
+            {
+                Logger::error(
+                    "DB",
+                    "Response to " 
+                        + req.remote_addr 
+                        + ": Insert event FAILED"
+                );
+                res.set_content("FAIL", "text/plain");
+            }
+        }
+    );
+
+    server_.Post(
+        "/gifts/select",
+        [this](const httplib::Request &req, httplib::Response &res)
+        {
+            std::string reqBody = req.body;
+            Logger::info(
+                "HTTP",
+                "Request from " + req.remote_addr + ": " + reqBody
+            );
+            nlohmann::json jsonRequest = nlohmann::json::parse(reqBody);
+            std::string email = jsonRequest["email"];
+            std::string giftName = jsonRequest["giftName"];
+            if (DatabaseManager::selectGift(giftName, email))
+            {
+                Logger::info(
+                    "DB",
+                    "Response to " 
+                        + req.remote_addr 
+                        + ": Delete event SUCCESS"
+                );
+                res.set_content("OK", "text/plain");
+            }
+            else 
+            {
+                Logger::error(
+                    "DB",
+                    "Response to " 
+                        + req.remote_addr 
+                        + ": Insert event FAILED"
+                );
+                res.set_content("FAIL", "text/plain");
+            }
+        }
+    );
+
+    server_.Post(
+        "/gifts/unselect",
+        [this](const httplib::Request &req, httplib::Response &res)
+        {
+            std::string reqBody = req.body;
+            Logger::info(
+                "HTTP",
+                "Request from " + req.remote_addr + ": " + reqBody
+            );
+            nlohmann::json jsonRequest = nlohmann::json::parse(reqBody);
+            std::string email = jsonRequest["email"];
+            std::string giftName = jsonRequest["giftName"];
+            if (DatabaseManager::unselectGift(giftName, email))
+            {
+                Logger::info(
+                    "DB",
+                    "Response to " 
+                        + req.remote_addr 
+                        + ": Delete event SUCCESS"
+                );
+                res.set_content("OK", "text/plain");
+            }
+            else 
+            {
+                Logger::error(
+                    "DB",
+                    "Response to " 
+                        + req.remote_addr 
+                        + ": Insert event FAILED"
                 );
                 res.set_content("FAIL", "text/plain");
             }
@@ -381,14 +501,12 @@ void Bootstrap::start()
 
 void Bootstrap::stop()
 {
-    Logger::info("SERVER", "Server is stoping");
     server_.stop();
     Logger::info("SERVER", "Server stopped");
 }
 
 void Bootstrap::restart()
 {
-    Logger::info("SERVER", "Server is restarting");
     stop();
     start();
     Logger::info("SERVER", "Server restarted");

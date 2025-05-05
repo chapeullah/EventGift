@@ -36,10 +36,16 @@ add_executable(EventGift
     src/ui/CreateEventWindow.ui
     src/ui/GiftWidget.cpp
     src/ui/GiftWidget.ui
+    src/ui/GiftEWidget.cpp
+    src/ui/GiftEWidget.ui
+    src/ui/GiftEOWidget.cpp
+    src/ui/GiftEOWidget.ui
     src/ui/UserWidget.cpp
     src/ui/UserWidget.ui
     src/ui/EventWindow.cpp
     src/ui/EventWindow.ui
+    src/ui/MemberWidget.cpp
+    src/ui/MemberWidget.ui
     ${APP_ICON_RESOURCE_WINDOWS}
 )
 

@@ -19,7 +19,6 @@ bool ClientServer::sendLoginRequest(
     Logger::info("HTTP", "Result = " + result->body);
     if (result->body == "OK")
     {
-        ClientServer::sendCreateSessionRequest();
         return true;
     }
     return false;
@@ -36,25 +35,6 @@ bool ClientServer::sendRegisterRequest(
     std::string stringRequest = jsonRequest.dump();
     httplib::Result result = 
         client_.Post("/register", stringRequest, "application/json");
-    Logger::info("HTTP", "Result = " + result->body);
-    if (result->body == "OK")
-    {
-        return true;
-    }
-    return false;
-}
-
-bool ClientServer::sendCreateSessionRequest()
-{
-    if (SessionManager::getSessionEmail() == "") 
-    {
-        return false;
-    }
-    nlohmann::json jsonRequest;
-    jsonRequest["email"] = SessionManager::getSessionEmail();
-    std::string stringRequest = jsonRequest.dump();
-    httplib::Result result =
-        client_.Post("/session/create", stringRequest, "application/json");
     Logger::info("HTTP", "Result = " + result->body);
     if (result->body == "OK")
     {
@@ -85,7 +65,8 @@ bool ClientServer::sendCreateEventRequest(
     const std::string &place,
     const std::string &date,
     const std::string &time,
-    const std::string &description
+    const std::string &description,
+    const std::vector<std::string> &gifts
 )
 {
     if (SessionManager::getSessionEmail() == "") 
@@ -100,6 +81,7 @@ bool ClientServer::sendCreateEventRequest(
     jsonRequest["date"] = date;
     jsonRequest["time"] = time;
     jsonRequest["description"] = description;
+    jsonRequest["gifts"] = gifts;
 
     std::string stringRequest = jsonRequest.dump();
 
@@ -134,7 +116,7 @@ bool ClientServer::sendCreateEventMemberRequest(
     std::string stringRequest = jsonRequest.dump();
     httplib::Result result = 
         client_.Post(
-            "/event/join",
+            "/event/members/create",
             stringRequest,
             "application/json"
         );
@@ -146,6 +128,61 @@ bool ClientServer::sendCreateEventMemberRequest(
 }
 
 bool ClientServer::sendDeleteEventMemberRequest()
+{
+    std::string email = SessionManager::getSessionEmail();
+    if (email.empty()) 
+    {
+        return false;
+    }
+    httplib::Result result = 
+        client_.Get("/event/members/delete?email=" + email);
+    if (result->body == "OK")
+    {
+        return true;
+    }
+    return false;
+}
+
+std::vector<std::string> ClientServer::getEventMembers()
+{
+    std::string email = SessionManager::getSessionEmail();
+    if (email.empty()) 
+    {
+        return {};
+    }
+    
+    httplib::Result result = 
+        client_.Get("/event/members/get?email=" + email);
+    nlohmann::json jsonResponse = nlohmann::json::parse(result->body);
+    if (jsonResponse["result"] == false)
+    {
+        return {};
+    }
+    std::vector<std::string> members = jsonResponse["members"];
+    return members;
+}
+
+std::vector<std::pair<std::string, std::string>> ClientServer::getEventGifts()
+{
+    std::string email = SessionManager::getSessionEmail();
+    if (email.empty()) 
+    {
+        return {};
+    }
+    httplib::Result result = 
+        client_.Get("/event/gifts/get?email=" + email);
+    nlohmann::json jsonResponse = nlohmann::json::parse(result->body);
+    if (jsonResponse["result"] == false)
+    {
+        return {};
+    }
+    std::vector<std::pair<std::string, std::string>> gifts = 
+        jsonResponse["gifts"];
+    return gifts;
+}
+
+
+bool ClientServer::sendDeleteEventRequest()
 {
     std::string email = SessionManager::getSessionEmail();
     if (email.empty()) 
@@ -171,7 +208,8 @@ std::string ClientServer::getInviteCode()
     {
         return "";
     }
-    httplib::Result result = client_.Get("/invite-code?email=" + email);
+    httplib::Result result = 
+        client_.Get("/event/inviteCode/get?email=" + email);
     if (result->body != "FAIL")
     {
         return result->body;
@@ -179,14 +217,62 @@ std::string ClientServer::getInviteCode()
     return "";
 }
 
-nlohmann::json ClientServer::updateEvent()
+nlohmann::json ClientServer::getEventInfo()
 {
     std::string email = SessionManager::getSessionEmail();
     if (email.empty()) 
     {
         return false;
     }
-    httplib::Result result = client_.Get("/event/update?email=" + email);
+    httplib::Result result = client_.Get("/event/info/get?email=" + email);
     nlohmann::json jsonResponse = nlohmann::json::parse(result->body);
-    return jsonResponse;   
+    return jsonResponse;
+}
+
+bool ClientServer::sendSelectGiftRequest(const std::string &giftName)
+{
+    std::string email = SessionManager::getSessionEmail();
+    if (email.empty())
+    {
+        return false;
+    }
+    if (giftName.empty())
+    {
+        return false;
+    }
+    nlohmann::json jsonRequest;
+    jsonRequest["email"] = email;
+    jsonRequest["giftName"] = giftName;
+    std::string stringRequest = jsonRequest.dump();
+    httplib::Result result = 
+        client_.Post("/gifts/select", stringRequest, "application/json");
+    if (result->body == "FAIL")
+    {
+        return false;
+    }
+    return true;
+}
+
+bool ClientServer::sendUnselectGiftRequest(const std::string &giftName)
+{
+    std::string email = SessionManager::getSessionEmail();
+    if (email.empty())
+    {
+        return false;
+    }
+    if (giftName.empty())
+    {
+        return false;
+    }
+    nlohmann::json jsonRequest;
+    jsonRequest["email"] = email;
+    jsonRequest["giftName"] = giftName;
+    std::string stringRequest = jsonRequest.dump();
+    httplib::Result result = 
+        client_.Post("/gifts/unselect", stringRequest, "application/json"); // СДЕЛАТЬ Post ОБРАБОТЧИК ЗАПРОСА НА СЕРВЕРЕ
+    if (result->body == "FAIL")
+    {
+        return false;
+    }
+    return true;
 }

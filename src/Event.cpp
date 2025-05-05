@@ -4,19 +4,35 @@
 
 #include "nlohmann/json.hpp"
 
+#include "Logger.hpp"
+
 Event::Event()
 {
-    nlohmann::json jsonResponse = ClientServer::updateEvent();
-    if (jsonResponse["result"] == false)
+    nlohmann::json infoJsonResponse = ClientServer::getEventInfo();
+    std::vector<std::string> members = ClientServer::getEventMembers();
+    std::vector<std::pair<std::string,std::string>> gifts = 
+        ClientServer::getEventGifts();
+    if (
+        infoJsonResponse["result"] == false || 
+        members.empty() ||
+        gifts.empty()
+    )
     {
+        Logger::error(
+            "DEBUG", 
+            "infoJsonResponse[\"result\"] == false "
+               "OR members.empty() OR gifts.empty()"
+        );
         return;
     }
-    eventData_.title =       jsonResponse.value("title", "");
-    eventData_.place =       jsonResponse.value("place", "");
-    eventData_.date =        jsonResponse.value("date", "");
-    eventData_.time =        jsonResponse.value("time", "");
-    eventData_.description = jsonResponse.value("description", "");
-    eventData_.ownerEmail =  jsonResponse.value("ownerEmail", "");
-    eventData_.inviteCode =  jsonResponse.value("inviteCode", "");
+    eventData_.title =       infoJsonResponse.value("title", "");
+    eventData_.place =       infoJsonResponse.value("place", "");
+    eventData_.date =        infoJsonResponse.value("date", "");
+    eventData_.time =        infoJsonResponse.value("time", "");
+    eventData_.description = infoJsonResponse.value("description", "");
+    eventData_.inviteCode =  infoJsonResponse.value("inviteCode", "");
+    eventData_.ownerEmail =  infoJsonResponse.value("ownerEmail", "");
 
+    eventData_.members = members;
+    eventData_.gifts = gifts;
 }
