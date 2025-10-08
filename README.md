@@ -8,10 +8,10 @@ The application is designed to simplify the organization of events and coordinat
 - An invite code is generated and can be shared with guests.  
 - **Guests** can join the event using the invite code and choose one available gift.  
 - Each gift can be selected by only one guest.  
-- Guests can see which gifts are already taken, but not by whom.  
-- The organizer can track which gifts were chosen, but cannot see the names of the guests who selected them.  
+- Guests can see which gifts are already taken and who reserved them.  
+- The organizer can track which gifts were chosen, but cannot see which guest took which gift.  
 
-This approach removes the randomness of gift-giving and ensures that the person being celebrated receives exactly what they want, whether it’s for a birthday, holiday, or any other occasion.  
+This approach removes the randomness of gift-giving and ensures that the person being celebrated receives exactly what they want, while preserving the element of surprise.  
 
 ## Features
 - Event creation with custom gift lists  
